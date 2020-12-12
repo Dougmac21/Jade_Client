@@ -1,11 +1,16 @@
-import Breakout from '../components/Breakout';
-import Snake from '../components/Snake';
-import PRS from '../components/PRS';
-import Runner from '../components/Runner';
+import Breakout from '../components/games/Breakout';
+import Snake from '../components/games/Snake';
+import PRS from '../components/games/PRS';
+import Runner from '../components/games/Runner';
+import Shooter from '../components/games/Shooter';
 
 function GamesContainer() {
 
-
+    let canvasCSS = {
+        background: "#eee",
+        display: "grid",
+        margin: "0 auto"
+    }
 
     return(
         <>
@@ -14,6 +19,7 @@ function GamesContainer() {
             <Snake />
             <PRS />
             <Runner />
+            <Shooter />
         </>
     )
 };

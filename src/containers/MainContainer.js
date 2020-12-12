@@ -3,14 +3,12 @@ import Footer from '../components/Footer';
 import ArcadeContainer from './ArcadeContainer';
 
 function MainContainer() {
-
-
-
+    
 
     return(
         <>
             <h2>This is the MainContainer</h2>
-            <Header />
+            {/* <Header/> */}
             <ArcadeContainer />
             <Footer />
         </>
@@ -18,3 +16,6 @@ function MainContainer() {
 };
 
 export default MainContainer;
+
+
+  

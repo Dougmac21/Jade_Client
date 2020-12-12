@@ -6,8 +6,6 @@ import GamesContainer from './containers/GamesContainer';
 
 
 
-
-
 function App() {
   return (
     <Router>

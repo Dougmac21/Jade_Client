@@ -1,4 +1,4 @@
-import Breakout from '../components/games/Breakout';
+import Breakout from '../components/games/dm_breakout/Breakout';
 import Snake from '../components/games/Snake';
 import PRS from '../components/games/PRS';
 import Runner from '../components/games/Runner';
@@ -6,11 +6,7 @@ import Shooter from '../components/games/Shooter';
 
 function GamesContainer() {
 
-    let canvasCSS = {
-        background: "#eee",
-        display: "grid",
-        margin: "0 auto"
-    }
+
 
     return(
         <>

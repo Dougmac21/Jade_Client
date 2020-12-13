@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GamesContainer from './containers/GamesContainer';
 import Footer from './components/Footer';
 import Breakout from './components/Breakout'
+import ScoreListContainer from './containers/ScoreListContainer';
 
 
 
@@ -16,7 +17,7 @@ function App() {
         <Switch>
         <Route exact path="/" component={GamesListContainer} />
         <Route path="/games" component={GamesContainer} />
-        <Route path="/scores" component={Breakout} />
+        <Route path="/scores" component={ScoreListContainer} />
 
         </Switch>
         <Footer />

@@ -10,9 +10,8 @@ function GamesContainer() {
     return (
         <>
             <div className="games-container">
-                <h2>This is the GamesContainer</h2>
-                <Breakout className="breakout" />
                 <PersonalBest className="personal-best" />
+                <Breakout className="breakout" />
                 <SuggestedGames className="suggested-games" />
             </div>
         </>

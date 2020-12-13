@@ -1,15 +1,12 @@
 .games-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 10% 10% 60% 10% 10%;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    display: block;
+    text-align: center;
     }
     
     /* .<element> { grid-area: <row-start> / <column-start> / <row-end> / <column-end>                                             */
-    .breakout { grid-area: 2 / 4 / 4 / 6; }
-    .personal-best { grid-area: 2 / 1 / 5 / 4; }
-    .suggested-games { grid-area: 4 / 4 / 5 / 6; }
+    .breakout { grid-area: breakout; }
+    .personal-best { grid-area: personal-best; }
+    .suggested-games { grid-area: suggested-games; }
 
     
     /* .games-container { */

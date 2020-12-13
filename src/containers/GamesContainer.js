@@ -1,4 +1,4 @@
-import Breakout from '../components/TestCors';
+import TestCors from '../components/TestCors';
 
 function GamesContainer() {
 
@@ -7,7 +7,7 @@ function GamesContainer() {
     return(
         <>
             <h2>This is the GamesContainer</h2>
-            <Breakout />
+            <TestCors />
         </>
     )
 };

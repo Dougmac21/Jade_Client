@@ -1,10 +1,12 @@
+import './Footer.css';
+
 function Footer() {
 
 
     return(
-        <>
-            <h2>This is the Footer Component</h2>
-        </>
+        <div className="footer">
+            <p>&#169; JADE Entertainment 2020</p>
+        </div>
     )
 };
 

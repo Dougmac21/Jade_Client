@@ -11,7 +11,10 @@ const NavBar = () => {
             </li>
             <li className="active">
             <Link to="/games">Games</Link>
-        </li>
+            </li>
+            <li className="active">
+            <Link to="/scores">Scoreboard</Link>
+            </li>
         </ul>
             {/* <li>
             <Link to="/scores">High Scores</Link>

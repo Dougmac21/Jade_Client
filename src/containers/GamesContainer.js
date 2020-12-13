@@ -1,4 +1,4 @@
-import Breakout from '../components/Breakout';
+import Breakout from '../components/TestCors';
 
 function GamesContainer() {
 

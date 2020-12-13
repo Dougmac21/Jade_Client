@@ -8,7 +8,7 @@ function MainContainer() {
     return (
     <>
         <ArcadeContainer />
-        <Footer />
+        
     </>
     )
 };

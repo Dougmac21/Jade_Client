@@ -4,9 +4,8 @@ import './HomePage.css'
 function HomePage() {
     return (
         <>
-            <h1>Welcome To JADE ARCADE</h1>
-            <h2> FONT TESTING</h2>
-
+            <h1>JADE ARCADE</h1>
+            <p>START</p>
         </>
 
     )

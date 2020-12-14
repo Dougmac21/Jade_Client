@@ -1,6 +1,80 @@
 #games-list {
-        display: flex;
-        flex-wrap: wrap;
+        background-color: rgb(255, 255, 255);
+        height: 100vh -60px;
+        display: grid;
         justify-content: center;
-        background-color: blueviolet;
+        grid-template-columns: [left-space] 5% [game-column-1] 40% [centre-space] 10% [game-column-2] 40% [right-space] 5%;
+        grid-template-rows: [top-space] 5% [game-row-1] 40% [centre-space] 10% [game-row-2] 40% [bottom-space] 5%;
+        grid-template-areas:
+            " . | . | . | . | . "
+            " . | . | . | . | . "
 }
+
+#game-1 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+#game-2 {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+#game-3 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 4;
+}
+
+#game-4 {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 4;
+}
+
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+  }
+  
+  .container {
+    position: relative;
+    width: 100%;
+  }
+  
+  .container:hover .overlay {
+    opacity: 1;
+  }
+
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }

@@ -25,12 +25,6 @@ function GamesListContainer() {
                 <li> 
                     <img src="https://placebear.com/300/300" alt="bear boi"></img>
                 </li>
-                <li> 
-                    <img src="https://placebear.com/300/300" alt="bear boi"></img>
-                </li>
-                <li> 
-                    <img src="https://placebear.com/300/300" alt="bear boi"></img>
-                </li>
             </ul>
         </>
     )

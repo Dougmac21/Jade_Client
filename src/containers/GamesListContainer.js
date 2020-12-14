@@ -1,4 +1,3 @@
-import GamesContainer from './GamesContainer';
 
 function GamesListContainer() {
 
@@ -7,7 +6,9 @@ function GamesListContainer() {
     return (
         <>
             <h2>This is the List of Playable GamesContainer</h2>
-            <GamesContainer />
+            <ul>
+                <p>games go here to click on to play them</p>
+            </ul>
         </>
     )
 };

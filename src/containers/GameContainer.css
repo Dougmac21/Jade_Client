@@ -1,4 +1,4 @@
-.games-container {
+.game-container {
     display: block;
     text-align: center;
     }
@@ -9,7 +9,7 @@
     .suggested-games { grid-area: suggested-games; }
 
     
-    /* .games-container { */
+    /* .game-container { */
         /* display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(5, 1fr);

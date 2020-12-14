@@ -1,16 +1,16 @@
-import Breakout from '../components/Breakout';
+import Breakout from '../components/games/Breakout';
 import PersonalBest from '../components/PersonalBest';
 import SuggestedGames from '../components/SuggestedGames';
-import './GamesContainer.css'
+import './GameContainer.css'
 import PlayerController from '../components/PlayerController';
 
-function GamesContainer() {
+function GameContainer() {
 
 
 
     return (
         <>
-            <div className="games-container">
+            <div className="game-container">
                 <PersonalBest className="personal-best" />
                 <Breakout className="breakout" />
                 <SuggestedGames className="suggested-games" />
@@ -20,4 +20,4 @@ function GamesContainer() {
     )
 };
 
-export default GamesContainer;
+export default GameContainer;

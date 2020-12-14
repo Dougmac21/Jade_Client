@@ -2,9 +2,8 @@ import './App.css';
 import Header from './components/Header';
 import GamesListContainer from './containers/GamesListContainer';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import GamesContainer from './containers/GamesContainer';
+import GameContainer from './containers/GameContainer';
 import Footer from './components/Footer';
-import Breakout from './components/Breakout'
 import ScoreListContainer from './containers/ScoreListContainer';
 
 
@@ -16,7 +15,7 @@ function App() {
         <Header />
         <Switch>
         <Route exact path="/" component={GamesListContainer} />
-        <Route path="/games" component={GamesContainer} />
+        <Route path="/games" component={GameContainer} />
         <Route path="/scores" component={ScoreListContainer} />
 
         </Switch>

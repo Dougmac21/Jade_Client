@@ -88,7 +88,7 @@ function PlayerController() {
                     required type="text" placeholder="username" name="name" id="name">
                 </input>
                 <input 
-                    required type="text" placeholder="password" name="password" id="password">
+                    required type="password" placeholder="password" name="password" id="password">
                 </input>
                 <input
                     type="submit" value="Login" >

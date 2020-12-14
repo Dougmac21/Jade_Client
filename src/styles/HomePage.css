@@ -6,6 +6,14 @@
     margin: 0;
     padding: 100px;
     z-index: 1;
+    text-shadow: 
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(30,132,242,0.52),
+    0 0 21px rgba(30,132,242,0.92),
+    0 0 34px rgba(30,132,242,0.78),
+    0 0 54px rgba(30,132,242,0.92);
+
     
 }
 
@@ -19,13 +27,13 @@
 
 #start-link{
     color:#00d9ff;
-    pointer: cursor; 
 }
 
 #background{
     width: 100vw;
     z-index: -2;
     position: absolute;
+    display: block;
 }
 
 .container{

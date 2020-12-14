@@ -1,0 +1,8 @@
+.header-title {
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+    margin: 0px;
+    padding: 20px;
+}

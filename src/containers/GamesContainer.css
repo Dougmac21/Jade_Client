@@ -1,0 +1,32 @@
+.games-container {
+    display: block;
+    text-align: center;
+    }
+    
+    /* .<element> { grid-area: <row-start> / <column-start> / <row-end> / <column-end>  */
+    .breakout { grid-area: breakout; }
+    .personal-best { grid-area: personal-best; }
+    .suggested-games { grid-area: suggested-games; }
+
+    
+    /* .games-container { */
+        /* display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 1px;
+        grid-row-gap: 0px;
+        }
+        .div1 { grid-area: 2 / 4 / 4 / 6; }
+        .div2 { grid-area: 2 / 1 / 5 / 4; }
+        .div3 { grid-area: 4 / 4 / 5 / 6; }  */
+
+        /* .div1 { grid-area: 2 / 2 / 10 / 8; }
+        .div2 { grid-area: 2 / 9 / 3 / 12; }
+        .div3 { grid-area: 4 / 9 / 9 / 12; } */
+
+        /* .games-container {
+            grid-template-columns: 20px 1fr 40px;
+          }  */
+
+
+        

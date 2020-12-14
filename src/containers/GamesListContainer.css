@@ -3,11 +3,14 @@
         height: 100vh -60px;
         display: grid;
         justify-content: center;
-        grid-template-columns: [left-space] 5% [game-column-1] 40% [centre-space] 10% [game-column-2] 40% [right-space] 5%;
-        grid-template-rows: [top-space] 5% [game-row-1] 40% [centre-space] 10% [game-row-2] 40% [bottom-space] 5%;
+        grid-template-columns: [left-space] 1fr [game-column-1] 30% [centre-left-space] 1fr [game-column-2] 30% [centre-right-space] 1fr [game-column-3] 30% [right-space] 1fr;
+        grid-template-rows: [top-space] 1fr [game-row-1] 30% [centre-space] 2fr [game-row-2] 30% [bottom-space] 1fr;
         grid-template-areas:
-            " . | . | . | . | . "
-            " . | . | . | . | . "
+            " . | . | . | . | . | . | . "
+            " . | . | . | . | . | . | . "
+            " . | . | . | . | . | . | . "
+            " . | . | . | . | . | . | . "
+            " . | . | . | . | . | . | . ";
 }
 
 #game-1 {
@@ -25,29 +28,37 @@
 }
 
 #game-3 {
+    grid-column-start: 6;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+#game-4 {
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 4;
     grid-row-end: 4;
 }
 
-#game-4 {
-    grid-column-start: 4;
-    grid-column-end: 4;
-    grid-row-start: 4;
-    grid-row-end: 4;
+#game-5 {
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 4;
 }
 
-.container {
+#game-6 {
+  grid-column-start: 6;
+  grid-column-end: 6;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+.games-list-item {
     position: relative;
-    width: 50%;
   }
 
-.image {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
 
 .overlay {
     position: absolute;
@@ -59,17 +70,17 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: aqua;
+    background-color: rgb(130, 87, 198);
   }
   
 
   
-  .container:hover .overlay {
+  .games-list-item:hover .overlay {
     opacity: 1;
   }
 
   .text {
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 20px;
     position: absolute;
     top: 50%;

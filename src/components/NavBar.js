@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
+import '../styles/NavBar.css';
 
 
 const NavBar = () => {
@@ -16,10 +17,10 @@ const NavBar = () => {
                     <Link to="/scores">Scoreboard</Link>
                 </li>
             </ul>
-                {/* <li>
+            {/* <li>
                 <Link to="/scores">High Scores</Link>
                 </li> */}
-                {/* <li>
+            {/* <li>
                 <button onClick={goBack}>Back</button>
                 </li> */}
         </>

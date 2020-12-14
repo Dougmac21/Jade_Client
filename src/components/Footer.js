@@ -1,9 +1,9 @@
-import './Footer.css';
+import '../styles/Footer.css';
 
 function Footer() {
 
 
-    return(
+    return (
         <div className="footer">
             <p>&#169; JADE Entertainment 2020</p>
         </div>

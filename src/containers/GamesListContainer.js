@@ -1,16 +1,28 @@
+import './App.css';
+import Header from '../components/Header';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import GameContainer from '../containers/GameContainer';
+import Footer from '../components/Footer';
+import ScoreListContainer from '../containers/ScoreListContainer';
 
 function GamesListContainer() {
 
-
-
     return (
-        <>
-            <h2>This is the List of Playable GamesContainer</h2>
-            <ul>
-                <p>games go here to click on to play them</p>
-            </ul>
-        </>
-    )
-};
+        <Router>
+            <>
+                <Header />
+                <Switch>
+                    <Route exact path="/" component={GamesListContainer} />
+                    <Route path="/games" component={GameContainer} />
+                    <Route path="/scores" component={ScoreListContainer} />
+
+                </Switch>
+                <Footer />
+
+            </>
+        </Router>
+    );
+}
+
 
 export default GamesListContainer;

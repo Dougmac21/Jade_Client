@@ -1,12 +1,17 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './HomePage.css'
 
 function HomePage() {
     return (
         <>
             <div className="container">
+                <img src="/background.jpg" alt="" id="background" />
                 <h1 id="jade-arcade">JADE ARCADE</h1>
-                <p id="start">START</p>
+                <p id="start">
+                    <Link to="/games" id="start-link">
+                        START
+                    </Link>
+                </p>
             </div>
         </>
 

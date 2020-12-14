@@ -1,9 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function ScoreListContainer() {
 
     return (
-        <h2>Score list </h2>
+        <>
+            <Header/>
+            <h2>Score list </h2>
+            <Footer/>
+        </>
     )
 }
 

@@ -1,6 +1,6 @@
 #games-list {
         background-color: rgb(255, 255, 255);
-        height: 100vh -60px;
+        height: 100%;
         display: grid;
         justify-content: center;
         grid-template-columns: [left-space] 4fr [game-column-1] 330px [centre-left-space] 1fr [game-column-2] 330px [centre-right-space] 1fr [game-column-3] 330px [right-space] 4fr;

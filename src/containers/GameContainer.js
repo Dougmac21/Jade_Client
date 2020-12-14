@@ -2,7 +2,6 @@ import Breakout from '../components/games/Breakout';
 import PersonalBest from '../components/PersonalBest';
 import SuggestedGames from '../components/SuggestedGames';
 import './GameContainer.css'
-import PlayerController from '../components/PlayerController';
 
 function GameContainer() {
 
@@ -15,7 +14,6 @@ function GameContainer() {
                 <Breakout className="breakout" />
                 <SuggestedGames className="suggested-games" />
             </div>
-                 <PlayerController />
         </>
     )
 };

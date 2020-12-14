@@ -3,9 +3,6 @@ import './GamesListContainer.css'
 function GamesListContainer() {
 
 
-
-
-
     return (
         <>
             <ul id="games-list">

@@ -13,9 +13,9 @@ function GamesListContainer() {
 
 
                 <li class="container" id="game-1"> 
-                    <div class="overlay">
                     <img class="image" src="https://placebear.com/300/300" alt="bear boi"></img>
-                    <div class="text">Hello World</div>
+                    <div class="overlay">
+                        <div class="text">Hello World</div>
                     </div>
                 </li>
 

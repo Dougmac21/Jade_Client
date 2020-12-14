@@ -38,6 +38,10 @@
     grid-row-end: 4;
 }
 
+.container {
+    position: relative;
+    width: 50%;
+  }
 
 .image {
     display: block;
@@ -58,10 +62,7 @@
     background-color: #008CBA;
   }
   
-  .container {
-    position: relative;
-    width: 100%;
-  }
+
   
   .container:hover .overlay {
     opacity: 1;

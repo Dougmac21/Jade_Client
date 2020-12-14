@@ -59,8 +59,12 @@
     position: relative;
   }
 
+.games-list-image {
+  border-radius: 66px;
+  }
 
 .overlay {
+    border-radius: 66px;
     position: absolute;
     top: 0;
     bottom: 0;

@@ -57,11 +57,15 @@ grid-row-end: 4;
 
 .scores-list-item {
 position: relative;
-border-radius: 25px;
+}
+
+.scores-list-img {
+border-radius: 66px;
 }
 
 
 .overlay {
+border-radius: 66px;
 position: absolute;
 top: 0;
 bottom: 0;

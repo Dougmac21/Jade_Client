@@ -14,21 +14,14 @@ function App() {
       <>
         <Header />
         <Switch>
-        <Route exact path="/" component={PlayerController} />
-        <Route path="/games" component={GamesListContainer} />
-        <Route path="/scores" component={ScoreListContainer} />
-
+          <Route exact path="/" component={PlayerController} />
+          <Route path="/games" component={GamesListContainer} />
+          <Route path="/scores" component={ScoreListContainer} />
         </Switch>
         <Footer />
-
       </>
     </Router>
-    
   );
 }
 
 export default App;
-
-
-
-

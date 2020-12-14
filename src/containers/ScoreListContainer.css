@@ -55,6 +55,10 @@ grid-row-start: 4;
 grid-row-end: 4;
 }
 
+#test-array {
+    background-color: wheat ;
+}
+
 .scores-list-item {
 position: relative;
 }
@@ -63,6 +67,9 @@ position: relative;
 border-radius: 66px;
 }
 
+p {
+    color: black;
+}
 
 .overlay {
 border-radius: 66px;

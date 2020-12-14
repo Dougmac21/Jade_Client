@@ -12,8 +12,8 @@ function GamesListContainer() {
             <>
                 <Header />
                 <Switch>
-                    <Route exact path="/" component={GamesListContainer} />
-                    <Route path="/games" component={GameContainer} />
+                    <Route exact path="/games-list" component={GamesListContainer} />
+                    <Route path="/game" component={GameContainer} />
                     <Route path="/scores" component={ScoreListContainer} />
 
                 </Switch>

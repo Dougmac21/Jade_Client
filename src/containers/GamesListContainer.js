@@ -8,7 +8,6 @@ function GamesListContainer() {
 
     return (
         <>
-            <h2>This is the List of Playable GamesContainer</h2>
             <ul id="games-list">
 
 

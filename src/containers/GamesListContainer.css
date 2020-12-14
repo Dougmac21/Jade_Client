@@ -3,8 +3,8 @@
         height: 100vh -60px;
         display: grid;
         justify-content: center;
-        grid-template-columns: [left-space] 1fr [game-column-1] 30% [centre-left-space] 1fr [game-column-2] 30% [centre-right-space] 1fr [game-column-3] 30% [right-space] 1fr;
-        grid-template-rows: [top-space] 1fr [game-row-1] 30% [centre-space] 2fr [game-row-2] 30% [bottom-space] 1fr;
+        grid-template-columns: [left-space] 4fr [game-column-1] 330px [centre-left-space] 1fr [game-column-2] 330px [centre-right-space] 1fr [game-column-3] 330px [right-space] 4fr;
+        grid-template-rows: [top-space] 1fr [game-row-1] 330px [centre-space] 2fr [game-row-2] 330px [bottom-space] 1fr;
         grid-template-areas:
             " . | . | . | . | . | . | . "
             " . | . | . | . | . | . | . "
@@ -69,7 +69,7 @@
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: .5s ease;
+    transition: .7s ease;
     background-color: rgb(130, 87, 198);
   }
   

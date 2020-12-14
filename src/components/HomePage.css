@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'BITWONDER';
+    src: url('../fonts/BITWONDER.TTF') format('truetype')
+};
+
+h2 {
+    font-family:'astronboy';
+    src:url('../fonts/astronboy.ttf') format('truetype')
+};
+
+
+h1{
+    font-family: BITWONDER;
+}

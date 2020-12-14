@@ -1,13 +1,15 @@
 
 function GamesListContainer() {
 
-
+    
 
     return (
         <>
             <h2>This is the List of Playable GamesContainer</h2>
             <ul>
-                <p>games go here to click on to play them</p>
+                <li> 
+                    <img src="https://placebear.com/300/300" alt="bear boi"></img>
+                </li>
             </ul>
         </>
     )

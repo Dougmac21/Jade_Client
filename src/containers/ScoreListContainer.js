@@ -9,14 +9,14 @@ function ScoreListContainer() {
     const [allTopScores, setAllTopScores] = useState([]);
 
     const breakoutScoresUrl = "http://localhost:8080/scores?gamename=breakout";
-    // const froggerScoresUrl = "http://localhost:8080/scores?gamename=frogger";
+    const froggerScoresUrl = "http://localhost:8080/scores?gamename=frogger";
     const PRSScoresUrl = "http://localhost:8080/scores?gamename=prs";
     const runnerScoresUrl = "http://localhost:8080/scores?gamename=runner";
     const shooterScoresUrl = "http://localhost:8080/scores?gamename=shooter";
     const snakeScoresUrl = "http://localhost:8080/scores?gamename=snake";
  
     const [topBreakoutScores, setTopBreakoutScores] = useState([]);
-    // const [topFroggerScores, setTopFroggerScores] = useState([]);
+    const [topFroggerScores, setTopFroggerScores] = useState([]);
     const [topPRSScores, setTopPRSScores] = useState([]);
     const [topRunnerScores, setTopRunnerScores] = useState([]);
     const [topShooterScores, setTopShooterScores] = useState([]);
@@ -27,7 +27,7 @@ function ScoreListContainer() {
     useEffect(() => {
         fetchData()
         fetchBreakoutData()
-        // fetchFroggerData()
+        fetchFroggerData()
         fetchPRSData()
         fetchRunnerData()
         fetchShooterData()
@@ -48,23 +48,23 @@ function ScoreListContainer() {
         fetch(breakoutScoresUrl)
         .then(res => res.json())
         .then(data => {
-            setTopBreakoutScores(data.map(({score}) => (score)))
+            setTopBreakoutScores(data.slice(0, 5).map(({score}) => (score)))
         })
     }
 
-    // function fetchFroggerData() {
-    //     fetch(froggerScoresUrl)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         setTopFroggerScores(data.map(({score}) => (score)))
-    //     })
-    // }
+    function fetchFroggerData() {
+        fetch(froggerScoresUrl)
+        .then(res => res.json())
+        .then(data => {
+            setTopFroggerScores(data.slice(0, 5).map(({score}) => (score)))
+        })
+    }
 
     function fetchPRSData() {
         fetch(PRSScoresUrl)
         .then(res => res.json())
         .then(data => {
-            setTopPRSScores(data.map(({score}) => (score)))
+            setTopPRSScores(data.slice(0, 5).map(({score}) => (score)))
         })
     }
 
@@ -72,7 +72,7 @@ function ScoreListContainer() {
         fetch(runnerScoresUrl)
         .then(res => res.json())
         .then(data => {
-            setTopRunnerScores(data.map(({score}) => (score)))
+            setTopRunnerScores(data.slice(0, 5).map(({score}) => (score)))
         })
     }
 
@@ -80,7 +80,7 @@ function ScoreListContainer() {
         fetch(shooterScoresUrl)
         .then(res => res.json())
         .then(data => {
-            setTopShooterScores(data.map(({score}) => (score)))
+            setTopShooterScores(data.slice(0, 5).map(({score}) => (score)))
         })
     }
 
@@ -88,11 +88,11 @@ function ScoreListContainer() {
         fetch(snakeScoresUrl)
         .then(res => res.json())
         .then(data => {
-            setTopSnakeScores(data.map(({score}) => (score)))
+            setTopSnakeScores(data.slice(0, 5).map(({score}) => (score)))
         })
     }
     
-    const testArray = [1, "2", 3, "4", "5"];
+    // const testArray = [1, "2", 3, "4", "5", "banana"];
 
     return (
         <>
@@ -157,7 +157,7 @@ function ScoreListContainer() {
                 <li class="scores-list-item" id="scores-4">
                 <p> FROGGER </p>
 
-                    {/* <>
+                    <>
                         <ul id="test-array">
                     
                             {topFroggerScores.map((value, index) => (
@@ -165,7 +165,7 @@ function ScoreListContainer() {
                             ))}
 
                         </ul>
-                    </> */}
+                    </>
 
                     <div class="overlay">
                         <div class="text">See All Scores</div>

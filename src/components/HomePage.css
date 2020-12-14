@@ -1,7 +1,27 @@
-h1 {
-    font-family: 'Astron Boy'
+#jade-arcade {
+    font-family: 'Astron Boy';
+    color:white;
+    text-align: center;
+    font-size: 120px;
+    margin: 0;
+
+    /* position:fixed;top:100px; */
+
+    
 }
 
-p{
+#start {
     font-family: 'Press Start 2P', cursive;
+    color:#00d9ff;
+    text-align: center;
+    font-size: 30px;
+
+    
+    
+}
+
+.container{
+    background-image: url("../assets/game landscape pink and blue jpg.jpg");
+    background-size: 100vw;
+    height: 100vh
 }

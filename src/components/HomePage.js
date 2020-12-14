@@ -4,8 +4,10 @@ import './HomePage.css'
 function HomePage() {
     return (
         <>
-            <h1>JADE ARCADE</h1>
-            <p>START</p>
+            <div className="container">
+                <h1 id="jade-arcade">JADE ARCADE</h1>
+                <p id="start">START</p>
+            </div>
         </>
 
     )

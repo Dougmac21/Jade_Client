@@ -8,7 +8,7 @@ function HomePage() {
                 <img src="/background.jpg" alt="" id="background" />
                 <h1 id="jade-arcade">JADE ARCADE</h1>
                 <p id="start">
-                    <Link to="/games" id="start-link">
+                    <Link to="/log-in" id="start-link">
                         START
                     </Link>
                 </p>

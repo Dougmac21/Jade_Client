@@ -1,31 +1,24 @@
-import './App.css';
-import Header from './components/Header';
+import HomePage from './components/HomePage';
 import GamesListContainer from './containers/GamesListContainer';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import GameContainer from './containers/GameContainer';
-import Footer from './components/Footer';
 import ScoreListContainer from './containers/ScoreListContainer';
-
-
+import PlayerController from './components/PlayerController';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
-  return (
-    <Router>
-      <>
-        <Header />
-        <Switch>
-        <Route exact path="/" component={GamesListContainer} />
-        <Route path="/games" component={GameContainer} />
-        <Route path="/scores" component={ScoreListContainer} />
+	return (
+		<Router>
+			<Switch>
+				<>
+					<Route exact path="/" component={HomePage} />
+					<Route path="/games" component={GamesListContainer} />
+					<Route path="/scores" component={ScoreListContainer} />
+					<Route path="/log-in" component={PlayerController} />
+				</>
+			</Switch>
+		</Router>
+	);
+};
 
-        </Switch>
-        <Footer />
-
-      </>
-    </Router>
-    
-  );
-}
 
 export default App;
 

@@ -1,16 +1,16 @@
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function GamesListContainer() {
 
-
-
     return (
         <>
-            <h2>This is the List of Playable GamesContainer</h2>
-            <ul>
-                <p>games go here to click on to play them</p>
-            </ul>
+            <Header />
+            <h2>Games List Container</h2>
+            <Footer />
         </>
-    )
-};
+    );
+}
+
 
 export default GamesListContainer;

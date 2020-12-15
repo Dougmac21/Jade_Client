@@ -1,0 +1,46 @@
+#jade-arcade {
+    font-family: 'Astron Boy';
+    color:white;
+    text-align: center;
+    font-size: 180px;
+    margin: 0;
+    padding: 100px;
+    z-index: 1;
+    text-shadow: 
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(202,228,225,0.34),
+    0 0 12px rgba(30,132,242,0.52),
+    0 0 21px rgba(30,132,242,0.92),
+    0 0 34px rgba(30,132,242,0.78),
+    0 0 54px rgba(30,132,242,0.92);
+
+    
+}
+
+#start {
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    font-size: 60px;
+    padding-top: 200px;
+    z-index:0; 
+}
+
+#start-link{
+    color:#00d9ff;
+}
+
+#background{
+    width: 100vw;
+    z-index: -2;
+    position: absolute;
+    display: block;
+}
+
+.container{
+    /* background-image: url("../assets/game landscape pink and blue jpg.jpg");
+    background-size: 100vw;
+    height: 100vh;
+    z-index: -2;
+    background-repeat: no-repeat;
+    object-fit: contain; */
+}

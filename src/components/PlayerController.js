@@ -1,4 +1,7 @@
 import { useEffect, useRef } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import '../styles/PlayerController.css'
 
 
 function PlayerController() {
@@ -8,8 +11,8 @@ function PlayerController() {
     let registeredPlayersList = [];
     let registeredPasswordsList = [];
     let registeredPlayersObjectsList = [];
-       
-    
+
+
     useEffect(() => {
         fetchData()
     }, [])
@@ -17,24 +20,24 @@ function PlayerController() {
 
     function fetchData() {
         fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            // console.log(data)
-            const registeredPlayersObjects = [].concat(data);
-            // console.log(registeredPlayersObjects)
-            registeredPlayersObjectsList = registeredPlayersObjects;
-            console.log(registeredPlayersObjectsList);
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                const registeredPlayersObjects = [].concat(data);
+                // console.log(registeredPlayersObjects)
+                registeredPlayersObjectsList = registeredPlayersObjects;
+                console.log(registeredPlayersObjectsList);
 
-            const registeredPlayers = data.map(({name}) => name);
-            // console.log(registeredPlayers);
-            registeredPlayersList = registeredPlayers;
-            // console.log(registeredPlayersList);
+                const registeredPlayers = data.map(({ name }) => name);
+                // console.log(registeredPlayers);
+                registeredPlayersList = registeredPlayers;
+                // console.log(registeredPlayersList);
 
-            const registeredPasswords = data.map(({password}) => password);
-            // console.log(registeredPasswords);
-            registeredPasswordsList = registeredPasswords;
-            // console.log(registeredPasswordsList);
-        })
+                const registeredPasswords = data.map(({ password }) => password);
+                // console.log(registeredPasswords);
+                registeredPasswordsList = registeredPasswords;
+                // console.log(registeredPasswordsList);
+            })
     }
 
 
@@ -43,9 +46,9 @@ function PlayerController() {
         const { name } = event.target.elements
         const { password } = event.target.elements
 
-        for (let anyName of registeredPlayersList){
-            for (let anyPassword of registeredPasswordsList){
-                if (name.value === anyName && password.value === anyPassword){
+        for (let anyName of registeredPlayersList) {
+            for (let anyPassword of registeredPasswordsList) {
+                if (name.value === anyName && password.value === anyPassword) {
                     alert(`Login Successful. Welcome back to the arcade ${name.value}.`)
                     login(name.value)
                     formRef.current.reset()
@@ -54,9 +57,9 @@ function PlayerController() {
             }
         }
 
-        for (let anyName of registeredPlayersList){
+        for (let anyName of registeredPlayersList) {
             // console.log(anyName);
-            if (name.value === anyName){
+            if (name.value === anyName) {
                 alert("Name is already registered. Please select another name.")
                 formRef.current.reset()
                 return
@@ -67,13 +70,13 @@ function PlayerController() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ name: name.value })
         });
-        if (response){
+        if (response) {
             fetchData()
             formRef.current.reset()
         }
     };
 
-    function login(username){
+    function login(username) {
         return
     }
 
@@ -81,19 +84,21 @@ function PlayerController() {
 
     return (
         <>
-            <form onSubmit={handleNameSubmit} ref={formRef}>
+            <Header />
+            <form onSubmit={handleNameSubmit} ref={formRef} id="arcade-login">
 
                 <p>Arcade Login</p>
                 <input
                     required type="text" placeholder="username" name="name" id="name">
                 </input>
-                <input 
+                <input
                     required type="password" placeholder="password" name="password" id="password">
                 </input>
                 <input
                     type="submit" value="Login" >
                 </input>
             </form>
+            <Footer />
         </>
     )
 };

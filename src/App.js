@@ -4,7 +4,7 @@ import GamesListContainer from './containers/GamesListContainer';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Footer from './components/Footer';
 import ScoreListContainer from './containers/ScoreListContainer';
-import PlayerController from './components/PlayerController';
+import PlayerLogin from './components/PlayerLogin';
 
 
 
@@ -14,7 +14,7 @@ function App() {
       <>
         <Header />
         <Switch>
-          <Route exact path="/" component={PlayerController} />
+          <Route exact path="/" component={PlayerLogin} />
           <Route path="/games" component={GamesListContainer} />
           <Route path="/scores" component={ScoreListContainer} />
         </Switch>

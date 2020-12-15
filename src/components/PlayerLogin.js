@@ -1,10 +1,10 @@
 import { useEffect, useRef } from 'react';
 
 
-function PlayerController() {
+function PlayerLogin() {
 
     const url = "http://localhost:8080/players";
-    const formRef = useRef(null);
+    const loginFormRef = useRef(null);
     let registeredPlayersList = [];
     let registeredPasswordsList = [];
     let registeredPlayersObjectsList = [];
@@ -38,17 +38,17 @@ function PlayerController() {
     }
 
 
-    async function handleNameSubmit(event) {
+    async function handleLogin(event) {
         event.preventDefault();
         const { name } = event.target.elements
-        const { password } = event.target.elements
+        console.log(name)
 
         for (let anyName of registeredPlayersList){
             for (let anyPassword of registeredPasswordsList){
                 if (name.value === anyName && password.value === anyPassword){
                     alert(`Login Successful. Welcome back to the arcade ${name.value}.`)
                     login(name.value)
-                    formRef.current.reset()
+                    loginFormRef.current.reset()
                     return
                 }
             }
@@ -58,7 +58,7 @@ function PlayerController() {
             // console.log(anyName);
             if (name.value === anyName){
                 alert("Name is already registered. Please select another name.")
-                formRef.current.reset()
+                loginFormRef.current.reset()
                 return
             }
         }
@@ -69,7 +69,7 @@ function PlayerController() {
         });
         if (response){
             fetchData()
-            formRef.current.reset()
+            loginFormRef.current.reset()
         }
     };
 
@@ -81,9 +81,28 @@ function PlayerController() {
 
     return (
         <>
-            <form onSubmit={handleNameSubmit} ref={formRef}>
+            <form onSubmit={handleLogin} ref={loginFormRef}>
 
                 <p>Arcade Login</p>
+                <input
+                    required type="text" placeholder="username" name="name" id="name">
+                </input>
+                <input 
+                    required type="password" placeholder="password" name="password" id="password">
+                </input>
+                <input
+                    type="submit" value="Login" >
+                </input>
+            </form>
+
+
+            <br></br>
+            <br></br>
+            
+
+            <form onSubmit={handleRegister} ref={registerFormRef}>
+
+                <p>Register Player</p>
                 <input
                     required type="text" placeholder="username" name="name" id="name">
                 </input>
@@ -99,4 +118,4 @@ function PlayerController() {
 };
 
 
-export default PlayerController;
+export default PlayerLogin;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { checkWinner } from '../Logic';
+import { checkWinner } from './Logic';
 import Layout from './Layout';
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from './Box'
+import Box from './Box';
 
 const style = {
     border: '4px solid lightblue',

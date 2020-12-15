@@ -1,9 +1,9 @@
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from './components/HomePage';
 import GamesListContainer from './containers/GamesListContainer';
-
 import ScoreListContainer from './containers/ScoreListContainer';
 import PlayerController from './components/PlayerController';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import TicTacToe from './components/games/TicTacToe/TicTacToe';
 
 function App() {
   return (
@@ -11,9 +11,10 @@ function App() {
       <Switch>
         <>
           <Route exact path="/" component={HomePage} />
-          <Route path="/games" component={GamesListContainer} />
+          <Route exact path="/games" component={GamesListContainer} />
           <Route path="/scores" component={ScoreListContainer} />
           <Route path="/log-in" component={PlayerController} />
+          <Route path="/games/tictactoe" component={TicTacToe} />
         </>
       </Switch>
     </Router>

@@ -8,8 +8,10 @@
     "@testing-library/user-event": "^12.5.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-game-snake": "^1.0.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-simple-snake": "^0.2.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

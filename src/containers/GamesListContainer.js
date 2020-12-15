@@ -8,11 +8,10 @@ function GamesListContainer() {
     return (
         <>
             <Header />
-
             <ul id="games-list">
 
 
-                <li class="games-list-item" id="game-1"> 
+                <li class="games-list-item" id="game-1">
                     <img class="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div class="overlay">
                         <div class="text">Play Snake</div>
@@ -20,31 +19,31 @@ function GamesListContainer() {
                 </li>
 
 
-                <li class="games-list-item" id="game-2"> 
+                <li class="games-list-item" id="game-2">
                     <img class="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div class="overlay">
                         <div class="text">Play Runner</div>
                     </div>
                 </li>
-                <li class="games-list-item" id="game-3"> 
+                <li class="games-list-item" id="game-3">
                     <img class="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div class="overlay">
                         <div class="text">Play Breakout</div>
                     </div>
                 </li>
-                <li class="games-list-item" id="game-4"> 
+                <li class="games-list-item" id="game-4">
                     <img class="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div class="overlay">
                         <div class="text">Play PRS</div>
                     </div>
                 </li>
-                <li class="games-list-item" id="game-5"> 
+                <li class="games-list-item" id="game-5">
                     <img class="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div class="overlay">
                         <div class="text">Play Frogger</div>
                     </div>
                 </li>
-                <li class="games-list-item" id="game-6"> 
+                <li class="games-list-item" id="game-6">
                     <img class="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div class="overlay">
                         <div class="text">Play Clicker</div>
@@ -53,7 +52,6 @@ function GamesListContainer() {
 
             </ul>
             <Footer />
-
         </>
     );
 }

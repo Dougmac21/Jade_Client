@@ -1,15 +1,38 @@
+import { useState } from 'react';
+
+
+
 function PRS() {
 
-    function capitaliseFirstLetterOfString(string){
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    // function capitaliseFirstLetterOfString(string){
+    //     return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    // }
+
+    const [playerOneName, setPlayerOneName] = useState("")
+    const [playerTwoName, setPlayerTwoName] = useState("")
+    const [playerOneGameChoice, setPlayerOneGameChoice] = useState("")
+    const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
+    const [playerOneScore, setPlayerOneScore] = useState(0)
+    const [playerTwoScore, setPlayerTwoScore] = useState(0)
+
+    const [winningChoice, setWinningChoice] = useState("")
+
+    const handlePlayerOneNameChange = (event) => {
+        setPlayerOneName(event.target.value)
+    }
+    const handlePlayerTwoNameChange = (event) => {
+        setPlayerTwoName(event.target.value)
+    }
+    const handlePlayerOneGameChoiceChange = (event) => {
+        setPlayerOneGameChoice(event.target.value)
+    }
+    const handlePlayerTwoGameChoiceChange = (event) => {
+        setPlayerTwoGameChoice(event.target.value)
     }
 
-    let playerOneName = capitaliseFirstLetterOfString(playerOneNameInput)
-    let playerTwoName = capitaliseFirstLetterOfString(playerTwoNameInput)
-    let playerOneGameChoice = capitaliseFirstLetterOfString(playerOneGameChoiceInput)
-    let playerTwoGameChoice = capitaliseFirstLetterOfString(playerTwoGameChoiceInput)
-    let playerOneScore = 0
-    let playerTwoScore = 0
+    const handleGameFormSubmit = (event) => {
+        event.preventDefault()
+    }
 
     
     const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun"]
@@ -19,219 +42,235 @@ function PRS() {
     const cpu_players = ("Hal", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison")
 
 
-    if (playerOneGameChoice == "Paper"){
-        winningChoice = "Scissors"
-    }
-    else if (playerOneGameChoice == "Rock"){
-        winningChoice = "Paper"
-    }
-    else if (playerOneGameChoice == "Scissors"){
-        winningChoice = "Spock"
-    }
-    else if (playerOneGameChoice == "Lizard"){
-        winningChoice = "Rock"
-    }
-    else if (playerOneGameChoice == "Spock"){
-        winningChoice = "Lizard"
-    }
-    else if (playerOneGameChoice == "Shotgun"){
-        winningChoice = "Surrender"
-    }
 
+    for (let choice of permitted_choices){
+        if (playerOneGameChoice === "Paper") {
+            setWinningChoice("Scissors")
+        }
+        else if (playerOneGameChoice === "Rock"){
+            setWinningChoice("Paper")
+        }
+        else if (playerOneGameChoice === "Scissors"){
+            setWinningChoice("Spock")
+        }
+        else if (playerOneGameChoice === "Lizard"){
+            setWinningChoice("Rock")
+        }
+        else if (playerOneGameChoice === "Spock"){
+            setWinningChoice("Lizard")
+        }
+        else if (playerOneGameChoice === "Shotgun"){
+            setWinningChoice("Surrender")
+        }
+     }
+     
 
-    if (playerTwoName == "Cpu"){
-        playerTwoName = cpu_players[Math.floor(Math.random() * cpu_players.length)]
+    if ( playerTwoName === "Cpu"){
+       let playerTwoName = cpu_players[Math.floor(Math.random() * cpu_players.length)]
     }
     
-        
-    if (playerTwoName == "Hal"){
-        playerTwoGameChoice = "Paper"
+    for (let choice of permitted_choices){
+        if (playerTwoName === "Hal"){
+            playerTwoGameChoice = "Paper"
+        }
+        else if (playerTwoName === "Morag"){
+            playerTwoGameChoice = "Rock"
+        }
+        else if (playerTwoName === "Chris"){
+            playerTwoGameChoice = cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)]
+        }
+        else if (playerTwoName === "Hannah"){
+            playerTwoGameChoice = cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)]
+        }
+        else if (playerTwoName === "Zsolt"){
+            playerTwoGameChoice = "Spock"
+        }
+        else if (playerTwoName === "Malcolm"){
+            playerTwoGameChoice = cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)]
+        }
+        else if (playerTwoName === "Harrison"){
+            playerTwoGameChoice = winningChoice
+        }
     }
-    else if (playerTwoName == "Morag"){
-        playerTwoGameChoice = "Rock"
-    }
-    else if (playerTwoName == "Chris"){
-        playerTwoGameChoice = cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)]
-    }
-    else if (playerTwoName == "Hannah"){
-        playerTwoGameChoice = cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)]
-    }
-    else if (playerTwoName == "Zsolt"){
-        playerTwoGameChoice = "Spock"
-    }
-    else if (playerTwoName == "Malcolm"){
-        playerTwoGameChoice = cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)]
-    }
-    else if (playerTwoName == "Harrison"){
-        playerTwoGameChoice = winningChoice
-    }
+    
 
-    for (choice of permitted_choices){
-        if (playerOneGameChoice !=choice && playerTwoGameChoice !=choice){
+    for (let choice of permitted_choices){
+        if (playerOneGameChoice !==choice && playerTwoGameChoice !==choice){
             return `Both ${playerOneName} and ${playerTwoName} must pick from the permitted choices!`
         }
-        else if (playerOneGameChoice != choice){
+        else if (playerOneGameChoice !== choice){
             return `${playerOneName} must pick from the permitted choices!`
         }
-        else if (playerTwoGameChoice != choice){
+        else if (playerTwoGameChoice !== choice){
             return `${playerTwoName} must pick from the permitted choices!`
         }
-        else if (playerOneGameChoice == playerTwoGameChoice){
+        else if (playerOneGameChoice === playerTwoGameChoice){
             return `Both ${playerOneName} and ${playerTwoName} have chosen ${playerOneGameChoice}. That means that it's a tie!`
         }
     } 
    
 
-    for (choice of permitted_choices){
-        if(playerOneGameChoice == "Paper" && playerTwoGameChoice == "Rock"){
-            return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGamechoice}. Paper wraps Rock. ${playerOneName} wins!`     
+    for (let choice of permitted_choices){
+        if(playerOneGameChoice === "Paper" && playerTwoGameChoice === "Rock"){
+            return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Paper wraps Rock. ${playerOneName} wins!`     
         }
-        else if (playerTwoGameChoice == "Scissors"){
+        else if (playerTwoGameChoice === "Scissors"){
             return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}.Scissors cut Paper.${playerTwoName} wins!`
         }
-        else if (playerTwoGameChoice == "Lizard"){
+        else if (playerTwoGameChoice === "Lizard"){
             return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Lizard eats Paper. ${playerTwoName} Wins!`
         }
-        else if (playerTwoGameChoice == "Spock"){
+        else if (playerTwoGameChoice === "Spock"){
             return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Spock is disproved by Paper. ${playerOneName} Wins!`
         }
-        else if (playerTwoGameChoice == "Shotgun"){
+        else if (playerTwoGameChoice === "Shotgun"){
             return `${playerTwoName} must pick from the permitted choices!`
         }
-        else if (playerTwoGameChoice == "Surrender"){
+        else if (playerTwoGameChoice === "Surrender"){
             return `${playerTwoName} must pick from the permitted choices!`
         }
     }
    
 
-    for(choice of permitted_choices){
-        if (playerOneGameChoice == "Rock" && playerTwoGameChoice == "Scissors"){
+    for(let choice of permitted_choices){
+        if (playerOneGameChoice === "Rock" && playerTwoGameChoice === "Scissors"){
             return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Rock crushes Scissors. ${playerOneName} wins!`
         }
-        else if (playerTwoGameChoice == "Paper"){
+        else if (playerTwoGameChoice === "Paper"){
             return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Paper wraps Rock. ${playerTwoName} wins!`
         }
-        else if (playerTwoGameChoice == "Lizard"){
+        else if (playerTwoGameChoice === "Lizard"){
             return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Rock crushes Lizard. ${playerOneName} wins!`
         }
-        else if (playerTwoGameChoice == "Spock"){
+        else if (playerTwoGameChoice === "Spock"){
             return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Spock vaporises Rock. ${playerTwoName} wins!`
         }
-        else if (playerTwoGameChoice == "Shotgun"){
+        else if (playerTwoGameChoice === "Shotgun"){
             return `${playerTwoName} must pick from the permitted choices!`
         }
-        else if (playerTwoGameChoice == "Surrender"){
+        else if (playerTwoGameChoice === "Surrender"){
             return `${playerTwoName} must pick from the permitted choices!`
         } 
     }
     
 
-       for (choice of permitted_choices){
-        if (playerTwoGameChoice == "Paper" && playerOneGameChoice == "Scissors"){
+       for (let choice of permitted_choices){
+        if (playerTwoGameChoice === "Paper" && playerOneGameChoice === "Scissors"){
             return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Scissors cut Paper. ${playerOneName} wins!`
        }
-        else if (playerTwoGameChoice == "Rock"){
+        else if (playerTwoGameChoice === "Rock"){
             return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Rock crushes Scissors. ${playerTwoName} wins!`
         }        
-        else if (playerTwoGameChoice == "Lizard"){
+        else if (playerTwoGameChoice === "Lizard"){
             return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Lizard is decapitated by Scissors. ${playerOneName} wins!`
         }
+        else if (playerTwoGameChoice === "Spock"){
+            return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Spock smashes Scissors. ${playerTwoName} wins!`
+        }
+        else if (playerTwoGameChoice === "Shotgun"){
+            return `${playerTwoName} must pick from the permitted choices!`
+        }
+        else if (playerTwoGameChoice === "Surrender"){
+            return `${playerTwoName} must pick from the permitted choices!`
+        }
         }
 
-            
+        for (let choice of permitted_choices){
+            if (playerOneGameChoice === "Lizard" && playerTwoGameChoice === "Paper"){
+                return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Lizard eats Paper. ${playerOneName} wins!`
+            }
+            else if (playerTwoGameChoice === "Rock"){
+                return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Rock crushes Lizard. ${playerTwoName} wins!`
+            }
+            else if (playerTwoGameChoice === "Scissors"){
+                return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Scissors decapitate Lizard. ${playerTwoName} wins!`
+            }
+            else if (playerTwoGameChoice === "Spock"){
+                return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Lizard poisons Spock. ${playerOneName} wins!`
+            }
+            else if (playerTwoGameChoice === "Shotgun"){
+                return `${playerTwoName} must pick from the permitted choices!`
+            }
+            else if (playerTwoGameChoice === "Surrender"){
+                return `${playerTwoName} must pick from the permitted choices!`
+            }
         }
        
-        else if (playerTwoGameChoice == "Spock"){
-            return f"{playerOneName} chose {playerOneGameChoice}. {playerTwoName} chose {playerTwoGameChoice}. Spock smashes Scissors. {playerTwoName} wins!"
+       
+    for(let choice of permitted_choices){
+        if (playerOneGameChoice === "Spock" && playerTwoGameChoice === "Paper"){
+            return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Paper disproves Spock. ${playerTwoName} wins!`
         }
-        else if (playerTwoGameChoice == "Shotgun"){
-            return f"{playerTwoName} must pick from the permitted choices!"
+        else if (playerTwoGameChoice === "Rock"){
+            return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Spock vaporises Rock. ${playerOneName} wins!`
         }
-        else if (playerTwoGameChoice == "Surrender"){
-            return f"{playerTwoName} must pick from the permitted choices!"
+        else if (playerTwoGameChoice === "Scissors"){
+            return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Spock smashes Scissors. ${playerOneName} wins!`
         }
+        else if (playerTwoGameChoice === "Lizard"){
+            return `${playerOneName} chose ${playerOneGameChoice}. ${playerTwoName} chose ${playerTwoGameChoice}. Lizard poisons Spock. ${playerTwoName} wins!`
+        }
+          
+        else if (playerTwoGameChoice === "Shotgun"){
+            return `${playerTwoName} must pick from the permitted choices!`
+        }
+        else if (playerTwoGameChoice === "Surrender"){
+            return `${playerTwoName} must pick from the permitted choices!`
+        }
+    }
+    
+    for (let choice of permitted_choices){
+        if (playerOneGameChoice === "Shotgun" && playerTwoName === "Harrison"){
+            return `${playerOneName} chose ${playerOneGameChoice} because ${playerTwoName} is cheating. ${playerTwoName} chose ${playerTwoGameChoice}. ${playerOneName} wins!`
+        }
+        else if (playerTwoName !== "Harrison"){
+            return `${playerOneName} must pick from the permitted choices!`
+        }
+    }
 
-    else if (playerOneGameChoice == "Lizard"){
-        if (playerTwoGameChoice == "Paper"){
-            return f"{playerOneName} chose {playerOneGameChoice}. {playerTwoName} chose {playerTwoGameChoice}. Lizard eats Paper. {playerOneName} wins!"
-        }
-        else if (playerTwoGameChoice == "Rock"){
-            return f"{playerOneName} chose {playerOneGameChoice}. {playerTwoName} chose {playerTwoGameChoice}. Rock crushes Lizard. {playerTwoName} wins!"
-        }
-        else if (playerTwoGameChoice == "Scissors"){
-            return f"{playerOneName} chose {playerOneGameChoice}. {playerTwoName} chose {playerTwoGameChoice}. Scissors decapitate Lizard. {playerTwoName} wins!"
-        }
-        else if (playerTwoGameChoice == "Spock"){
-            return f"{playerOneName} chose {playerOneGameChoice}. {playerTwoName} chose {playerTwoGameChoice}. Lizard poisons Spock. {playerOneName} wins!"
-        }
-        else if (playerTwoGameChoice == "Shotgun"){
-            return f"{playerTwoName} must pick from the permitted choices!"
-        }
-        else if (playerTwoGameChoice == "Surrender"){
-            return f"{playerTwoName} must pick from the permitted choices!"
-        }
-
-    else if (playerOneGameChoice == "Spock"){
-        if (playerTwoGameChoice == "Paper"){
-            return f"{playerOneName} chose {playerOneGameChoice}. {playerTwoName} chose {playerTwoGameChoice}. Paper disproves Spock. {playerTwoName} wins!"
-        }
-        else if (playerTwoGameChoice == "Rock"){
-            return f"{playerOneName} chose {playerOneGameChoice}. {playerTwoName} chose {playerTwoGameChoice}. Spock vaporises Rock. {playerOneName} wins!"
-        }
-        else if (playerTwoGameChoice == "Scissors"){
-            return f"{playerOneName} chose {playerOneGameChoice}. {playerTwoName} chose {playerTwoGameChoice}. Spock smashes Scissors. {playerOneName} wins!"
-        }
-        else if (playerTwoGameChoice == "Lizard"){
-            return f"{playerOneName} chose {playerOneGameChoice}. {playerTwoName} chose {playerTwoGameChoice}. Lizard poisons Spock. {playerTwoName} wins!"
-        }
-        else if (playerTwoGameChoice == "Shotgun"){
-            return f"{playerTwoName} must pick from the permitted choices!"
-        }
-        else if (playerTwoGameChoice == "Surrender"){
-            return f"{playerTwoName} must pick from the permitted choices!"
-        }
-
-    else if (playerOneGameChoice == "Shotgun"){
-        if (playerTwoName == "Harrison"){
-            return "{playerOneName} chose {playerOneGameChoice} because {playerTwoName} is cheating. {playerTwoName} chose {playerTwoGameChoice}. {playerOneName} wins!"
-        }
-        else if (playerTwoName != "Harrison"){
-            return "{playerOneName} must pick from the permitted choices!"
-        }
-
-
-}
 
     return(
         <>
             <p>PRS component</p>
 
-            <form action="/play" method="POST">
-                <label for="player_1">Player 1 Name:</label>
-                <input type="text" name="player_1" id="player_1">
-                <br>
-            
-                <label for="player_1_weapon">Player 1 Weapon:</label>
-                <input type="text" name="name" id="name">
-                <br>
-                <br>
-            
-                <label for="player_2_name">Player 2 Name</label>
-                <input type="text" name="attendees" id="attendees">
-                <br>
-            
-                <label for="player_2_weapon">Player 2 Weapon</label>
-                <input type="text" name="location" id="location">
-                <br>
-                <br>
-            
-                <label for="cpu_player">Cpu Player?</label>
-                <input type="checkbox" name="cpu_player?" id="cpu_player?">
-                <br>
-                <br>
-                <br>
-                
-                <input type="submit" value="Play">
+            <form className="game-form" onSubmit={ handleGameFormSubmit }>
+
+                <label for="player_1">Player 1:</label>
+                <input required type="text" name="player_1" id="player_1" placeholder="insert name here"
+                value={ playerOneName }
+                onChange={ handlePlayerOneNameChange }
+                />
+                <br></br>
+
+                <label for="player_1_weapon">Weapon:</label>
+                <input required type="text" name="player_1_weapon" id="player_1_weapon" placeholder="select your weapon"
+                value={ playerOneGameChoice }
+                onChange={ handlePlayerOneGameChoiceChange }
+                />
+                <br></br>
+                <br></br>
+
+                <label for="player_2_name">Player 2:</label>
+                <input type="text" name="player_2" id="player_2" placeholder="insert name here"
+                value={ playerTwoName }
+                onChange={ handlePlayerTwoNameChange }
+                />
+                <br></br>
+
+                <label for="player_2_weapon">Weapon:</label>
+                <input type="text" name="player_2_weapon" id="player_2_weapon" placeholder="select your weapon"
+                value={ playerTwoGameChoice }
+                onChange={ handlePlayerTwoGameChoiceChange }/>
+                <br></br>
+                <br></br>
+
+                <label for="cpu_player">CPU Player?</label>
+                <input type="checkbox" name="cpu_player?" id="cpu_player?"></input>
+                <input type="submit" value="Play Game!"/>
+                <br></br>
+                <br></br>
+
+
             </form>
               
         </>

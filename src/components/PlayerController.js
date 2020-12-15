@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../styles/PlayerController.css'
+import PRS from '../components/games/PRS';
 
 
 function PlayerController() {
@@ -85,6 +86,7 @@ function PlayerController() {
     return (
         <>
             <Header />
+            <PRS />
             <form onSubmit={handleNameSubmit} ref={formRef} id="arcade-login">
 
                 <p>Arcade Login</p>

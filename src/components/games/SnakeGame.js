@@ -1,20 +1,14 @@
 import Snake from 'react-simple-snake'
+import Header from '../Header';
+import Footer from '../Footer';
 
 export default function SnakeGame() {
     return (
         <div>
-            <Snake />
+            <Header />
+            <Snake /> 
+            <Footer />
         </div>
     )
 }
-// function Snake() {
-
-//     return (
-//         <>
-//             <p>snake component</p>
-//         </>
-//     )
-// };
-
-// export default Snake;
 

@@ -35,7 +35,7 @@ function PRS() {
     }
 
     
-    const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun"]
+    const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun", ""]
     const cpu_player_malcolm_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock"]
     const cpu_player_hannah_choices = ["Scissors", "Rock"]    // Spock always beats Hannah
     const cpu_player_chris_choices = ["Paper", "Lizard"]      // Scissors always beats Chris
@@ -231,7 +231,7 @@ function PRS() {
 
     return(
         <>
-            <p>PRS component</p>
+            <h1>PRS component</h1>
 
             <form className="game-form" onSubmit={ handleGameFormSubmit }>
 

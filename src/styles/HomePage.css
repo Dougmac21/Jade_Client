@@ -26,6 +26,7 @@
 }
 
 #start-link{
+    text-decoration: none;
     color:#00d9ff;
 }
 
@@ -43,4 +44,20 @@
     z-index: -2;
     background-repeat: no-repeat;
     object-fit: contain; */
+}
+
+body{font-size: 280%; padding: 5%}
+
+@keyframes blink {
+	0% {opacity: 0}
+	49%{opacity: 0}
+	50% {opacity: 1}
+}
+
+blink{animation: blink 1s infinite;}
+
+#blink{
+    font-size:150px;
+    margin:0;
+    padding:0;
 }

@@ -26,3 +26,9 @@
 
     
 }
+#header{
+    width: 100vw;
+    z-index: -2;
+    position: absolute;
+    display: block;
+}

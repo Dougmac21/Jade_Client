@@ -87,8 +87,8 @@
 
   .text {
     color: rgb(255, 255, 255);
-    font-family: 'Press start 2P', cursive;
-    font-size: 20px;
+    font-family: 'Press Start 2P', cursive;
+        font-size: 20px;
     position: absolute;
     top: 50%;
     left: 50%;

@@ -1,9 +1,9 @@
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomePage from './components/HomePage';
 import GamesListContainer from './containers/GamesListContainer';
 import ScoreListContainer from './containers/ScoreListContainer';
 import PlayerController from './components/PlayerController';
-import SnakeGame from './components/games/SnakeGame';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Snake from './components/games/Snake';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Route exact path="/games" component={GamesListContainer} />
           <Route path="/scores" component={ScoreListContainer} />
           <Route path="/log-in" component={PlayerController} />
-          <Route path="/games/snake" component={SnakeGame} />
+          <Route path="/games/snake" component={Snake} />
         </>
       </Switch>
     </Router>

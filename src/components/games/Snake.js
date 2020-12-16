@@ -4,7 +4,7 @@ import Footer from '../Footer'
 import '../../styles/Snake.css';
 
 
-function SnakeGame() {
+function Snake() {
     const [dim, setDim] = useState(0);
     const [chunk, setChunk] = useState(0);
     const [direction, setDirection] = useState('');
@@ -266,4 +266,4 @@ function SnakeGame() {
         </>
     )
 }
-export default SnakeGame;
+export default Snake;

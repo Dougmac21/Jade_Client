@@ -124,6 +124,9 @@
     0 0 50px rgba(210, 83, 221, 0.78),
     0 0 80px rgba(232, 110, 236, 0.92);
     display: inline;
+    color: rgb(255, 255, 255);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
   }
   
 
@@ -135,7 +138,7 @@
   .text {
     color: rgb(255, 255, 255);
     font-family: 'Press Start 2P', cursive;
-        font-size: 20px;
+    font-size: 20px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -143,4 +146,14 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+  }
+
+  div > a {
+    font-family: 'Press Start 2P', cursive; 
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(255, 255, 255); 
+    position: absolute;
+    top: 50%;
+    left: 50%;
   }

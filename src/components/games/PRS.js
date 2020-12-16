@@ -48,7 +48,7 @@ function PRS() {
             .then(data => {
                 // console.log(data)
                 setRegisteredPlayersObjectsList(data)
-                // console.log(registeredPlayersObjectsList);
+                console.log(registeredPlayersObjectsList);
 
                 setRegisteredPlayersList(data.map(({ name }) => name))
                 console.log(registeredPlayersList);
@@ -66,6 +66,7 @@ function PRS() {
                 // console.log(data)
                 setPRSScores(data.map(({ score }) => score))
                 console.log(PRSScores);
+                console.log(data.map(({ date }) => date))
             })
     }
 
@@ -90,7 +91,12 @@ function PRS() {
                 fetchScoreData()
                 return
             }
-                
+
+        let today = new Date();
+        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        let dateTime = date+' '+time
+        console.log(dateTime)     
 
         const response = await fetch(scoreUrl, {
             method: 'POST',
@@ -110,7 +116,7 @@ function PRS() {
                         "total_play_time": 0
                     },
                     "score": playerOneScore,
-                    "date": "2020-12-99"
+                    "date": dateTime
                 }
             )
         });

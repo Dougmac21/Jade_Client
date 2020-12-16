@@ -32,10 +32,8 @@ input {
 }
 
 #player-one-weapon-input {
-    height: 40px;
+    height: 34px;
     width: 150px;
-    border: olive;
-    border-width: 2px;
 }
 
 .submit-score-button{

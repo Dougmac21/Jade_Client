@@ -99,6 +99,8 @@
 .games-list-item {
     position: relative;
     display: inline;
+    padding: 20px;
+    margin: 20px;
   }
 
 .games-list-image {

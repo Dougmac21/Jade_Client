@@ -21,7 +21,7 @@ function Snake() {
         }
     ]);
 
-    const url = "http://localhost:8080/scores?gamename=snake";
+    const url = "http://localhost:8080/scores";
 
     useEffect(() => {
         fetchData()
@@ -40,8 +40,10 @@ function Snake() {
             })
     }
 
-    async function handleScoreSubmit(event) {
-        event.preventDefault()
+    async function handleScoreSubmit() {
+        // console.log({ points }.points)
+
+        // const test = { points }
 
         const response = await fetch(url, {
             method: 'POST',
@@ -59,7 +61,7 @@ function Snake() {
                         "name": "Snake",
                         "total_play_time": 0
                     },
-                    "score": 5,
+                    "score": { points }.points,
                     "date": "2020-12-16"
                 }
             )

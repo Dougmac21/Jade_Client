@@ -34,7 +34,6 @@ function PRS() {
     const cpu_player_chris_choices = ["Paper", "Lizard"]      // Scissors always beats Chris
     const cpu_players = ["Hal", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
 
-    // let playerTwoGameChoice = permitted_choices[Math.floor(Math.random() * permitted_choices.length)]
 
     useEffect(() => {
         fetchPlayerData()
@@ -70,13 +69,11 @@ function PRS() {
             })
     }
 
+
     async function handleScoreSubmit(event) {
         event.preventDefault()
         setPlayerOneScore(playerOneScore)
         console.log(playerOneScore)
-
-        // if player id and player name is in the db then post to db
-        // else alert them to create new player or enter valid player name 
 
         let playerNameToSubmit = prompt("Please enter your name")
         console.log(registeredPlayersList)
@@ -127,10 +124,6 @@ function PRS() {
     };
 
 
-
-    // const handlePlayerOneNameChange = (event) => {
-    //     setPlayerOneName(capitaliseFirstLetterOfString(event.target.value))
-    // }
     const handleCPUPlayerChoice = (event) => {
         setPlayerTwoName(event.target.value)
         console.log(event.target.value)
@@ -138,9 +131,6 @@ function PRS() {
     const handlePlayerOneGameChoiceChange = (event) => {
         setPlayerOneGameChoice(capitaliseFirstLetterOfString(event.target.value))
     }
-    // const handlePlayerTwoGameChoiceChange = (event) => {
-    //     setPlayerTwoGameChoice(capitaliseFirstLetterOfString(event.target.value))
-    // }
 
 
     const handleGameFormSubmit = (event) => {
@@ -163,69 +153,67 @@ function PRS() {
     }
 
 
-
-    
-
     function cpuPlayerLogic(player1Choice, player2Name){
 
         if (player1Choice === "Paper") {
             setWinningChoice("Scissors")
-            console.log(winningChoice)
+            // console.log(winningChoice)
         }
         else if (player1Choice === "Rock") {
             setWinningChoice("Paper")
-            console.log(winningChoice)
+            // console.log(winningChoice)
         }
         else if (player1Choice === "Scissors") {
             setWinningChoice("Spock")
-            console.log(winningChoice)
+            // console.log(winningChoice)
         }
         else if (player1Choice === "Lizard") {
             setWinningChoice("Rock")
-            console.log(winningChoice)
+            // console.log(winningChoice)
         }
         else if (player1Choice === "Spock") {
             setWinningChoice("Lizard")
-            console.log(winningChoice)
+            // console.log(winningChoice)
         }
         else if (player1Choice === "Shotgun") {
             setWinningChoice("Surrender")
-            console.log(winningChoice)
+            // console.log(winningChoice)
         }
 
+        // CONTINUING //
         
         if (player2Name === "Hal"){
             setPlayerTwoGameChoice("Paper")
-            console.log(playerTwoGameChoice)
+            // console.log(playerTwoGameChoice)
         }
         else if (player2Name === "Eugene"){
             setPlayerTwoGameChoice("Rock")
-            console.log(playerTwoGameChoice)
+            // console.log(playerTwoGameChoice)
 
         }
         else if (player2Name === "Chris"){
             setPlayerTwoGameChoice(cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)])
-            console.log(playerTwoGameChoice)
+            // console.log(playerTwoGameChoice)
 
         }
         else if (player2Name === "Hannah"){
             setPlayerTwoGameChoice(cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)])
-            console.log(playerTwoGameChoice)
+            // console.log(playerTwoGameChoice)
 
         }
         else if (player2Name === "Zsolt"){
             setPlayerTwoGameChoice("Spock")
-            console.log(playerTwoGameChoice)
+            // console.log(playerTwoGameChoice)
 
         }
         else if (player2Name === "Malcolm"){
             setPlayerTwoGameChoice(cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)])
-            console.log(playerTwoGameChoice)
+            // console.log(playerTwoGameChoice)
 
         }
         else if (player2Name === "Harrison"){
             setPlayerTwoGameChoice(winningChoice)
-            console.log(playerTwoGameChoice)
+            // console.log(playerTwoGameChoice)
 
         }
     }
@@ -234,35 +222,10 @@ function PRS() {
 
 
     function runGameLogic(player1Name, player1Choice, player2Name, player2Choice) {
-        console.log(player1Name)
-        console.log(player2Name)
-        console.log(player1Choice)
-        console.log(player2Choice)
-
-
-
-        // for (let choice of permitted_choices){
-        //     if (player1Choice !==choice && player2Choice !==choice){
-        //         console.log("both choices invalid")
-        //         setGameOutcome(`Both ${player1Name} and ${player2Name} must pick from the permitted choices!`)
-        //         console.log(gameOutcome)
-        //     }
-        //     else if (player1Choice !== choice){
-        //         console.log("p1 choice invalid")
-        //         setGameOutcome(`${player1Name} must pick from the permitted choices!`)
-        //         console.log(gameOutcome)
-        //     }
-        //     else if (player2Choice !== choice){
-        //         console.log("p2 choice invalid")
-        //         setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-        //         console.log(gameOutcome)
-        //     }
-        //     else if (player1Choice === player2Choice){
-        //         console.log("p1 choice p2 choice draw")
-        //         setGameOutcome(`Both ${player1Name} and ${player2Name} have chosen ${player1Choice}. That means that it's a tie!`)
-        //         console.log(gameOutcome)
-        //     }
-        // } 
+        // console.log(player1Name)
+        // console.log(player2Name)
+        // console.log(player1Choice)
+        // console.log(player2Choice)
 
 
         if (player1Choice === "Paper" && player2Choice === "Rock") {
@@ -309,7 +272,7 @@ function PRS() {
             console.log(playerTwoScore)
         }
 
-        // -----------------BREAKPOINT----------------- //
+        // -----------------CONTINUED----------------- //
 
         else if (player1Choice === "Rock" && player2Choice === "Scissors") {
             setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Scissors. ${player1Name} win!`)
@@ -346,7 +309,7 @@ function PRS() {
             console.log(gameOutcome)
         }
 
-        // -----------------BREAKPOINT----------------- //
+        // -----------------CONTINUED----------------- //
 
         else if (player2Choice === "Paper" && player1Choice === "Scissors") {
             setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Scissors cut Paper. ${player1Name} win!`)
@@ -420,7 +383,7 @@ function PRS() {
             console.log(gameOutcome)
         }
 
-        // -----------------BREAKPOINT----------------- //
+        // -----------------CONTINUED----------------- //
 
         else if (player1Choice === "Spock" && player2Choice === "Paper") {
             setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Paper disproves Spock. ${player2Name} wins!`)
@@ -458,7 +421,7 @@ function PRS() {
             console.log(gameOutcome)
         }
 
-        // -----------------BREAKPOINT----------------- //
+        // -----------------CONTINUED----------------- //
 
         else if (player1Choice === "Shotgun" && player2Name === "Harrison") {
             setGameOutcome(`${player1Name} chose ${player1Choice} because ${player2Name} is cheating. ${player2Name} chose ${player2Choice}. ${player1Name} win!`)
@@ -494,15 +457,6 @@ function PRS() {
 
             <form className="game-form" onSubmit={handleGameFormSubmit}>
 
-                {/* <p>All-Time High Scores:</p>
-
-                <ul id="scores-array">
-
-                    {PRSScores.slice(0, 5).map((value, index) => (
-                        <li key={index}>{value}</li>
-                    ))}
-
-                </ul> */}
 
                 <p>Current Score: {playerOneScore}</p>
 
@@ -513,19 +467,21 @@ function PRS() {
                 />
 
 
-                {/* <p>Play Against:</p>
-                <ul id="cpu-player-selector">
-                    {cpu_players.map((value, index) => (
-                        <button className="cpu-player-button" onClick={ handleCPUPlayerChoice } key={index}>{value}</button>
-                    ))}
-                </ul> */}
-
                 <input type="submit" class="play-game-button" value="Play Game!" />
                 
                 <button class="submit-score-button" onClick={handleScoreSubmit}>Submit Score</button>
 
                 <p>{gameOutcome}</p>
 
+                <p>All-Time High Scores:</p>
+
+                <ul id="scores-array">
+
+                    {PRSScores.slice(0, 5).map((value, index) => (
+                        <li key={index}>{value}</li>
+                    ))}
+
+                </ul>
 
             </form>
 

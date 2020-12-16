@@ -84,7 +84,9 @@ function PlayerController() {
 
     return (
         <>
+        <div className="player-controller">
             <Header />
+             
             <form onSubmit={handleNameSubmit} ref={formRef} id="arcade-login">
 
                 <p>Arcade Login</p>
@@ -99,6 +101,7 @@ function PlayerController() {
                 </input>
             </form>
             <Footer />
+            </div>
         </>
     )
 };

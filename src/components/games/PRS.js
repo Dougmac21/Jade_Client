@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-
+import './PRS.css';
 
 
 function PRS() {
@@ -65,12 +65,12 @@ function PRS() {
     }
 
     let playerOneName = "playerName"
-    let playerTwoName = "CPU"
+    const [playerTwoName, setPlayerTwoName] = useState("")
     const [playerOneGameChoice, setPlayerOneGameChoice] = useState("")
-    // const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
+    const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
     const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun"]
 
-    let playerTwoGameChoice = permitted_choices[Math.floor(Math.random() * permitted_choices.length)]
+    // let playerTwoGameChoice = permitted_choices[Math.floor(Math.random() * permitted_choices.length)]
 
 
     const [playerOneScore, setPlayerOneScore] = useState(0)
@@ -85,10 +85,10 @@ function PRS() {
     //     setPlayerOneName(capitaliseFirstLetterOfString(event.target.value))
         // console.log(playerOneName)
     // }
-    // const handlePlayerTwoNameChange = (event) => {
-    //     setPlayerTwoName(event.target.value)
-    //     console.log(playerTwoName)
-    // }
+    const handlePlayerTwoNameChange = (event) => {
+        setPlayerTwoName(event.target.innertext)
+        console.log(playerTwoName)
+    }
     const handlePlayerOneGameChoiceChange = (event) => {
         setPlayerOneGameChoice(capitaliseFirstLetterOfString(event.target.value))
         console.log(playerOneGameChoice)
@@ -111,7 +111,7 @@ function PRS() {
     const cpu_player_malcolm_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock"]
     const cpu_player_hannah_choices = ["Scissors", "Rock"]    // Spock always beats Hannah
     const cpu_player_chris_choices = ["Paper", "Lizard"]      // Scissors always beats Chris
-    const cpu_players = ["Hal", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
+    const cpu_players = ["Hal", "Eugene", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
 
     function declareResult(result){
         return
@@ -122,6 +122,12 @@ function PRS() {
     }
 
     function runGameLogic(player1Name, player1Choice, player2Name, player2Choice){
+        
+    for (let choice of permitted_choices){
+        if (player1Choice === choice){
+        
+            console.log(player2Name)
+
 
         // (SET WINNING CHOICES FOR GIVEN PLAYER INPUT)
         if (player1Choice === "Paper") {
@@ -152,27 +158,27 @@ function PRS() {
 
             
         
-        // if (player2Name === "Hal"){
-        //     player2Choice = "Paper"
-        // }
-        // else if (player2Name === "Morag"){
-        //     player2Choice = "Rock"
-        // }
-        // else if (player2Name === "Chris"){
-        //     player2Choice = cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)]
-        // }
-        // else if (player2Name === "Hannah"){
-        //     player2Choice = cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)]
-        // }
-        // else if (player2Name === "Zsolt"){
-        //     player2Choice = "Spock"
-        // }
-        // else if (player2Name === "Malcolm"){
-        //     player2Choice = cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)]
-        // }
-        // else if (player2Name === "Harrison"){
-        //     player2Choice = winningChoice
-        // }
+        if (player2Name === "Hal"){
+            player2Choice = "Paper"
+        }
+        else if (player2Name === "Eugene"){
+            player2Choice = "Rock"
+        }
+        else if (player2Name === "Chris"){
+            player2Choice = cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)]
+        }
+        else if (player2Name === "Hannah"){
+            player2Choice = cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)]
+        }
+        else if (player2Name === "Zsolt"){
+            player2Choice = "Spock"
+        }
+        else if (player2Name === "Malcolm"){
+            player2Choice = cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)]
+        }
+        else if (player2Name === "Harrison"){
+            player2Choice = winningChoice
+        }
         // setPlayerTwoGameChoice(player2Choice)
 
         
@@ -407,6 +413,9 @@ function PRS() {
                 declareResult(gameOutcome)
                 console.log(gameOutcome)
             }
+
+        }
+    }
     }
 
 
@@ -427,6 +436,14 @@ function PRS() {
                 />
                 <br></br>
                 <br></br>
+                <p>Play Against:</p>
+                <ul id="cpu-player-selector">
+
+                    {cpu_players.map((value, index) => (
+                        <button className="cpu-player-button" onClick={ handlePlayerTwoNameChange } key={index}>{value}</button>
+                    ))}
+
+                </ul>
 
                 {/* <label for="player_2_name">Player 2:</label>
                 <input type="select" name="player_2" id="player_2" placeholder="insert name here"

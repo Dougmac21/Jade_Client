@@ -36,6 +36,11 @@
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 2;
+    background-image: url(../assets/RPS.jpg);
+    border:4px solid gold;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #game-3 {

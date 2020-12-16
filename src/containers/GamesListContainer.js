@@ -8,8 +8,8 @@ function GamesListContainer() {
     return (
         <>
             <Header />
+            <div > <img src="/background.jpg" alt="" id="background"></img>
             <ul id="games-list">
-
 
                 <li className="games-list-item" id="game-1">
                     <img className="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
@@ -51,6 +51,7 @@ function GamesListContainer() {
                 </li>
 
             </ul>
+            </div>
             <Footer />
         </>
     );

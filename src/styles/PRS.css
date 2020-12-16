@@ -21,6 +21,16 @@ input {
     text-align: center;
 }
 
+.select-cpu-header {
+    font-size: smaller;
+}
+
+.select-cpu-choice {
+    font-size: 28px;
+    margin-left: 25px;
+    margin-right: 0px;
+}
+
 #player-one-weapon-input {
     height: 40px;
     width: 150px;

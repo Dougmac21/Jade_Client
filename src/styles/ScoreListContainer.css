@@ -110,3 +110,11 @@ text-align: center;
 li {
     color:white;
 }
+
+.score-list-container{
+background-image: url(../assets/sky.jpg);
+border:4px solid gold;
+background-size: auto;
+background-repeat: no-repeat;
+background-position: center;
+}

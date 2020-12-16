@@ -99,7 +99,7 @@ function ScoreListContainer() {
     return (
         <>
             <Header />
-            <div>
+            <div className="score-list-container">
             <img src="/background.jpg" alt="" id="background"/>
             <h2>HALL OF FAME</h2>
 

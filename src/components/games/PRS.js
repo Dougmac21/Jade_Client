@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 function PRS() {
 
     const url = "http://localhost:8080/scores?gamename=prs";
-    let PRSScores = [];
+    const postUrl = "http://localhost:8080/scores"
+    const [PRSScores, setPRSScores] = useState([]);
 
     useEffect(() => {
         fetchData()
@@ -20,18 +21,36 @@ function PRS() {
 
                 const fetchedScores = data.map(({ score }) => score);
                 console.log(fetchedScores);
-                PRSScores = fetchedScores;
+                setPRSScores(fetchedScores);
                 console.log(PRSScores);
             })
     }
 
 
-    async function handleScoreSubmit({ playerOneScore }) {
-        
-        const response = await fetch(url, {
+    async function handleScoreSubmit(event, { playerOneScore }) {
+        event.preventDefault()
+                
+        const response = await fetch(postUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ playerOneScore: playerOneScore })
+            body: JSON.stringify(
+                {
+    
+                    "player": {
+                        "id": 3,
+                        "name": "MR AWESOME JENKEN MANN",
+                        "password": "A",
+                        "arcade_play_time": 0
+                        },
+                    "game": {
+                        "id": 3,
+                        "name": "PRS",
+                        "total_play_time": 0
+                        },
+                    "score": playerOneScore,
+                    "date": "2020-12-99"
+                }
+            )
         });
         if (response) {
             fetchData()
@@ -44,10 +63,15 @@ function PRS() {
         return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
 
-    const [playerOneName, setPlayerOneName] = useState("")
-    const [playerTwoName, setPlayerTwoName] = useState("")
+    let playerOneName = "playerName"
+    let playerTwoName = "CPU"
     const [playerOneGameChoice, setPlayerOneGameChoice] = useState("")
-    const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
+    // const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
+    const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun"]
+
+    let playerTwoGameChoice = permitted_choices[Math.floor(Math.random() * permitted_choices.length)]
+
+
     const [playerOneScore, setPlayerOneScore] = useState(0)
     const [playerTwoScore, setPlayerTwoScore] = useState(0)
 
@@ -56,22 +80,22 @@ function PRS() {
 
 
 
-    const handlePlayerOneNameChange = (event) => {
-        setPlayerOneName(capitaliseFirstLetterOfString(event.target.value))
+    // const handlePlayerOneNameChange = (event) => {
+    //     setPlayerOneName(capitaliseFirstLetterOfString(event.target.value))
         // console.log(playerOneName)
-    }
-    const handlePlayerTwoNameChange = (event) => {
-        setPlayerTwoName(capitaliseFirstLetterOfString(event.target.value))
-        // console.log(playerTwoName)
-    }
+    // }
+    // const handlePlayerTwoNameChange = (event) => {
+    //     setPlayerTwoName(event.target.value)
+    //     console.log(playerTwoName)
+    // }
     const handlePlayerOneGameChoiceChange = (event) => {
         setPlayerOneGameChoice(capitaliseFirstLetterOfString(event.target.value))
-        // console.log(playerOneGameChoice)
+        console.log(playerOneGameChoice)
     }
-    const handlePlayerTwoGameChoiceChange = (event) => {
-        setPlayerTwoGameChoice(capitaliseFirstLetterOfString(event.target.value))
-        // console.log(playerTwoGameChoice)
-    }
+    // const handlePlayerTwoGameChoiceChange = (event) => {
+    //     setPlayerTwoGameChoice(capitaliseFirstLetterOfString(event.target.value))
+    //     console.log(playerTwoGameChoice)
+    // }
 
     const handleGameFormSubmit = (event) => {
         event.preventDefault()
@@ -83,11 +107,10 @@ function PRS() {
     }
 
     
-    const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun", ""]
     const cpu_player_malcolm_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock"]
     const cpu_player_hannah_choices = ["Scissors", "Rock"]    // Spock always beats Hannah
     const cpu_player_chris_choices = ["Paper", "Lizard"]      // Scissors always beats Chris
-    const cpu_players = ("Hal", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison")
+    const cpu_players = ["Hal", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
 
     function declareResult(result){
         return
@@ -125,34 +148,32 @@ function PRS() {
             // console.log(winningChoice)
         }
         
-        // (SELECT A CPU PLAYER)
-        // if (player2Name === "CPU"){
-        // setPlayerTwoName(cpu_players[Math.floor(Math.random() * cpu_players.length)])
+
             
         
-        //     if (player2Name === "Hal"){
-        //         player2Choice = "Paper"
-        //     }
-        //     else if (player2Name === "Morag"){
-        //         player2Choice = "Rock"
-        //     }
-        //     else if (player2Name === "Chris"){
-        //         player2Choice = cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)]
-        //     }
-        //     else if (player2Name === "Hannah"){
-        //         player2Choice = cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)]
-        //     }
-        //     else if (player2Name === "Zsolt"){
-        //         player2Choice = "Spock"
-        //     }
-        //     else if (player2Name === "Malcolm"){
-        //         player2Choice = cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)]
-        //     }
-        //     else if (player2Name === "Harrison"){
-        //         player2Choice = winningChoice
-        //     }
-        //     setPlayerTwoGameChoice(player2Choice)
+        // if (player2Name === "Hal"){
+        //     player2Choice = "Paper"
         // }
+        // else if (player2Name === "Morag"){
+        //     player2Choice = "Rock"
+        // }
+        // else if (player2Name === "Chris"){
+        //     player2Choice = cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)]
+        // }
+        // else if (player2Name === "Hannah"){
+        //     player2Choice = cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)]
+        // }
+        // else if (player2Name === "Zsolt"){
+        //     player2Choice = "Spock"
+        // }
+        // else if (player2Name === "Malcolm"){
+        //     player2Choice = cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)]
+        // }
+        // else if (player2Name === "Harrison"){
+        //     player2Choice = winningChoice
+        // }
+        // setPlayerTwoGameChoice(player2Choice)
+
         
 
         // for (let choice of permitted_choices){
@@ -394,11 +415,7 @@ function PRS() {
     
             <form className="game-form" onSubmit={ handleGameFormSubmit }>
 
-                <label for="player_1">Player 1:</label>
-                <input required type="text" name="player_1" id="player_1" placeholder="insert name here"
-                value={ playerOneName }
-                onChange={ handlePlayerOneNameChange }
-                />
+                <p>{ playerOneName }</p>
                 <span>{ playerOneScore }</span>
                 <br></br>
 
@@ -410,23 +427,31 @@ function PRS() {
                 <br></br>
                 <br></br>
 
-                <label for="player_2_name">Player 2:</label>
-                <input type="text" name="player_2" id="player_2" placeholder="insert name here"
+                {/* <label for="player_2_name">Player 2:</label>
+                <input type="select" name="player_2" id="player_2" placeholder="insert name here"
                 value={ playerTwoName }
                 onChange={ handlePlayerTwoNameChange }
                 />
                 <span>{ playerTwoScore }</span>
-                <br></br>
+                <br></br> */}
 
-                <label for="player_2_weapon">Weapon:</label>
+                {/* <select id="cpu-player-select">
+
+                    {cpu_players.map((value, index) => (
+                        <option onSelect={ handlePlayerTwoNameChange }key={index}>{value}</option>
+                    ))}
+
+                </select> */}
+
+                        
+
+                {/* <label for="player_2_weapon">Weapon:</label>
                 <input type="text" name="player_2_weapon" id="player_2_weapon" placeholder="select your weapon"
                 value={ playerTwoGameChoice }
                 onChange={ handlePlayerTwoGameChoiceChange }/>
                 <br></br>
-                <br></br>
+                <br></br> */}
 
-                <label for="cpu_player">CPU Player?</label>
-                <input type="checkbox" name="cpu_player?" id="cpu_player?"></input>
 
                 <br></br>
                 <input type="submit" value="Play Game!"/>
@@ -435,10 +460,20 @@ function PRS() {
                 <p>{ gameOutcome }</p>
                 <br></br>
                 <br></br>
+            </form>
 
+            <form>
                 <button onClick={ handleScoreSubmit }>Submit Score</button>
                 <hr></hr>
                 <br></br>
+
+                <ul id="scores-array">
+
+                    {PRSScores.map((value, index) => (
+                        <li key={index}>{value}</li>
+                    ))}
+
+                </ul>
 
             </form>
               

@@ -38,7 +38,7 @@ function PRS() {
                 {
     
                     "player": {
-
+                        "id": 3,
                         "name": "MR AWESOME JENKEN MANN",
                         "password": "A",
                         "arcade_play_time": 0

@@ -1,4 +1,7 @@
 .footer {
     display: flex;
     justify-content: center;
+    bottom: 0;
+    width: 100%;
+    margin-top: 100px;
 }

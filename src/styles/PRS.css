@@ -1,3 +1,48 @@
+div {
+    background-color: rgb(104, 104, 104);
+    text-align: center;
+}
+
 form {
     background-color: rgba(198, 198, 198, 0.481);
+    text-align: center;
+}
+
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
+
+#player-one-weapon-input {
+    height: 40px;
+    width: 150px;
+    border: olive;
+    border-width: 2px;
+}
+
+.submit-score-button{
+    height: 40px;
+    width: 100px;
+    margin-left: 25px;
+}
+
+.play-game-button{
+    height: 40px;
+    width: 100px;
+    margin-right: 25px;
+}
+
+.cpu-player-button {
+    height: 30px;
+    width: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
 }

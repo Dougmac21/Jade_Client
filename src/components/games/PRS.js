@@ -27,10 +27,14 @@ function PRS() {
     const [gameOutcome, setGameOutcome] = useState("")
 
     const [playerOneGameChoice, setPlayerOneGameChoice] = useState("")
-    // const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
+    const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
     const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun"]
+    const cpu_player_malcolm_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock"]
+    const cpu_player_hannah_choices = ["Scissors", "Rock"]    // Spock always beats Hannah
+    const cpu_player_chris_choices = ["Paper", "Lizard"]      // Scissors always beats Chris
+    const cpu_players = ["Hal", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
 
-    let playerTwoGameChoice = permitted_choices[Math.floor(Math.random() * permitted_choices.length)]
+    // let playerTwoGameChoice = permitted_choices[Math.floor(Math.random() * permitted_choices.length)]
 
     useEffect(() => {
         fetchPlayerData()
@@ -83,7 +87,8 @@ function PRS() {
             if (playerCheck === undefined){
                 console.log(playerNameToSubmit)
                 alert("Please input a valid username or register as a user")
-                return 
+                fetchScoreData()
+                return
             }
                 
 
@@ -119,47 +124,33 @@ function PRS() {
 
     // const handlePlayerOneNameChange = (event) => {
     //     setPlayerOneName(capitaliseFirstLetterOfString(event.target.value))
-    // console.log(playerOneName)
     // }
-    // const handlePlayerTwoNameChange = (event) => {
-    //     setPlayerTwoName(event.target.value)
-    //     console.log(playerTwoName)
-    // }
+    const handleCPUPlayerChoice = (event) => {
+        setPlayerTwoName(event.target.value)
+        console.log(event.target.value)
+    }
     const handlePlayerOneGameChoiceChange = (event) => {
         setPlayerOneGameChoice(capitaliseFirstLetterOfString(event.target.value))
-        console.log(playerOneGameChoice)
     }
     // const handlePlayerTwoGameChoiceChange = (event) => {
     //     setPlayerTwoGameChoice(capitaliseFirstLetterOfString(event.target.value))
-    //     console.log(playerTwoGameChoice)
     // }
+
 
     const handleGameFormSubmit = (event) => {
         event.preventDefault()
-        // console.log(playerOneName)
-        // console.log(playerTwoName)
-        // console.log(playerOneGameChoice)
-        // console.log(playerTwoGameChoice)
+        cpuPlayerLogic(playerTwoName)
         runGameLogic(playerOneName, playerOneGameChoice, playerTwoName, playerTwoGameChoice)
     }
 
-
-    const cpu_player_malcolm_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock"]
-    const cpu_player_hannah_choices = ["Scissors", "Rock"]    // Spock always beats Hannah
-    const cpu_player_chris_choices = ["Paper", "Lizard"]      // Scissors always beats Chris
-    const cpu_players = ["Hal", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
 
     function declareResult(result) {
         return
     }
 
-    function saveScore() {
-        return
-    }
 
-    function runGameLogic(player1Name, player1Choice, player2Name, player2Choice) {
+    function cpuPlayerLogic(player1Choice, player2Name){
 
-        // (SET WINNING CHOICES FOR GIVEN PLAYER INPUT)
         if (player1Choice === "Paper") {
             setWinningChoice("Scissors")
             // console.log(winningChoice)
@@ -185,31 +176,34 @@ function PRS() {
             // console.log(winningChoice)
         }
 
+        
+        if (player2Name === "Hal"){
+            setPlayerTwoGameChoice("Paper")
+        }
+        else if (player2Name === "Morag"){
+            setPlayerTwoGameChoice("Rock")
+        }
+        else if (player2Name === "Chris"){
+            setPlayerTwoGameChoice(cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)])
+        }
+        else if (player2Name === "Hannah"){
+            setPlayerTwoGameChoice(cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)])
+        }
+        else if (player2Name === "Zsolt"){
+            setPlayerTwoGameChoice("Spock")
+        }
+        else if (player2Name === "Malcolm"){
+            setPlayerTwoGameChoice(cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)])
+        }
+        else if (player2Name === "Harrison"){
+            setPlayerTwoGameChoice(winningChoice)
+        }
+    }
 
 
 
-        // if (player2Name === "Hal"){
-        //     player2Choice = "Paper"
-        // }
-        // else if (player2Name === "Morag"){
-        //     player2Choice = "Rock"
-        // }
-        // else if (player2Name === "Chris"){
-        //     player2Choice = cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)]
-        // }
-        // else if (player2Name === "Hannah"){
-        //     player2Choice = cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)]
-        // }
-        // else if (player2Name === "Zsolt"){
-        //     player2Choice = "Spock"
-        // }
-        // else if (player2Name === "Malcolm"){
-        //     player2Choice = cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)]
-        // }
-        // else if (player2Name === "Harrison"){
-        //     player2Choice = winningChoice
-        // }
-        // setPlayerTwoGameChoice(player2Choice)
+
+    function runGameLogic(player1Name, player1Choice, player2Name, player2Choice) {
 
 
 
@@ -449,63 +443,56 @@ function PRS() {
     return (
         <>
             <Header />
-            <h1>Paper Rock Scissors</h1>
+            <h1>Paper Rock Scissors Etc</h1>
+
+            <h4>Select Opponent:</h4>
+            <div onChange={handleCPUPlayerChoice}>
+
+                <input type="radio" value="Hal" name="gender" /> Hal
+                <input type="radio" value="Hannah" name="gender" /> Hannah
+                <input type="radio" value="Eugene" name="gender" /> Eugene
+                <input type="radio" value="Chris" name="gender" /> Chris
+                <input type="radio" value="Zsolt" name="gender" /> Zsolt
+                <input type="radio" value="Malcolm" name="gender" /> Malcolm
+                <input type="radio" value="Harrison" name="gender" /> Harrison
+
+            </div>
 
             <form className="game-form" onSubmit={handleGameFormSubmit}>
 
-                <h3>All-Time High Scores:</h3>
+                {/* <p>All-Time High Scores:</p>
+
                 <ul id="scores-array">
 
                     {PRSScores.slice(0, 5).map((value, index) => (
                         <li key={index}>{value}</li>
                     ))}
 
-                </ul>
+                </ul> */}
 
-                <p>{playerOneName}</p>
-                <p>Your Score: {playerOneScore}</p>
-                <br></br>
+                <p>Current Score: {playerOneScore}</p>
 
-                <label htmlFor="player_1_weapon">Weapon:</label>
-                <input required type="text" name="player_1_weapon" id="player_1_weapon" placeholder="select your weapon"
+
+                <input required type="text" name="player_1_weapon" id="player-one-weapon-input" placeholder="play choice..."
                     value={playerOneGameChoice}
                     onChange={handlePlayerOneGameChoiceChange}
                 />
-                <br></br>
 
-                {/* <label for="player_2_name">Player 2:</label>
-                <input type="select" name="player_2" id="player_2" placeholder="insert name here"
-                value={ playerTwoName }
-                onChange={ handlePlayerTwoNameChange }
-                />
-                <span>{ playerTwoScore }</span>
-                <br></br> */}
 
-                {/* <select id="cpu-player-select">
-
+                {/* <p>Play Against:</p>
+                <ul id="cpu-player-selector">
                     {cpu_players.map((value, index) => (
-                        <option onSelect={ handlePlayerTwoNameChange }key={index}>{value}</option>
+                        <button className="cpu-player-button" onClick={ handleCPUPlayerChoice } key={index}>{value}</button>
                     ))}
+                </ul> */}
 
-                </select> */}
+                <input type="submit" class="play-game-button" value="Play Game!" />
+                
+                <button class="submit-score-button" onClick={handleScoreSubmit}>Submit Score</button>
 
-
-                {/* <label for="player_2_weapon">Weapon:</label>
-                <input type="text" name="player_2_weapon" id="player_2_weapon" placeholder="select your weapon"
-                value={ playerTwoGameChoice }
-                onChange={ handlePlayerTwoGameChoiceChange }/>
-                <br></br>
-                <br></br> */}
-
-                <br></br>
-                <input type="submit" value="Play Game!" />
-                <br></br>
                 <p>{gameOutcome}</p>
-                <br></br>
-            </form>
 
-            <form>
-                <button onClick={handleScoreSubmit}>Submit Score</button>
+
             </form>
 
             <Footer />

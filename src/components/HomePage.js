@@ -9,7 +9,7 @@ function HomePage() {
                 <h1 id="jade-arcade">JADE ARCADE</h1>
                 <p id="start">
                     <Link to="/log-in" id="start-link">
-                        START
+                        START 
                     </Link>
                 </p>
             </div>

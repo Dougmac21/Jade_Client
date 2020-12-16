@@ -76,18 +76,18 @@
     opacity: 0;
     transition: .7s ease;
     background-color: grey;
-    opacity: 0.4;
     display: inline;
   }
   
 
   
-  .games-list-item:hover .overlay {
+  .games-list-item:hover .game-list-overlay {
     opacity: 0.9;
   }
 
   .text {
     color: rgb(255, 255, 255);
+    font-family: 'Press start 2P', cursive;
     font-size: 20px;
     position: absolute;
     top: 50%;

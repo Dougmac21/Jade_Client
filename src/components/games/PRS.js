@@ -1,18 +1,36 @@
 import { useEffect, useState } from 'react';
 import Header from '../Header'
 import Footer from '../Footer'
+import '../../styles/PRS.css';
+
 
 
 function PRS() {
+
+    function capitaliseFirstLetterOfString(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
 
     const scoreUrl = "http://localhost:8080/scores";
     const playerUrl = "http://localhost:8080/players";
 
     const [PRSScores, setPRSScores] = useState([]);
+    const [registeredPlayersList, setRegisteredPlayersList] = useState([])
+    const [registeredPasswordsList, setRegisteredPasswordsList] = useState([])
+    const [registeredPlayersObjectsList, setRegisteredPlayersObjectsList] = useState([])
 
-    let registeredPlayersList = [];
-    let registeredPasswordsList = [];
-    let registeredPlayersObjectsList = [];
+    const [playerOneName, setPlayerOneName] = useState("")
+    const [playerTwoName, setPlayerTwoName] = useState("")
+    const [playerOneScore, setPlayerOneScore] = useState(0)
+    const [playerTwoScore, setPlayerTwoScore] = useState(0)
+    const [winningChoice, setWinningChoice] = useState("")
+    const [gameOutcome, setGameOutcome] = useState("")
+
+    const [playerOneGameChoice, setPlayerOneGameChoice] = useState("")
+    // const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
+    const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun"]
+
+    let playerTwoGameChoice = permitted_choices[Math.floor(Math.random() * permitted_choices.length)]
 
     useEffect(() => {
         fetchPlayerData()
@@ -25,20 +43,14 @@ function PRS() {
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
-                const registeredPlayersObjects = [].concat(data);
-                // console.log(registeredPlayersObjects)
-                registeredPlayersObjectsList = registeredPlayersObjects;
-                console.log(registeredPlayersObjectsList);
+                setRegisteredPlayersObjectsList(data)
+                // console.log(registeredPlayersObjectsList);
 
-                const registeredPlayers = data.map(({ name }) => name);
-                console.log(registeredPlayers);
-                registeredPlayersList = registeredPlayers;
+                setRegisteredPlayersList(data.map(({ name }) => name))
                 console.log(registeredPlayersList);
 
-                const registeredPasswords = data.map(({ password }) => password);
-                // console.log(registeredPasswords);
-                registeredPasswordsList = registeredPasswords;
-                // console.log(registeredPasswordsList);
+                setRegisteredPasswordsList(data.map(({ password }) => password))
+                console.log(registeredPasswordsList);
             })
     }
 
@@ -47,35 +59,33 @@ function PRS() {
         fetch(scoreUrl + "?gamename=prs")
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-
-                const fetchedScores = data.map(({ score }) => score);
-                // console.log(fetchedScores);
-                setPRSScores(fetchedScores);
-                // console.log(PRSScores);
+                // console.log(data)
+                setPRSScores(data.map(({ score }) => score))
+                console.log(PRSScores);
             })
     }
-    console.log(registeredPlayersList)
 
     async function handleScoreSubmit(event) {
         event.preventDefault()
-        console.log({ playerOneScore })
+        setPlayerOneScore(playerOneScore)
+        console.log(playerOneScore)
 
         // if player id and player name is in the db then post to db
         // else alert them to create new player or enter valid player name 
 
-        const playerNameToSubmit = prompt("Please enter your name", "")
+        let playerNameToSubmit = prompt("Please enter your name")
         console.log(registeredPlayersList)
         console.log(playerNameToSubmit)
+        console.log(playerOneScore)
 
-        let playerIsRegistered = registeredPlayersList.includes(playerNameToSubmit)
-        if (playerIsRegistered === false){
-                debugger
-                console.log(playerIsRegistered)
+        let playerCheck = registeredPlayersList.find(element => element === playerNameToSubmit)
+
+            if (playerCheck === undefined){
+                console.log(playerNameToSubmit)
                 alert("Please input a valid username or register as a user")
                 return 
             }
-        
+                
 
         const response = await fetch(scoreUrl, {
             method: 'POST',
@@ -100,30 +110,10 @@ function PRS() {
             )
         });
         if (response) {
+            alert("Score saved!")
             fetchScoreData()
         }
     };
-
-
-
-    function capitaliseFirstLetterOfString(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-    }
-
-    const [playerOneName, setPlayerOneName] = useState(null)
-    let playerTwoName = "CPU"
-    const [playerOneGameChoice, setPlayerOneGameChoice] = useState("")
-    // const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
-    const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun"]
-
-    let playerTwoGameChoice = permitted_choices[Math.floor(Math.random() * permitted_choices.length)]
-
-
-    const [playerOneScore, setPlayerOneScore] = useState(0)
-    const [playerTwoScore, setPlayerTwoScore] = useState(0)
-
-    const [winningChoice, setWinningChoice] = useState("")
-    const [gameOutcome, setGameOutcome] = useState("")
 
 
 
@@ -463,16 +453,24 @@ function PRS() {
 
             <form className="game-form" onSubmit={handleGameFormSubmit}>
 
+                <h3>All-Time High Scores:</h3>
+                <ul id="scores-array">
+
+                    {PRSScores.slice(0, 5).map((value, index) => (
+                        <li key={index}>{value}</li>
+                    ))}
+
+                </ul>
+
                 <p>{playerOneName}</p>
-                <span>{playerOneScore}</span>
+                <p>Your Score: {playerOneScore}</p>
                 <br></br>
 
-                <label for="player_1_weapon">Weapon:</label>
+                <label htmlFor="player_1_weapon">Weapon:</label>
                 <input required type="text" name="player_1_weapon" id="player_1_weapon" placeholder="select your weapon"
                     value={playerOneGameChoice}
                     onChange={handlePlayerOneGameChoiceChange}
                 />
-                <br></br>
                 <br></br>
 
                 {/* <label for="player_2_name">Player 2:</label>
@@ -492,7 +490,6 @@ function PRS() {
                 </select> */}
 
 
-
                 {/* <label for="player_2_weapon">Weapon:</label>
                 <input type="text" name="player_2_weapon" id="player_2_weapon" placeholder="select your weapon"
                 value={ playerTwoGameChoice }
@@ -500,30 +497,17 @@ function PRS() {
                 <br></br>
                 <br></br> */}
 
-
                 <br></br>
                 <input type="submit" value="Play Game!" />
                 <br></br>
-                <br></br>
                 <p>{gameOutcome}</p>
-                <br></br>
                 <br></br>
             </form>
 
             <form>
                 <button onClick={handleScoreSubmit}>Submit Score</button>
-                <hr></hr>
-                <br></br>
-
-                <ul id="scores-array">
-
-                    {PRSScores.map((value, index) => (
-                        <li key={index}>{value}</li>
-                    ))}
-
-                </ul>
-
             </form>
+
             <Footer />
         </>
 

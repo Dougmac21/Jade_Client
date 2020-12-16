@@ -36,7 +36,7 @@ function GamesListContainer() {
                 </li>
                 <li className="games-list-item" id="game-5">
                     <div className="game-list-overlay">
-                        <div className="text">Play Spade Invaders!</div>
+                        <div className="text">Play Space Invaders!</div>
                     </div>
                 </li>
                 <li className="games-list-item" id="game-6">

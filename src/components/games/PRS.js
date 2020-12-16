@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 
 function PRS() {
 
-    const url = "http://localhost:8080/scores?gamename=prs";
-    const postUrl = "http://localhost:8080/scores"
+    const url = "http://localhost:8080/scores";
+
     const [PRSScores, setPRSScores] = useState([]);
 
     useEffect(() => {
@@ -14,7 +14,7 @@ function PRS() {
 
 
     function fetchData() {
-        fetch(url)
+        fetch(url + "?gamename=prs")
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -27,17 +27,18 @@ function PRS() {
     }
 
 
-    async function handleScoreSubmit(event, { playerOneScore }) {
+    async function handleScoreSubmit(event) {
         event.preventDefault()
+        console.log({playerOneScore})
                 
-        const response = await fetch(postUrl, {
+        const response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(
                 {
     
                     "player": {
-                        "id": 3,
+
                         "name": "MR AWESOME JENKEN MANN",
                         "password": "A",
                         "arcade_play_time": 0

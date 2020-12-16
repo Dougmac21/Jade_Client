@@ -1,3 +1,5 @@
+
+
 #jade-arcade {
     font-family: 'Astron Boy';
     color:white;
@@ -38,12 +40,10 @@
 }
 
 .container{
-    /* background-image: url("../assets/game landscape pink and blue jpg.jpg");
-    background-size: 100vw;
-    height: 100vh;
-    z-index: -2;
+    background-image: url("../assets/background.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-    object-fit: contain; */
+    object-fit: contain;
 }
 
 body{font-size: 280%; padding: 5%}

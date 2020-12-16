@@ -7,12 +7,13 @@ function GamesListContainer() {
 
     return (
         <>
+            <div className = 'games-list-container'>
             <Header />
-            <div > <img src="/background.jpg" alt="" id="background"/>
+            <div > 
             <ul id="games-list">
 
                 <li className="games-list-item" id="game-1">
-                    <img className="games-list-image" src="./assets/snakeimage2.jpeg" alt="snake logo"></img>
+                    <img className="games-list-image" src="/snakey.png" alt="snake logo"></img>
                     <div >
                         <a href="http://localhost:3000/games/snake" className="game-list-overlay">Play Snake</a>
                     </div>
@@ -53,6 +54,7 @@ function GamesListContainer() {
             </ul>
             </div>
             <Footer />
+            </div>
         </>
     );
 }

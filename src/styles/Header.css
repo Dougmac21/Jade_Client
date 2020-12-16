@@ -22,13 +22,13 @@
     0 0 40px rgba(207, 30, 242, 0.92),
     0 0 50px rgba(210, 83, 221, 0.78),
     0 0 80px rgba(232, 110, 236, 0.92);
-    background-color: aqua;
+    /* background-color: aqua; */
 
     
 }
-#header{
+/* #header{
     width: 100vw;
     z-index: -2;
     position: absolute;
     display: block;
-}
+} */

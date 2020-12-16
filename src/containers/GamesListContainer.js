@@ -12,7 +12,7 @@ function GamesListContainer() {
             <ul id="games-list">
 
                 <li className="games-list-item" id="game-1">
-                    <img className="games-list-image" src="snakeimage2.jpeg" alt="bear boi"></img>
+                    <img className="games-list-image" src="./assets/snakeimage2.jpeg" alt="snake logo"></img>
                     <div >
                         <a href="http://localhost:3000/games/snake" className="game-list-overlay">Play Snake</a>
                     </div>

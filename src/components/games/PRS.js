@@ -142,6 +142,12 @@ function PRS() {
         console.log(playerTwoName)
         console.log(playerOneGameChoice)
         cpuPlayerLogic(playerOneGameChoice, playerTwoName)
+        let playerCheck = permitted_choices.find(element => element === playerOneGameChoice)
+        if (playerCheck === undefined){
+            console.log(playerOneGameChoice + " IS NOT PERMITTED CHOICE")
+            alert("Permitted choices include: Paper, Rock, Scissors, Lizard, Spock")
+            return
+        }
         runGameLogic(playerOneName, playerOneGameChoice, playerTwoName, playerTwoGameChoice)
     }
 
@@ -150,6 +156,9 @@ function PRS() {
         return
     }
 
+
+
+    
 
     function cpuPlayerLogic(player1Choice, player2Name){
 

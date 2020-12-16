@@ -4,4 +4,9 @@
     bottom: 0;
     width: 100%;
     margin-top: 100px;
+    font-family: 'Press Start 2P', cursive;
+    color:white;
+}
+p {
+    color:white;
 }

@@ -1,5 +1,10 @@
+.games-list-container{
+  background: url(../assets/sky.jpg) no-repeat center center fixed;
+  background-size: cover
+}
+
 #games-list {
-        background-color: rgb(255, 255, 255);
+        /* background-color: rgb(255, 255, 255); */
         height: 100%;
         display: grid;
         justify-content: center;
@@ -18,6 +23,12 @@
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 2;
+    background-color: black;
+    background-image: url(../assets/snakegamecover.jpeg);
+    border:4px solid gold;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #game-2 {
@@ -57,13 +68,14 @@
 
 .games-list-item {
     position: relative;
+    display: inline;
   }
 
 .games-list-image {
   border-radius: 66px;
   }
 
-.overlay {
+.game-list-overlay {
     border-radius: 66px;
     position: absolute;
     top: 0;
@@ -74,18 +86,20 @@
     width: 100%;
     opacity: 0;
     transition: .7s ease;
-    background-color: rgb(130, 87, 198);
+    background-color: grey;
+    display: inline;
   }
   
 
   
-  .games-list-item:hover .overlay {
-    opacity: 1;
+  .games-list-item:hover .game-list-overlay {
+    opacity: 0.9;
   }
 
   .text {
     color: rgb(255, 255, 255);
-    font-size: 20px;
+    font-family: 'Press Start 2P', cursive;
+        font-size: 20px;
     position: absolute;
     top: 50%;
     left: 50%;

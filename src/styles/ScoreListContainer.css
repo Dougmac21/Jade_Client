@@ -1,5 +1,5 @@
 #scores-list {
-    background-color: rgb(255, 255, 255);
+    
     height: 100%;
     display: grid;
     justify-content: center;
@@ -72,7 +72,7 @@ h2 {
 }
 
 p {
-    color: black;
+    color: white;
 }
 
 .overlay {
@@ -86,7 +86,7 @@ height: 100%;
 width: 100%;
 opacity: 0;
 transition: .7s ease;
-background-color: rgb(130, 87, 198);
+background-color: grey;
 }
 
 
@@ -105,4 +105,8 @@ left: 50%;
 -ms-transform: translate(-50%, -50%);
 transform: translate(-50%, -50%);
 text-align: center;
+}
+
+li {
+    color:white;
 }

@@ -1,3 +1,5 @@
+
+
 #jade-arcade {
     font-family: 'Astron Boy';
     color:white;
@@ -7,12 +9,12 @@
     padding: 100px;
     z-index: 1;
     text-shadow: 
-    0 0 6px rgba(202,228,225,0.92),
-    0 0 30px rgba(202,228,225,0.34),
-    0 0 12px rgba(30,132,242,0.52),
-    0 0 21px rgba(30,132,242,0.92),
-    0 0 34px rgba(30,132,242,0.78),
-    0 0 54px rgba(30,132,242,0.92);
+    0 0 12px rgba(202,228,225,0.92),
+    0 0 60px rgba(98, 3, 117, 0.34),
+    0 0 20px rgba(116, 8, 143, 0.52),
+    0 0 40px rgba(207, 30, 242, 0.92),
+    0 0 50px rgba(210, 83, 221, 0.78),
+    0 0 80px rgba(232, 110, 236, 0.92);
 
     
 }
@@ -26,6 +28,7 @@
 }
 
 #start-link{
+    text-decoration: none;
     color:#00d9ff;
 }
 
@@ -37,10 +40,24 @@
 }
 
 .container{
-    /* background-image: url("../assets/game landscape pink and blue jpg.jpg");
-    background-size: 100vw;
-    height: 100vh;
-    z-index: -2;
+    background-image: url("../assets/background.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-    object-fit: contain; */
+    object-fit: contain;
+}
+
+body{font-size: 280%; padding: 5%}
+
+@keyframes blink {
+	0% {opacity: 0}
+	49%{opacity: 0}
+	50% {opacity: 1}
+}
+
+blink{animation: blink 1s infinite;}
+
+#blink{
+    font-size:150px;
+    margin:0;
+    padding:0;
 }

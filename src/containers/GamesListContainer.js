@@ -1,7 +1,6 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import PRS from '../components/games/PRS';
-import './GamesListContainer.css'
+import '../styles/GamesListContainer.css'
 
 function GamesListContainer() {
 
@@ -9,7 +8,6 @@ function GamesListContainer() {
     return (
         <>
             <Header />
-            <PRS />
             <ul id="games-list">
 
 

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-
+import Header from '../Header'
+import Footer from '../Footer'
 
 
 function PRS() {
@@ -29,25 +30,25 @@ function PRS() {
 
     async function handleScoreSubmit(event) {
         event.preventDefault()
-        console.log({playerOneScore})
-                
+        console.log({ playerOneScore })
+
         const response = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(
                 {
-    
+
                     "player": {
                         "id": 3,
                         "name": "MR AWESOME JENKEN MANN",
                         "password": "A",
                         "arcade_play_time": 0
-                        },
+                    },
                     "game": {
                         "id": 3,
                         "name": "PRS",
                         "total_play_time": 0
-                        },
+                    },
                     "score": playerOneScore,
                     "date": "2020-12-99"
                 }
@@ -60,7 +61,7 @@ function PRS() {
 
 
 
-    function capitaliseFirstLetterOfString(string){
+    function capitaliseFirstLetterOfString(string) {
         return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
 
@@ -83,7 +84,7 @@ function PRS() {
 
     // const handlePlayerOneNameChange = (event) => {
     //     setPlayerOneName(capitaliseFirstLetterOfString(event.target.value))
-        // console.log(playerOneName)
+    // console.log(playerOneName)
     // }
     // const handlePlayerTwoNameChange = (event) => {
     //     setPlayerTwoName(event.target.value)
@@ -107,51 +108,51 @@ function PRS() {
         runGameLogic(playerOneName, playerOneGameChoice, playerTwoName, playerTwoGameChoice)
     }
 
-    
+
     const cpu_player_malcolm_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock"]
     const cpu_player_hannah_choices = ["Scissors", "Rock"]    // Spock always beats Hannah
     const cpu_player_chris_choices = ["Paper", "Lizard"]      // Scissors always beats Chris
     const cpu_players = ["Hal", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
 
-    function declareResult(result){
+    function declareResult(result) {
         return
     }
 
-    function saveScore(){
+    function saveScore() {
         return
     }
 
-    function runGameLogic(player1Name, player1Choice, player2Name, player2Choice){
+    function runGameLogic(player1Name, player1Choice, player2Name, player2Choice) {
 
         // (SET WINNING CHOICES FOR GIVEN PLAYER INPUT)
         if (player1Choice === "Paper") {
             setWinningChoice("Scissors")
             // console.log(winningChoice)
         }
-        else if (player1Choice === "Rock"){
+        else if (player1Choice === "Rock") {
             setWinningChoice("Paper")
             // console.log(winningChoice)
         }
-        else if (player1Choice === "Scissors"){
+        else if (player1Choice === "Scissors") {
             setWinningChoice("Spock")
             // console.log(winningChoice)
         }
-        else if (player1Choice === "Lizard"){
+        else if (player1Choice === "Lizard") {
             setWinningChoice("Rock")
             // console.log(winningChoice)
         }
-        else if (player1Choice === "Spock"){
+        else if (player1Choice === "Spock") {
             setWinningChoice("Lizard")
             // console.log(`Winning choice is ${winningChoice}`)
         }
-        else if (player1Choice === "Shotgun"){
+        else if (player1Choice === "Shotgun") {
             setWinningChoice("Surrender")
             // console.log(winningChoice)
         }
-        
 
-            
-        
+
+
+
         // if (player2Name === "Hal"){
         //     player2Choice = "Paper"
         // }
@@ -175,7 +176,7 @@ function PRS() {
         // }
         // setPlayerTwoGameChoice(player2Choice)
 
-        
+
 
         // for (let choice of permitted_choices){
         //     if (player1Choice !==choice && player2Choice !==choice){
@@ -199,231 +200,232 @@ function PRS() {
         //         console.log(gameOutcome)
         //     }
         // } 
-    
 
-            if (player1Choice === "Paper" && player2Choice === "Rock"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Paper wraps Rock. ${player1Name} wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-                console.log(playerOneScore)
-            }
-            else if (player1Choice === "Paper" && player2Choice === "Scissors"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}.Scissors cut Paper.${player2Name} wins!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-                console.log(playerTwoScore)
-            }
-            else if (player1Choice === "Paper" && player2Choice === "Lizard"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard eats Paper. ${player2Name} Wins!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-                console.log(playerTwoScore)
-            }
-            else if (player1Choice === "Paper" && player2Choice === "Spock"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock is disproved by Paper. ${player1Name} Wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-                console.log(playerOneScore)
-            }
-            else if (player1Choice === "Paper" && player2Choice === "Shotgun"){
-                setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-                console.log(playerTwoScore)
-            }
-            else if (player1Choice === "Paper" && player2Choice === "Surrender"){
-                setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-                declareResult(gameOutcome)
-                console.log(playerTwoScore)
-            }
 
-                    // -----------------BREAKPOINT----------------- //
+        if (player1Choice === "Paper" && player2Choice === "Rock") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Paper wraps Rock. ${player1Name} wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+            console.log(playerOneScore)
+        }
+        else if (player1Choice === "Paper" && player2Choice === "Scissors") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}.Scissors cut Paper.${player2Name} wins!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+            console.log(playerTwoScore)
+        }
+        else if (player1Choice === "Paper" && player2Choice === "Lizard") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard eats Paper. ${player2Name} Wins!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+            console.log(playerTwoScore)
+        }
+        else if (player1Choice === "Paper" && player2Choice === "Spock") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock is disproved by Paper. ${player1Name} Wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+            console.log(playerOneScore)
+        }
+        else if (player1Choice === "Paper" && player2Choice === "Shotgun") {
+            setGameOutcome(`${player2Name} must pick from the permitted choices!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+            console.log(playerTwoScore)
+        }
+        else if (player1Choice === "Paper" && player2Choice === "Surrender") {
+            setGameOutcome(`${player2Name} must pick from the permitted choices!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+            declareResult(gameOutcome)
+            console.log(playerTwoScore)
+        }
 
-            else if (player1Choice === "Rock" && player2Choice === "Scissors"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Scissors. ${player1Name} wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Rock" && player2Choice === "Paper"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Paper wraps Rock. ${player2Name} wins!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Rock" && player2Choice === "Lizard"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Lizard. ${player1Name} wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Rock" && player2Choice === "Spock"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock vaporises Rock. ${player2Name} wins!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Rock" && player2Choice === "Shotgun"){
-                setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Rock" && player2Choice === "Surrender"){
-                setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            } 
+        // -----------------BREAKPOINT----------------- //
 
-                    // -----------------BREAKPOINT----------------- //
+        else if (player1Choice === "Rock" && player2Choice === "Scissors") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Scissors. ${player1Name} wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Rock" && player2Choice === "Paper") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Paper wraps Rock. ${player2Name} wins!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Rock" && player2Choice === "Lizard") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Lizard. ${player1Name} wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Rock" && player2Choice === "Spock") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock vaporises Rock. ${player2Name} wins!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Rock" && player2Choice === "Shotgun") {
+            setGameOutcome(`${player2Name} must pick from the permitted choices!`)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Rock" && player2Choice === "Surrender") {
+            setGameOutcome(`${player2Name} must pick from the permitted choices!`)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
 
-            else if (player2Choice === "Paper" && player1Choice === "Scissors"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Scissors cut Paper. ${player1Name} wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player2Choice === "Rock" && player1Choice === "Scissors"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Scissors. ${player2Name} wins!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }        
-            else if (player2Choice === "Lizard" && player1Choice === "Scissors"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard is decapitated by Scissors. ${player1Name} wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player2Choice === "Spock" && player1Choice === "Scissors"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock smashes Scissors. ${player2Name} wins!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player2Choice === "Shotgun"){
-                setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player2Choice === "Surrender"){
-                setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
+        // -----------------BREAKPOINT----------------- //
 
-                        // -----------------BREAKPOINT----------------- //
+        else if (player2Choice === "Paper" && player1Choice === "Scissors") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Scissors cut Paper. ${player1Name} wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player2Choice === "Rock" && player1Choice === "Scissors") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Scissors. ${player2Name} wins!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player2Choice === "Lizard" && player1Choice === "Scissors") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard is decapitated by Scissors. ${player1Name} wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player2Choice === "Spock" && player1Choice === "Scissors") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock smashes Scissors. ${player2Name} wins!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player2Choice === "Shotgun") {
+            setGameOutcome(`${player2Name} must pick from the permitted choices!`)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player2Choice === "Surrender") {
+            setGameOutcome(`${player2Name} must pick from the permitted choices!`)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
 
-            else if (player1Choice === "Lizard" && player2Choice === "Paper"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard eats Paper. ${player1Name} wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Lizard" && player2Choice === "Rock"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Lizard. ${player2Name} wins!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Lizard" && player2Choice === "Scissors"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Scissors decapitate Lizard. ${player2Name} wins!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Lizard" && player2Choice === "Spock"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard poisons Spock. ${player1Name} wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Lizard" && player2Choice === "Shotgun"){
-                setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Lizard" && player2Choice === "Surrender"){
-                setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
+        // -----------------BREAKPOINT----------------- //
 
-                   // -----------------BREAKPOINT----------------- //
+        else if (player1Choice === "Lizard" && player2Choice === "Paper") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard eats Paper. ${player1Name} wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Lizard" && player2Choice === "Rock") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Lizard. ${player2Name} wins!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Lizard" && player2Choice === "Scissors") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Scissors decapitate Lizard. ${player2Name} wins!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Lizard" && player2Choice === "Spock") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard poisons Spock. ${player1Name} wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Lizard" && player2Choice === "Shotgun") {
+            setGameOutcome(`${player2Name} must pick from the permitted choices!`)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Lizard" && player2Choice === "Surrender") {
+            setGameOutcome(`${player2Name} must pick from the permitted choices!`)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
 
-            else if (player1Choice === "Spock" && player2Choice === "Paper"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Paper disproves Spock. ${player2Name} wins!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Spock" && player2Choice === "Rock"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock vaporises Rock. ${player1Name} wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Spock" && player2Choice === "Scissors"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock smashes Scissors. ${player1Name} wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Spock" && player2Choice === "Lizard"){
-                setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard poisons Spock. ${player2Name} wins!`)
-                setPlayerTwoScore(playerTwoScore +1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            
-            else if (player1Choice === "Spock" && player2Choice === "Shotgun"){
-                setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Spock" && player2Choice === "Surrender"){
-                setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
+        // -----------------BREAKPOINT----------------- //
 
-                        // -----------------BREAKPOINT----------------- //
+        else if (player1Choice === "Spock" && player2Choice === "Paper") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Paper disproves Spock. ${player2Name} wins!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Spock" && player2Choice === "Rock") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock vaporises Rock. ${player1Name} wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Spock" && player2Choice === "Scissors") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock smashes Scissors. ${player1Name} wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Spock" && player2Choice === "Lizard") {
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard poisons Spock. ${player2Name} wins!`)
+            setPlayerTwoScore(playerTwoScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
 
-            else if (player1Choice === "Shotgun" && player2Name === "Harrison"){
-                setGameOutcome(`${player1Name} chose ${player1Choice} because ${player2Name} is cheating. ${player2Name} chose ${player2Choice}. ${player1Name} wins!`)
-                setPlayerOneScore(playerOneScore + 1)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
-            else if (player1Choice === "Shotgun" && player2Name !== "Harrison"){
-                setGameOutcome(`${player1Name} must pick from the permitted choices!`)
-                declareResult(gameOutcome)
-                console.log(gameOutcome)
-            }
+        else if (player1Choice === "Spock" && player2Choice === "Shotgun") {
+            setGameOutcome(`${player2Name} must pick from the permitted choices!`)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Spock" && player2Choice === "Surrender") {
+            setGameOutcome(`${player2Name} must pick from the permitted choices!`)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+
+        // -----------------BREAKPOINT----------------- //
+
+        else if (player1Choice === "Shotgun" && player2Name === "Harrison") {
+            setGameOutcome(`${player1Name} chose ${player1Choice} because ${player2Name} is cheating. ${player2Name} chose ${player2Choice}. ${player1Name} wins!`)
+            setPlayerOneScore(playerOneScore + 1)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
+        else if (player1Choice === "Shotgun" && player2Name !== "Harrison") {
+            setGameOutcome(`${player1Name} must pick from the permitted choices!`)
+            declareResult(gameOutcome)
+            console.log(gameOutcome)
+        }
     }
 
 
-    return(
+    return (
         <>
+            <Header />
             <h1>Paper Rock Scissors</h1>
-    
-            <form className="game-form" onSubmit={ handleGameFormSubmit }>
 
-                <p>{ playerOneName }</p>
-                <span>{ playerOneScore }</span>
+            <form className="game-form" onSubmit={handleGameFormSubmit}>
+
+                <p>{playerOneName}</p>
+                <span>{playerOneScore}</span>
                 <br></br>
 
                 <label for="player_1_weapon">Weapon:</label>
                 <input required type="text" name="player_1_weapon" id="player_1_weapon" placeholder="select your weapon"
-                value={ playerOneGameChoice }
-                onChange={ handlePlayerOneGameChoiceChange }
+                    value={playerOneGameChoice}
+                    onChange={handlePlayerOneGameChoiceChange}
                 />
                 <br></br>
                 <br></br>
@@ -444,7 +446,7 @@ function PRS() {
 
                 </select> */}
 
-                        
+
 
                 {/* <label for="player_2_weapon">Weapon:</label>
                 <input type="text" name="player_2_weapon" id="player_2_weapon" placeholder="select your weapon"
@@ -455,16 +457,16 @@ function PRS() {
 
 
                 <br></br>
-                <input type="submit" value="Play Game!"/>
+                <input type="submit" value="Play Game!" />
                 <br></br>
                 <br></br>
-                <p>{ gameOutcome }</p>
+                <p>{gameOutcome}</p>
                 <br></br>
                 <br></br>
             </form>
 
             <form>
-                <button onClick={ handleScoreSubmit }>Submit Score</button>
+                <button onClick={handleScoreSubmit}>Submit Score</button>
                 <hr></hr>
                 <br></br>
 
@@ -477,7 +479,8 @@ function PRS() {
                 </ul>
 
             </form>
-       </>     
+            <Footer />
+        </>
 
     )
 };

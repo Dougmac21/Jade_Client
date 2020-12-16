@@ -4,6 +4,7 @@ import GamesListContainer from './containers/GamesListContainer';
 import ScoreListContainer from './containers/ScoreListContainer';
 import PlayerController from './components/PlayerController';
 import Snake from './components/games/Snake';
+import PRS from './components/games/PRS';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/scores" component={ScoreListContainer} />
           <Route path="/log-in" component={PlayerController} />
           <Route path="/games/snake" component={Snake} />
+          <Route path="/games/PRS" component={PRS} />
         </>
       </Switch>
     </Router>

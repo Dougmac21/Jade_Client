@@ -3,10 +3,9 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useEffect, useState } from 'react';
-import './ScoreListContainer.css';
+import '../styles/ScoreListContainer.css';
 
 function ScoreListContainer() {
-
 
     const allScoresurl = "http://localhost:8080/scores";
     const [allTopScores, setAllTopScores] = useState([]);

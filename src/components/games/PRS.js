@@ -1,8 +1,8 @@
 function PRS() {
 
-    return(
+    return (
         <>
-        <p>PRS component</p>
+            <p>PRS component</p>
         </>
     )
 };

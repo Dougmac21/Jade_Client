@@ -21,6 +21,57 @@ function Snake() {
         }
     ]);
 
+    const url = "http://localhost:8080/scores?gamename=snake";
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
+    function fetchData() {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+
+                // const fetchedScores = data.map(({ score }) => score);
+                // console.log(fetchedScores);
+                // SnakeScores = fetchedScores;
+                // console.log(SnakeScores);
+            })
+    }
+
+    async function handleScoreSubmit(event) {
+        event.preventDefault()
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(
+                {
+                    "player": {
+                        "id": 1,
+                        "name": "Player One",
+                        "password": "A",
+                        "arcade_play_time": 0
+                    },
+                    "game": {
+                        "id": 1,
+                        "name": "Snake",
+                        "total_play_time": 0
+                    },
+                    "score": 5,
+                    "date": "2020-12-16"
+                }
+            )
+        },
+            setGame(true),
+            setGameOver(false)
+        );
+        if (response) {
+            fetchData()
+        }
+    };
+
     const reset = () => {
         speedRef.current = 100;
         setPoints(0)
@@ -64,7 +115,7 @@ function Snake() {
     const turn = useCallback(
         (dir, opp) => {
             let tempSnake = [...snake];
-            console.log(snake[0].part)
+            // console.log(snake[0].part)
             if (snake[0].part.length > 0 && direction !== opp && direction !== dir) {
                 setDirection(dir)
                 tempSnake.unshift({
@@ -243,7 +294,8 @@ function Snake() {
                         gameOver && <div className="game-splash" style={{ height: dim }}>
                             <h1>Game Over</h1>
                             <h2>Your score was {points}</h2>
-                            <button>Save Score</button>
+                            <button onClick={handleScoreSubmit}>Save Score</button>
+                            {/* <button>Save Score</button> */}
                             <button onClick={() => reset()}>Try Again</button>
                         </div>
                     }

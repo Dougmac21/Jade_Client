@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import Header from '../Header'
 import Footer from '../Footer'
+import PlayerController from '../PlayerController'
 import '../../styles/Snake.css';
 
-
 function Snake() {
+
     const [dim, setDim] = useState(0);
     const [chunk, setChunk] = useState(0);
     const [direction, setDirection] = useState('');
@@ -275,6 +276,7 @@ function Snake() {
     return (
         <>
             <Header />
+            <PlayerController/>
             <div className="snake-container" id="snake-container">
                 <div
                     className="game-border"

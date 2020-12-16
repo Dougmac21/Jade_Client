@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from '../Header'
 import Footer from '../Footer'
+import PlayerController from '../PlayerController'
 
 
 function PRS() {
@@ -414,6 +415,7 @@ function PRS() {
     return (
         <>
             <Header />
+            <PlayerController/>
             <h1>Paper Rock Scissors</h1>
 
             <form className="game-form" onSubmit={handleGameFormSubmit}>

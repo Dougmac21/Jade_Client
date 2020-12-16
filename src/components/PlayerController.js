@@ -1,6 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import '../styles/PlayerController.css'
 
 
@@ -12,6 +11,7 @@ function PlayerController() {
     let registeredPasswordsList = [];
     let registeredPlayersObjectsList = [];
 
+    const [loggedInPlayer, setLoggedInPlayer] = useState(null)
 
     useEffect(() => {
         fetchData()
@@ -44,6 +44,7 @@ function PlayerController() {
     async function handleNameSubmit(event) {
         event.preventDefault();
         const { name } = event.target.elements
+        console.log(name)
         const { password } = event.target.elements
 
         for (let anyName of registeredPlayersList) {
@@ -77,14 +78,14 @@ function PlayerController() {
     };
 
     function login(username) {
-        return
+        setLoggedInPlayer(username)
+
     }
 
 
 
     return (
         <>
-            <Header />
             <form onSubmit={handleNameSubmit} ref={formRef} id="arcade-login">
 
                 <p>Arcade Login</p>
@@ -98,7 +99,6 @@ function PlayerController() {
                     type="submit" value="Login" >
                 </input>
             </form>
-            <Footer />
         </>
     )
 };

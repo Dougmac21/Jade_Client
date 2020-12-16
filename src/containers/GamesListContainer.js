@@ -40,9 +40,8 @@ function GamesListContainer() {
                     </div>
                 </li>
                 <li className="games-list-item" id="game-6">
-                    <img className="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div className="game-list-overlay">
-                        <div className="text">Play Clicker</div>
+                        <div className="text">Play Clicker!</div>
                     </div>
                 </li>
 

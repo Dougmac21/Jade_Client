@@ -1,0 +1,95 @@
+@font-face {
+    font-family: PressStart2P;
+    src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap')
+  }
+  .grid {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    border-style: solid;
+  }
+  .snake-container {
+    text-align: center;
+  }
+  .game-border {
+    border: 5px red solid;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+  }
+  .point-bar {
+    margin: 5px auto;
+    text-align: right;
+  }
+  .game-splash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000d5;
+  }
+  .game-splash div, button {
+    margin: 20px 0;
+  }
+  .game-splash div {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 60px;
+    color: white;
+  }
+  .game-splash button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 3px solid darkred;
+    background-color: lightgrey;
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 25px;
+    transition: 0.5s;
+  }
+  .game-splash button:hover {
+    background-color: white;
+    cursor: pointer;
+    color: darkred;
+  }
+  .points-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: black;
+  }
+  .snake-mobile-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .snake-mobile-buttons div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+  }
+  .snake-mobile-buttons div button {
+    margin: 5px 100px;
+    padding: 8px 20px;
+    border-radius: 0;
+    border: 1px solid black;
+  }
+  h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 40px;
+    color: white;
+  }
+  h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: gold;
+  }

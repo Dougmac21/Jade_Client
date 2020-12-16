@@ -25,15 +25,13 @@ function GamesListContainer() {
                     </div>
                 </li>
                 <li className="games-list-item" id="game-3">
-                    <img className="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div className="game-list-overlay">
-                        <div className="text">Play Breakout</div>
+                        <div className="text">Play Breakout!</div>
                     </div>
                 </li>
                 <li className="games-list-item" id="game-4">
-                    <img className="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div className="game-list-overlay">
-                        <div className="text">Play PRS</div>
+                        <div className="text">Play Pacman!</div>
                     </div>
                 </li>
                 <li className="games-list-item" id="game-5">

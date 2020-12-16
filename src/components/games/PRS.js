@@ -5,43 +5,88 @@ import Footer from '../Footer'
 
 function PRS() {
 
-    const url = "http://localhost:8080/scores";
+    const scoreUrl = "http://localhost:8080/scores";
+    const playerUrl = "http://localhost:8080/players";
 
     const [PRSScores, setPRSScores] = useState([]);
 
+    let registeredPlayersList = [];
+    let registeredPasswordsList = [];
+    let registeredPlayersObjectsList = [];
+
     useEffect(() => {
-        fetchData()
+        fetchPlayerData()
+        fetchScoreData()
     }, [])
 
 
-    function fetchData() {
-        fetch(url + "?gamename=prs")
+    function fetchPlayerData() {
+        fetch(playerUrl)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                const registeredPlayersObjects = [].concat(data);
+                // console.log(registeredPlayersObjects)
+                registeredPlayersObjectsList = registeredPlayersObjects;
+                console.log(registeredPlayersObjectsList);
+
+                const registeredPlayers = data.map(({ name }) => name);
+                console.log(registeredPlayers);
+                registeredPlayersList = registeredPlayers;
+                console.log(registeredPlayersList);
+
+                const registeredPasswords = data.map(({ password }) => password);
+                // console.log(registeredPasswords);
+                registeredPasswordsList = registeredPasswords;
+                // console.log(registeredPasswordsList);
+            })
+    }
+
+    
+    function fetchScoreData() {
+        fetch(scoreUrl + "?gamename=prs")
             .then(res => res.json())
             .then(data => {
                 console.log(data)
 
                 const fetchedScores = data.map(({ score }) => score);
-                console.log(fetchedScores);
+                // console.log(fetchedScores);
                 setPRSScores(fetchedScores);
-                console.log(PRSScores);
+                // console.log(PRSScores);
             })
     }
-
+    console.log(registeredPlayersList)
 
     async function handleScoreSubmit(event) {
         event.preventDefault()
         console.log({ playerOneScore })
 
-        const response = await fetch(url, {
+        // if player id and player name is in the db then post to db
+        // else alert them to create new player or enter valid player name 
+
+        const playerNameToSubmit = prompt("Please enter your name", "")
+        console.log(registeredPlayersList)
+        console.log(playerNameToSubmit)
+
+        let playerIsRegistered = registeredPlayersList.includes(playerNameToSubmit)
+        if (playerIsRegistered === false){
+                debugger
+                console.log(playerIsRegistered)
+                alert("Please input a valid username or register as a user")
+                return 
+            }
+        
+
+        const response = await fetch(scoreUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(
                 {
 
                     "player": {
-                        "id": 3,
-                        "name": "MR AWESOME JENKEN MANN",
-                        "password": "A",
+                        "id": 1,
+                        "name": playerNameToSubmit,
+                        "password": "",
                         "arcade_play_time": 0
                     },
                     "game": {
@@ -55,7 +100,7 @@ function PRS() {
             )
         });
         if (response) {
-            fetchData()
+            fetchScoreData()
         }
     };
 
@@ -65,7 +110,7 @@ function PRS() {
         return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
 
-    let playerOneName = "playerName"
+    const [playerOneName, setPlayerOneName] = useState(null)
     let playerTwoName = "CPU"
     const [playerOneGameChoice, setPlayerOneGameChoice] = useState("")
     // const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")

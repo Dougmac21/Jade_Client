@@ -1,5 +1,5 @@
 #scores-list {
-    background-color: rgb(255, 255, 255);
+    
     height: 100%;
     display: grid;
     justify-content: center;
@@ -105,4 +105,8 @@ left: 50%;
 -ms-transform: translate(-50%, -50%);
 transform: translate(-50%, -50%);
 text-align: center;
+}
+
+li {
+    color:white;
 }

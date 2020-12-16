@@ -1,8 +1,28 @@
-.header-title {
+/* .header-title {
     font-style: italic;
     display: flex;
     justify-content: center;
-    background-color: aqua;
     margin: 0px;
-    padding: 20px;
+    padding: 0px;
+} */
+
+.header-title {
+    font-family: 'Astron Boy';
+    color:white;
+    text-align: center;
+    font-style: italic;
+    font-size: 180px;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    text-shadow: 
+    0 0 12px rgba(202,228,225,0.92),
+    0 0 60px rgba(98, 3, 117, 0.34),
+    0 0 20px rgba(116, 8, 143, 0.52),
+    0 0 40px rgba(207, 30, 242, 0.92),
+    0 0 50px rgba(210, 83, 221, 0.78),
+    0 0 80px rgba(232, 110, 236, 0.92);
+    background-color: aqua;
+
+    
 }

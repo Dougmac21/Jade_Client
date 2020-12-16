@@ -1,4 +1,4 @@
-ul {
+.navbar-list {
     list-style-type: none;
     margin:0;
     padding:0;
@@ -6,7 +6,7 @@ ul {
     justify-content: center;
 }
 
-li {
+.active {
     display:inline;
     color:white;
     text-align: center;
@@ -14,8 +14,8 @@ li {
 
 }
 
-li a:hover {
-    background-color:green;
+.active a:hover {
+    background-color:rgb(76, 184, 192);
   }
 
   /* .active {

@@ -57,13 +57,14 @@
 
 .games-list-item {
     position: relative;
+    display: inline;
   }
 
 .games-list-image {
   border-radius: 66px;
   }
 
-.overlay {
+.game-list-overlay {
     border-radius: 66px;
     position: absolute;
     top: 0;
@@ -74,13 +75,15 @@
     width: 100%;
     opacity: 0;
     transition: .7s ease;
-    background-color: rgb(130, 87, 198);
+    background-color: grey;
+    opacity: 0.4;
+    display: inline;
   }
   
 
   
   .games-list-item:hover .overlay {
-    opacity: 1;
+    opacity: 0.9;
   }
 
   .text {

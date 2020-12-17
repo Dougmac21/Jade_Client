@@ -32,7 +32,7 @@ function PRS() {
     const cpu_player_malcolm_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock"]
     const cpu_player_hannah_choices = ["Scissors", "Rock"]    // Spock always beats Hannah
     const cpu_player_chris_choices = ["Paper", "Lizard"]      // Scissors always beats Chris
-    const cpu_players = ["Hal", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
+    const cpu_players = ["Emily", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
 
 
     useEffect(() => {
@@ -182,7 +182,7 @@ function PRS() {
 
         // CONTINUING //
         
-        if (player2Name === "Hal"){
+        if (player2Name === "Emily"){
             setPlayerTwoGameChoice("Paper")
             // console.log(playerTwoGameChoice)
         }
@@ -445,7 +445,7 @@ function PRS() {
             <h4 className="select-cpu-header">Select CPU Player:</h4>
             <div className="select-cpu-choice" onChange={handleCPUPlayerChoice}>
 
-                <input className="select-cpu-choice" type="radio" value="Hal" name="gender" /> Hal
+                <input className="select-cpu-choice" type="radio" value="Emily" name="gender" /> Emily
                 <input className="select-cpu-choice" type="radio" value="Hannah" name="gender" /> Hannah
                 <input className="select-cpu-choice" type="radio" value="Eugene" name="gender" /> Eugene
                 <input className="select-cpu-choice" type="radio" value="Chris" name="gender" /> Chris

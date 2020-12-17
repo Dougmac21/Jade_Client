@@ -19,6 +19,7 @@
 }
 
 #game-1 {
+    border-radius: 5px;
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 2;
@@ -32,6 +33,7 @@
 }
 
 #game-2 {
+    border-radius: 5px;
     grid-column-start: 4;
     grid-column-end: 4;
     grid-row-start: 2;
@@ -45,6 +47,7 @@
 }
 
 #game-3 {
+    border-radius: 5px;
     grid-column-start: 6;
     grid-column-end: 6;
     grid-row-start: 2;
@@ -58,6 +61,7 @@
 }
 
 #game-4 {
+    border-radius: 5px;
     grid-column-start: 2;
     grid-column-end: 2;
     grid-row-start: 4;
@@ -71,6 +75,7 @@
 }
 
 #game-5 {
+  border-radius: 5px;
   grid-column-start: 4;
   grid-column-end: 4;
   grid-row-start: 4;
@@ -84,6 +89,7 @@
 }
 
 #game-6 {
+  border-radius: 5px;
   grid-column-start: 6;
   grid-column-end: 6;
   grid-row-start: 4;
@@ -106,6 +112,7 @@
 
 .game-list-overlay {
     /* background-image: url(../assets/lock.png); */
+    border-radius: 5px;
     background-repeat: no-repeat;
     align-items: center;
     position: absolute; 

@@ -24,6 +24,14 @@ function ScoreListContainer() {
     const [topShooterScores, setTopShooterScores] = useState([]);
     const [topSnakeScores, setTopSnakeScores] = useState([]);
 
+    const [topBreakoutScoresName, setTopBreakoutScoresName] = useState([]);
+    const [topFroggerScoresName, setTopFroggerScoresName] = useState([]);
+    const [topPRSScoresName, setTopPRSScoresName] = useState([]);
+    const [topRunnerScoresName, setTopRunnerScoresName] = useState([]);
+    const [topShooterScoresName, setTopShooterScoresName] = useState([]);
+    const [topSnakeScoresName, setTopSnakeScoresName] = useState([]);
+
+
 
 
     useEffect(() => {
@@ -51,6 +59,7 @@ function ScoreListContainer() {
             .then(res => res.json())
             .then(data => {
                 setTopBreakoutScores(data.slice(0, 5).map(({ score }) => (score)))
+                setTopBreakoutScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
             })
     }
 
@@ -59,6 +68,7 @@ function ScoreListContainer() {
             .then(res => res.json())
             .then(data => {
                 setTopFroggerScores(data.slice(0, 5).map(({ score }) => (score)))
+                setTopFroggerScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
             })
     }
 
@@ -67,6 +77,7 @@ function ScoreListContainer() {
             .then(res => res.json())
             .then(data => {
                 setTopPRSScores(data.slice(0, 5).map(({ score }) => (score)))
+                setTopPRSScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
             })
     }
 
@@ -75,6 +86,7 @@ function ScoreListContainer() {
             .then(res => res.json())
             .then(data => {
                 setTopRunnerScores(data.slice(0, 5).map(({ score }) => (score)))
+                setTopRunnerScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
             })
     }
 
@@ -83,6 +95,7 @@ function ScoreListContainer() {
             .then(res => res.json())
             .then(data => {
                 setTopShooterScores(data.slice(0, 5).map(({ score }) => (score)))
+                setTopShooterScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
             })
     }
 
@@ -91,10 +104,9 @@ function ScoreListContainer() {
             .then(res => res.json())
             .then(data => {
                 setTopSnakeScores(data.slice(0, 5).map(({ score }) => (score)))
+                setTopSnakeScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
             })
     }
-
-    // const testArray = [1, "2", 3, "4", "5", "banana"];
 
     return (
         <>
@@ -103,72 +115,104 @@ function ScoreListContainer() {
                 <h2 id="hall-of-fame">HALL OF FAME</h2>
 
                 <ul id="scores-list">
-                    <li class="scores-list-item" id="scores-1">
+                    <li id="scores-1">
                         <p className="game-title">
                             <a href="http://localhost:3000/games/snake">SNAKES</a>
                         </p>
-                        <ul id="test-array">
-
-                            {topSnakeScores.map((value, index) => (
-                                <li key={index}>{value}</li>
-                            ))}
-                        </ul>
+                        <div className="scores-grid" id="test-array">
+                            <ul id="test-array">
+                                {topSnakeScoresName.map((value, index) => (
+                                    <li key={index}>{value}:</li>
+                                ))}
+                            </ul>
+                            <ul id="test-array">
+                                {topSnakeScores.map((value, index) => (
+                                    <li key={index}>{value}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </li>
 
-                    <li class="scores-list-item" id="scores-2">
+                    <li id="scores-2">
                         <p className="game-title">BREAKOUT</p>
-                        <ul id="test-array">
-                            {topBreakoutScores.map((value, index) => (
-                                <li key={index}>{value}</li>
-                            ))}
-                        </ul>
+                        <div className="scores-grid" id="test-array">
+                            <ul id="test-array">
+                                {topBreakoutScoresName.map((value, index) => (
+                                    <li key={index}>{value}:</li>
+                                ))}
+                            </ul>
+                            <ul id="test-array">
+                                {topBreakoutScores.map((value, index) => (
+                                    <li key={index}>{value}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </li>
 
-                    <li class="scores-list-item" id="scores-3">
+                    <li id="scores-3">
                         <p className="game-title">RUNNER</p>
-                        <ul id="test-array">
-
-                            {topRunnerScores.map((value, index) => (
-                                <li key={index}>{value}</li>
-                            ))}
-
-                        </ul>
+                        <div className="scores-grid" id="test-array">
+                            <ul id="test-array">
+                                {topRunnerScoresName.map((value, index) => (
+                                    <li key={index}>{value}:</li>
+                                ))}
+                            </ul>
+                            <ul id="test-array">
+                                {topRunnerScores.map((value, index) => (
+                                    <li key={index}>{value}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </li>
 
-                    <li class="scores-list-item" id="scores-4">
+                    <li id="scores-4">
                         <p className="game-title">FROGGER</p>
-                        <ul id="test-array">
-
-                            {topFroggerScores.map((value, index) => (
-                                <li key={index}>{value}</li>
-                            ))}
-
-                        </ul>
+                        <div className="scores-grid" id="test-array">
+                            <ul id="test-array">
+                                {topFroggerScoresName.map((value, index) => (
+                                    <li key={index}>{value}:</li>
+                                ))}
+                            </ul>
+                            <ul id="test-array">
+                                {topFroggerScores.map((value, index) => (
+                                    <li key={index}>{value}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </li>
 
-                    <li class="scores-list-item" id="scores-5">
+                    <li id="scores-5">
                         <p className="game-title">SHOOTER</p>
-                        <ul id="test-array">
-
-                            {topShooterScores.map((value, index) => (
-                                <li key={index}>{value}</li>
-                            ))}
-
-                        </ul>
+                        <div className="scores-grid" id="test-array">
+                            <ul id="test-array">
+                                {topShooterScoresName.map((value, index) => (
+                                    <li key={index}>{value}:</li>
+                                ))}
+                            </ul>
+                            <ul id="test-array">
+                                {topShooterScores.map((value, index) => (
+                                    <li key={index}>{value}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </li>
 
-                    <li class="scores-list-item" id="scores-6">
-                        {/* <p>PAPER, ROCK, SCISSORS</p> */}
+                    <li id="scores-6">
                         <p className="game-title">
                             <a href="http://localhost:3000/games/prs">ROCK, PAPER, SCISSORS</a>
                         </p>
-                        <ul id="test-array">
-
-                            {topPRSScores.map((value, index) => (
-                                <li key={index}>{value}</li>
-                            ))}
-
-                        </ul>
+                        <div className="scores-grid" id="test-array">
+                            <ul id="test-array">
+                                {topPRSScoresName.map((value, index) => (
+                                    <li key={index}>{value}:</li>
+                                ))}
+                            </ul>
+                            <ul id="test-array">
+                                {topPRSScores.map((value, index) => (
+                                    <li key={index}>{value}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </li>
                 </ul>
                 <Footer />

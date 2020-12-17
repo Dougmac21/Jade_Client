@@ -116,3 +116,8 @@ a{
 a:hover{
     color: gold
 }
+
+.scores-grid{
+    display: flex;
+    justify-content: center;
+}

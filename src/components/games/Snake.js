@@ -124,8 +124,6 @@ function Snake() {
         }
     };
 
-    
-
     const reset = () => {
         speedRef.current = 100;
         setPoints(0)
@@ -194,8 +192,6 @@ function Snake() {
 
 
 
-
-
             let audioContext = new AudioContext();
 
             function generateSound(amplitude, frequency, duration) {          //amplitude from 0 to 100, frequency in Hz, duration in milliseconds
@@ -209,11 +205,10 @@ function Snake() {
                 oscillator.start(audioContext.currentTime);
                 oscillator.stop(audioContext.currentTime+duration/1000);
             }
-        
-            generateSound(40, 120, 80);
-        
-
-
+    
+            
+            generateSound(80, 120, 90);
+            
 
 
 
@@ -252,7 +247,6 @@ function Snake() {
             speedRef.current = speedRef.current - 2
             setSnake(sneak)
             setFruit(Math.floor(Math.random() * Math.floor(400)))
-
         }
         //gameover if you eat your tail
         let totalArr = [];
@@ -351,13 +345,9 @@ function Snake() {
     }, [turn, width, dim, chunk, snake, direction, points, fruit, game])
 
 
-
-
-
-    
     return (
         <>
-            <div className="snake-background">
+            
             <Header />
             <br/>
             <h1 id="header">SNAKE</h1>
@@ -404,7 +394,6 @@ function Snake() {
                 </div>
             </div>
             <Footer />
-            </div>
         </>
     )
 

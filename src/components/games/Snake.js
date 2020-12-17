@@ -324,6 +324,7 @@ function Snake() {
 
     return (
         <>
+            
             <Header />
             <br/>
             <h1 id="header">SNAKE</h1>

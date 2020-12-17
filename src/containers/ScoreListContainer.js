@@ -98,55 +98,34 @@ function ScoreListContainer() {
 
     return (
         <>
-        <div className="score-list-container">
-            <Header />
-            
-            <img src="/background.jpg" alt="" id="background"/>
-            <h2>HALL OF FAME</h2>
+            <div className="score-list-container">
+                <Header />
+                <h2 id="hall-of-fame">HALL OF FAME</h2>
 
-            <ul id="scores-list">
-
-                <li class="scores-list-item" id="scores-1">
-                    <p> SNAKE </p>
-
-                    <>
+                <ul id="scores-list">
+                    <li class="scores-list-item" id="scores-1">
+                        <p className="game-title">
+                            <a href="http://localhost:3000/games/snake">SNAKES</a>
+                        </p>
                         <ul id="test-array">
 
                             {topSnakeScores.map((value, index) => (
                                 <li key={index}>{value}</li>
                             ))}
-
                         </ul>
-                    </>
+                    </li>
 
-                    <div class="overlay">
-                    <i class="fas fa-lock"></i>
-                        <div class="text">See All Scores</div>
-                    </div>
-                </li>
-
-                <li class="scores-list-item" id="scores-2">
-                    <p> BREAKOUT </p>
-
-                    <>
+                    <li class="scores-list-item" id="scores-2">
+                        <p className="game-title">BREAKOUT</p>
                         <ul id="test-array">
-
                             {topBreakoutScores.map((value, index) => (
                                 <li key={index}>{value}</li>
                             ))}
-
                         </ul>
-                    </>
+                    </li>
 
-                    <div class="overlay">
-                        <div class="text">See All Scores</div>
-                    </div>
-                </li>
-
-                <li class="scores-list-item" id="scores-3">
-                    <p> RUNNER </p>
-
-                    <>
+                    <li class="scores-list-item" id="scores-3">
+                        <p className="game-title">RUNNER</p>
                         <ul id="test-array">
 
                             {topRunnerScores.map((value, index) => (
@@ -154,17 +133,10 @@ function ScoreListContainer() {
                             ))}
 
                         </ul>
-                    </>
+                    </li>
 
-                    <div class="overlay">
-                        <div class="text">See All Scores</div>
-                    </div>
-                </li>
-
-                <li class="scores-list-item" id="scores-4">
-                    <p> FROGGER </p>
-
-                    <>
+                    <li class="scores-list-item" id="scores-4">
+                        <p className="game-title">FROGGER</p>
                         <ul id="test-array">
 
                             {topFroggerScores.map((value, index) => (
@@ -172,17 +144,10 @@ function ScoreListContainer() {
                             ))}
 
                         </ul>
-                    </>
+                    </li>
 
-                    <div class="overlay">
-                        <div class="text">See All Scores</div>
-                    </div>
-                </li>
-
-                <li class="scores-list-item" id="scores-5">
-                    <p> SHOOTER </p>
-
-                    <>
+                    <li class="scores-list-item" id="scores-5">
+                        <p className="game-title">SHOOTER</p>
                         <ul id="test-array">
 
                             {topShooterScores.map((value, index) => (
@@ -190,17 +155,13 @@ function ScoreListContainer() {
                             ))}
 
                         </ul>
-                    </>
+                    </li>
 
-                    <div class="overlay">
-                        <div class="text">See All Scores</div>
-                    </div>
-                </li>
-
-                <li class="scores-list-item" id="scores-6">
-                    <p> PAPER ROCK SCISSORS </p>
-
-                    <>
+                    <li class="scores-list-item" id="scores-6">
+                        {/* <p>PAPER, ROCK, SCISSORS</p> */}
+                        <p className="game-title">
+                            <a href="http://localhost:3000/games/prs">ROCK, PAPER, SCISSORS</a>
+                        </p>
                         <ul id="test-array">
 
                             {topPRSScores.map((value, index) => (
@@ -208,17 +169,9 @@ function ScoreListContainer() {
                             ))}
 
                         </ul>
-                    </>
-
-                    <div class="overlay">
-                        <div class="text">See All Scores</div>
-                    </div>
-                </li>
-
-
-            </ul>
-            
-            <Footer />
+                    </li>
+                </ul>
+                <Footer />
             </div>
         </>
     )

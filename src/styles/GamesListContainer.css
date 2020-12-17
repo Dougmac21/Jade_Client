@@ -118,14 +118,17 @@
     width: 100%;
     opacity: 0;
     transition: .7s ease;
-    background-color: rgba(239, 159, 241, 0.92);
-    /* text-shadow:  */
-    /* 0 0 12px rgba(202,228,225,0.92), */
-    /* 0 0 60px rgba(98, 3, 117, 0.34), */
-    /* 0 0 20px rgba(116, 8, 143, 0.52); */
-    /* 0 0 40px rgba(207, 30, 242, 0.92); */
-    /* 0 0 50px rgba(210, 83, 221, 0.78); */
-    /* 0 0 80px rgba(232, 110, 236, 0.92); */
+    background-color: #38125c;
+    box-shadow: #8a43cc;
+    /* background-color: rgba(232, 162, 233, 0.92); */
+    text-shadow: 
+    0 0 12px rgba(202,228,225,0.92),
+    0 0 60px rgba(98, 3, 117, 0.34),
+    0 0 20px rgba(116, 8, 143, 0.52),
+    0 0 40px rgba(207, 30, 242, 0.92),
+    0 0 50px rgba(210, 83, 221, 0.78),
+    0 0 80px rgba(232, 110, 236, 0.92);
+    box-shadow: 0px 0px 6px 2px rgba(232, 162, 233, 0.92);
     color: rgb(255, 255, 255);
     font-family: 'Press Start 2P', cursive;
     font-size: 20px; 
@@ -144,29 +147,3 @@
   .games-list-item:hover .game-list-overlay {
     opacity: 0.9;
   }
-
-  .text {
-    color: rgb(255, 255, 255);
-    font-family: 'Press Start 2P', cursive;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-
-  /* .game-list-overlay > a {
-    color: rgb(255, 255, 255);
-    font-family: 'Press Start 2P', cursive;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-  } */

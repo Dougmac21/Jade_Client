@@ -29,29 +29,29 @@ function GamesListContainer() {
 
 
                 <li className="games-list-item" id="game-3">
-                    {/* <div className="game-list-overlay"> */}
-                        <div className="game-list-overlay">Play Breakout!</div>
-                    {/* </div> */}
+                    <div className="game-list-overlay">
+                        <p>Play Breakout!</p>
+                    </div>
                 </li>
 
 
                 <li className="games-list-item" id="game-4">
                     <div className="game-list-overlay">
-                        <div className="text">Play Pacman!</div>
+                        <p>Play Pacman!</p>
                     </div>
                 </li>
 
 
                 <li className="games-list-item" id="game-5">
                     <div className="game-list-overlay">
-                        <div className="text">Play Space Invaders!</div>
+                        <p>Play Space Invaders!</p>
                     </div>
                 </li>
 
 
                 <li className="games-list-item" id="game-6">
                     <div className="game-list-overlay">
-                        <div className="text">Play Clicker!</div>
+                        <p>Play Clicker!</p>
                     </div>
                 </li>
 

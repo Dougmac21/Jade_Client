@@ -504,16 +504,16 @@ function PRS() {
 
 
                 <br></br>
-                <input type="submit" value="Play Game!" />
+                <input className="prs-button" type="submit" value="Play Game!" />
                 <br></br>
                 <br></br>
-                <p>{gameOutcome}</p>
+                <p className="prs-text">{gameOutcome}</p>
                 <br></br>
                 <br></br>
             </form>
 
             <form>
-                <button onClick={handleScoreSubmit}>Submit Score</button>
+                <button className="prs-button" onClick={handleScoreSubmit}>Submit Score</button>
                 <hr></hr>
                 <br></br>
 

@@ -51,21 +51,25 @@ function Breakout() {
 
     return(
         <>
-            <Header />
+            <div className="breakout-page-container">
+                <Header />
+                <br/>
+                <h1 id="header">Breakout</h1>
+                <br/>
+                    <div align="center" className="breakout-container">
 
-            <div align="center" className="breakout-container">
+                        <iframe
+                        class="inline-frame-breakout"
+                        id="breakout-frame"
+                        title="Inline Frame Breakout"
+                        width="540"
+                        height="500"
+                        src="https://lod-js-breakout.herokuapp.com/" >
+                        </iframe>
 
-                <iframe
-                class="inline-frame-breakout"
-                id="breakout-frame"
-                title="Inline Frame Breakout"
-                width="540"
-                height="500"
-                src="https://lod-js-breakout.herokuapp.com/" >
-                </iframe>
-
+                    </div>
+                <Footer />
             </div>
-            <Footer />
         </>
     )
 

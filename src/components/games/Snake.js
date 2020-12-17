@@ -325,7 +325,9 @@ function Snake() {
     return (
         <>
             <Header />
+            <br/>
             <h1 id="header">SNAKE</h1>
+            <br/>
             <div className="snake-container" id="snake-container">
                 <div
                     className="game-border"

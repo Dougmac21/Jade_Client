@@ -124,6 +124,8 @@ function Snake() {
         }
     };
 
+    
+
     const reset = () => {
         speedRef.current = 100;
         setPoints(0)
@@ -189,6 +191,32 @@ function Snake() {
         setChunk(dim / 20)
         //points and get longer after eating
         if (snake[0].part[0] === fruit) {
+
+
+
+
+
+            let audioContext = new AudioContext();
+
+            function generateSound(amplitude, frequency, duration) {          //amplitude from 0 to 100, frequency in Hz, duration in milliseconds
+                if (!audioContext) return;
+                let oscillator = audioContext.createOscillator();
+                let gain = audioContext.createGain();
+                oscillator.connect(gain);
+                oscillator.value = frequency;
+                gain.connect(audioContext.destination);
+                gain.gain.value = amplitude/100;
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime+duration/1000);
+            }
+        
+            generateSound(40, 120, 80);
+        
+
+
+
+
+
             setPoints(points + 1)
             let sneak = [...snake];
             let firstSection = sneak[0]
@@ -224,6 +252,7 @@ function Snake() {
             speedRef.current = speedRef.current - 2
             setSnake(sneak)
             setFruit(Math.floor(Math.random() * Math.floor(400)))
+
         }
         //gameover if you eat your tail
         let totalArr = [];
@@ -322,6 +351,10 @@ function Snake() {
     }, [turn, width, dim, chunk, snake, direction, points, fruit, game])
 
 
+
+
+
+    
     return (
         <>
             <Header />

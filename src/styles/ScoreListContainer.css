@@ -87,7 +87,12 @@ width: 100%;
 opacity: 0;
 transition: .7s ease;
 background-color: grey;
+/* background-image:url('./assets/padlock3.png'); */
 }
+
+.fa-user:hover {
+    color: #eee;
+  }
 
 
 
@@ -109,4 +114,12 @@ text-align: center;
 
 li {
     color:white;
+}
+
+.score-list-container{
+background-image: url(../assets/sun.jpg);
+border:4px solid gold;
+background-size: auto;
+background-repeat: no-repeat;
+background-position: center;
 }

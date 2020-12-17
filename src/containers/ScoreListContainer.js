@@ -119,6 +119,7 @@ function ScoreListContainer() {
                     </>
 
                     <div class="overlay">
+                    <i class="fas fa-lock"></i>
                         <div class="text">See All Scores</div>
                     </div>
                 </li>

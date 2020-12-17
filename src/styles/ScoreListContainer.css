@@ -90,6 +90,10 @@ background-color: grey;
 /* background-image:url('./assets/padlock3.png'); */
 }
 
+.fa-user:hover {
+    color: #eee;
+  }
+
 
 
 .scores-list-item:hover .overlay {

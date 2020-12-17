@@ -68,6 +68,7 @@ input {
     font-size: 15px;
     padding-left: none;
     color: gold;
+    text-align: center;
 }
 
 #player-one-weapon-input {

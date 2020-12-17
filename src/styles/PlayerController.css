@@ -1,3 +1,10 @@
 #arcade-login{
     text-align: center;
 }
+
+.player-controller{
+    background-image: url("../assets/sky.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: contain;
+}

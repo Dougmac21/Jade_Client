@@ -14,7 +14,7 @@ function GamesListContainer() {
 
                 <li className="games-list-item" id="game-1">
                     <a href="http://localhost:3000/games/snake">
-                        <div className="game-list-overlay">
+                        <div className="unlocked-game-list-overlay">
 
                             <p>Play Snake!</p>
 
@@ -24,7 +24,7 @@ function GamesListContainer() {
 
                 <li className="games-list-item" id="game-2">
                 <a href="http://localhost:3000/games/PRS">
-                        <div className="game-list-overlay">
+                        <div className="unlocked-game-list-overlay">
                             <p>Play Paper Rock Scissors!</p>
                         </div>
                     </a>

@@ -13,8 +13,9 @@ function GamesListContainer() {
             <ul id="games-list">
 
                 <li className="games-list-item" id="game-1">
-                    <div >
-                        <a href="http://localhost:3000/games/snake" className="game-list-overlay">Play Snake!</a>
+                    <div className="game-list-overlay">
+                        <a href="http://localhost:3000/games/snake" ></a>
+                        <p >Play Snake!</p>
                     </div>
                 </li>
 
@@ -24,21 +25,29 @@ function GamesListContainer() {
                         <a href="http://localhost:3000/games/PRS" className="game-list-overlay">Play Paper Rock Scissors!</a>
                     </div>
                 </li>
+
+
                 <li className="games-list-item" id="game-3">
-                    <div className="game-list-overlay">
-                        <div className="text">Play Breakout!</div>
-                    </div>
+                    {/* <div className="game-list-overlay"> */}
+                        <div className="game-list-overlay">Play Breakout!</div>
+                    {/* </div> */}
                 </li>
+
+
                 <li className="games-list-item" id="game-4">
                     <div className="game-list-overlay">
                         <div className="text">Play Pacman!</div>
                     </div>
                 </li>
+
+
                 <li className="games-list-item" id="game-5">
                     <div className="game-list-overlay">
                         <div className="text">Play Space Invaders!</div>
                     </div>
                 </li>
+
+
                 <li className="games-list-item" id="game-6">
                     <div className="game-list-overlay">
                         <div className="text">Play Clicker!</div>

@@ -304,7 +304,7 @@ function Snake() {
                     {
                         game && <div className="game-splash" style={{ height: dim }}>
                             <h1>GOOD LUCK</h1>
-                            <h2>Rules: eat the apples!</h2>
+                            <h2>Rules: collect the apples!</h2>
                             <button onClick={() => start()}>Start</button>
                         </div>
                     }

@@ -105,8 +105,11 @@
 
 
 .game-list-overlay {
-    /* border-radius: 66px; */
-    position: absolute;
+    /* background-image: url(../assets/lock.png); */
+    background-repeat: no-repeat;
+    align-items: center;
+    position: absolute; 
+    display: inline;
     top: 0;
     bottom: 0;
     left: 0;
@@ -117,19 +120,25 @@
     transition: .7s ease;
     background-color: rgba(239, 159, 241, 0.92);
     text-shadow: 
-    /* 0 0 12px rgba(202,228,225,0.92), */
-    /* 0 0 60px rgba(98, 3, 117, 0.34), */
+    0 0 12px rgba(202,228,225,0.92),
+    0 0 60px rgba(98, 3, 117, 0.34),
     0 0 20px rgba(116, 8, 143, 0.52),
     0 0 40px rgba(207, 30, 242, 0.92),
-    0 0 50px rgba(210, 83, 221, 0.78);
-    /* 0 0 80px rgba(232, 110, 236, 0.92); */
-    display: inline;
+    0 0 50px rgba(210, 83, 221, 0.78),
+    0 0 80px rgba(232, 110, 236, 0.92);
     color: rgb(255, 255, 255);
     font-family: 'Press Start 2P', cursive;
-    font-size: 20px;
+    font-size: 20px; 
+    text-align: center;
+    text-decoration: none;
   }
   
 
+  p {
+    text-align: center;
+    margin-top: 50%;
+    /* padding-top: 20px; */
+  }
   
   .games-list-item:hover .game-list-overlay {
     opacity: 0.9;
@@ -148,16 +157,15 @@
     text-align: center;
   }
 
-  div > a {
-    font-family: 'Press Start 2P', cursive; 
+  /* .game-list-overlay > a {
+    color: rgb(255, 255, 255);
+    font-family: 'Press Start 2P', cursive;
     font-size: 20px;
-    text-decoration: none;
-    color: rgb(255, 255, 255); 
     position: absolute;
     top: 50%;
     left: 50%;
-    /* -webkit-transform: translate(-50%, -50%); */
-    /* -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); */
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     text-align: center;
-  }
+  } */

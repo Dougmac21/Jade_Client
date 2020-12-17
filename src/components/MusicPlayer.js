@@ -20,6 +20,7 @@ const useAudio = url => {
     },[]);
 
     return [playing, toggle];
+};
 
     const Player = ({ url }) => {
         const [playing, toggle] = useAudio(url);

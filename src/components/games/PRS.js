@@ -13,11 +13,14 @@ function PRS() {
 
     const scoreUrl = "http://localhost:8080/scores";
     const playerUrl = "http://localhost:8080/players";
+    const loginUrl = "http://localhost:8080/login";
 
     const [PRSScores, setPRSScores] = useState([]);
     const [registeredPlayersList, setRegisteredPlayersList] = useState([])
     const [registeredPasswordsList, setRegisteredPasswordsList] = useState([])
     const [registeredPlayersObjectsList, setRegisteredPlayersObjectsList] = useState([])
+    const [loggedInPlayerObject, setLoggedInPlayerObject] = useState({})
+    const [loggedInPlayer, setLoggedInPlayer] = useState("")
 
     const [playerOneName, setPlayerOneName] = useState("You")
     const [playerTwoName, setPlayerTwoName] = useState("")
@@ -36,9 +39,23 @@ function PRS() {
 
 
     useEffect(() => {
+        fetchLoggedInPlayer()
         fetchPlayerData()
         fetchScoreData()
     }, [])
+
+    function fetchLoggedInPlayer() {
+        fetch(loginUrl)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setLoggedInPlayerObject(data)
+                console.log(loggedInPlayerObject);
+
+                setLoggedInPlayer(data.map(({ name }) => name))
+                console.log(loggedInPlayer);
+            })
+    }
 
 
     function fetchPlayerData() {
@@ -471,7 +488,7 @@ function PRS() {
                 
                 <button class="submit-score-button" onClick={handleScoreSubmit}>Submit Score</button>
 
-                <p>{gameOutcome}</p>
+                <p>{ gameOutcome }</p>
 
                 <p>All-Time High Scores:</p>
 

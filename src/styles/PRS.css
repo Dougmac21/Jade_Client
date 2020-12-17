@@ -1,0 +1,23 @@
+body {
+    padding: 0;
+}
+
+.prs-container{
+    background: url(../assets/sky.jpg) no-repeat center center fixed;
+    background-size: cover;
+    display: 100vh;
+    width: 100%;
+  }
+
+  #header {
+      text-align: center;
+  }
+
+  .game-form {
+      text-align: center;
+  }
+
+  .prs-text {
+      color: white;
+      font-family: 'Press Start 2P', cursive;
+  }

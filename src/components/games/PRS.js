@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from '../Header'
 import Footer from '../Footer'
+import '../../styles/PRS.css'
 
 
 function PRS() {
@@ -458,8 +459,9 @@ function PRS() {
 
     return (
         <>
+        <div className="prs-container">
             <Header />
-            <h1>Paper Rock Scissors</h1>
+            <h1 id="header">Paper Rock Scissors</h1>
 
             <form className="game-form" onSubmit={handleGameFormSubmit}>
 
@@ -467,7 +469,7 @@ function PRS() {
                 <span>{playerOneScore}</span>
                 <br></br>
 
-                <label for="player_1_weapon">Weapon:</label>
+                <label className="prs-text" for="player_1_weapon">Weapon:</label>
                 <input required type="text" name="player_1_weapon" id="player_1_weapon" placeholder="select your weapon"
                     value={playerOneGameChoice}
                     onChange={handlePlayerOneGameChoiceChange}
@@ -525,6 +527,7 @@ function PRS() {
 
             </form>
             <Footer />
+            </div>
         </>
 
     )

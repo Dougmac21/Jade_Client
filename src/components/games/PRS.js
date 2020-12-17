@@ -45,16 +45,17 @@ function PRS() {
     }, [])
 
     function fetchLoggedInPlayer() {
-        fetch(loginUrl)
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data)
-                setLoggedInPlayerObject(data)
-                console.log(loggedInPlayerObject);
+        // fetch(loginUrl)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         // console.log(data)
+        //         setLoggedInPlayerObject(data)
+        //         console.log(loggedInPlayerObject);
 
-                setLoggedInPlayer(data.map(({ name }) => name))
-                console.log(loggedInPlayer);
-            })
+        //         setLoggedInPlayer(data.map(({ name }) => name))
+        //         console.log(loggedInPlayer);
+        //     })
+        return
     }
 
 
@@ -458,6 +459,7 @@ function PRS() {
         <>
             <Header />
             <h1>Paper Rock Scissors Etc</h1>
+            <p>{ loggedInPlayer } is logged in</p>
 
             <h4 className="select-cpu-header">Select CPU Player:</h4>
             <div className="select-cpu-choice" onChange={handleCPUPlayerChoice}>

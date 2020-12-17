@@ -131,11 +131,10 @@
 }
 
 .arcade-login-header {
-    font-weight: bold;
+  font-weight: bold;
 	font-family: 'Press Start 2P', cursive;
 	text-align: center;
-	color: gold
-    
+  color: gold;
 }
 
 /* .arcade-login-form{

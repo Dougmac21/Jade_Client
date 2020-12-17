@@ -459,70 +459,49 @@ function PRS() {
 
         <div className="prs-container">
             <Header />
+            <br />
+            <br />
             <h1 id="header">Paper Rock Scissors</h1>
-
-            <form className="game-form" onSubmit={handleGameFormSubmit}>
-
-                <p className="game-text">{loggedInPlayer} is logged in</p>
-
-                <h4 className="select-cpu-header">Select CPU Player:</h4>
-                <div className="select-cpu-choice" onChange={handleCPUPlayerChoice}>
-
-                    <label className="prs-text" for="player_1_weapon">Weapon:</label>
-                    <input required type="text" name="player_1_weapon" id="player_1_weapon" placeholder="select your weapon"
-                        value={playerOneGameChoice}
-                        onChange={handlePlayerOneGameChoiceChange}
-                    />
-                    <br></br>
-                    <br></br>
-                    <input className="select-cpu-choice" type="radio" value="Emily" name="gender" /> Emily
+            {/* <p className="prs-text">{loggedInPlayer} is logged in</p> */}
+            <br />
+            <br />
+            <h4 className="prs-h2">Select Opponent:</h4>
+            <div className="select-cpu-choice" onChange={handleCPUPlayerChoice}>
+                <input className="select-cpu-choice" type="radio" value="Emily" name="gender" /> Emily
                 <input className="select-cpu-choice" type="radio" value="Hannah" name="gender" /> Hannah
                 <input className="select-cpu-choice" type="radio" value="Eugene" name="gender" /> Eugene
                 <input className="select-cpu-choice" type="radio" value="Chris" name="gender" /> Chris
                 <input className="select-cpu-choice" type="radio" value="Zsolt" name="gender" /> Zsolt
                 <input className="select-cpu-choice" type="radio" value="Malcolm" name="gender" /> Malcolm
                 <input className="select-cpu-choice" type="radio" value="Harrison" name="gender" /> Harrison
-
             </div>
-            </form>
+
             <form className="game-form" onSubmit={handleGameFormSubmit}>
-
-
-                <p className="game-text">Current Score: {playerOneScore}</p>
-
-
+                <br />
+                <br />
+                <p className="prs-text">Current Score: {playerOneScore}</p>
+                <br />
                 <input required type="text" name="player_1_weapon" id="player-one-weapon-input" placeholder="play choice..."
                     value={playerOneGameChoice}
                     onChange={handlePlayerOneGameChoiceChange}
                 />
-
-
-                <input type="submit" class="play-game-button" value="Play Game!" />
-
-                <button className="prs-button" onClick={handleScoreSubmit}>Submit Score</button>
-
-                <br></br>
                 <input className="prs-button" type="submit" value="Play Game!" />
-                <br></br>
-                <br></br>
-                <p className="prs-text" >{gameOutcome}</p>
-            </form>
 
-            <form>
+                <br />
                 <button className="prs-button" onClick={handleScoreSubmit}>Submit Score</button>
-                <p className="prs-text">{gameOutcome}</p>
 
-                <h2 className="prs-h2">All-Time High Scores:</h2>
+                <p className="prs-text" >{gameOutcome}</p>
 
-                <ul id="scores-array">
-
-                    {PRSScores.slice(0, 5).map((value, index) => (
-                        <li key={index} id="scores-values">{value}</li>
-                    ))}
-
-                </ul>
 
             </form>
+            <br />
+            <br />
+            <h2 className="prs-h2">All-Time High Scores:</h2>
+            <ul id="scores-array">
+                {PRSScores.slice(0, 5).map((value, index) => (
+                    <li key={index} id="scores-values">{value}</li>
+                ))}
+            </ul>
 
             <Footer />
         </div>

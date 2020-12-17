@@ -30,6 +30,7 @@ body {
     background-color: #38125c;
     box-shadow: #8a43cc;    
     padding: 15px;
+    margin: 20px;
     font-size: 20px;
     text-shadow: 
     0 0 12px rgba(202,228,225,0.92),
@@ -63,11 +64,17 @@ input {
     font-size: 28px;
     margin-left: 25px;
     margin-right: 0px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 15px;
+    padding-left: none;
+    color: gold;
 }
 
 #player-one-weapon-input {
-    height: 34px;
-    width: 150px;
+    height: 40px;
+    width: 200px;
+    font-family: 'Press Start 2P', cursive;
+    
 }
 
 .submit-score-button{
@@ -108,3 +115,4 @@ input {
 #scores-values {
     font-family: 'Press Start 2P', cursive;
 }
+

@@ -1,12 +1,14 @@
 
 
 .footer {
+    text-align: center;
     justify-content: center;
     font-family: 'Press Start 2P', cursive;
     font-weight: bolder;
     font-size: 18px;
     color:rgba(255, 255, 255, 0.562);
     margin-top: 25vh;
+    padding-bottom: 50px;
 }
 
 

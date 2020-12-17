@@ -132,7 +132,8 @@
 
 .arcade-login-header {
     font-weight: bold;
-    font-family: 'Press Start 2P', cursive;
+	font-family: 'Press Start 2P', cursive;
+	text-align: center;
     
 }
 

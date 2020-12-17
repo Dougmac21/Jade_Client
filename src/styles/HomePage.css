@@ -19,10 +19,10 @@
 
 #start {
     font-family: 'Press Start 2P', cursive;
-    text-align: center;
     font-size: 68px;
     padding-top: 200px;
     z-index:0;
+    text-align: center;
 }
 
 #start-link{
@@ -51,6 +51,7 @@
     background-repeat: no-repeat;
     object-fit: contain;
     height: 100vh;
+    text-align: center;
 }
 
 /* body{font-size: 280%; padding: 5%}        <-- this destroys fullscreen */

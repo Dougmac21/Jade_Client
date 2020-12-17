@@ -357,7 +357,7 @@ function Snake() {
     
     return (
         <>
-            
+            <div className="snake-background">
             <Header />
             <br/>
             <h1 id="header">SNAKE</h1>
@@ -404,6 +404,7 @@ function Snake() {
                 </div>
             </div>
             <Footer />
+            </div>
         </>
     )
 

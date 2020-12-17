@@ -56,7 +56,7 @@ function GamesListContainer() {
 
                 <li className="games-list-item" id="game-6">
                     <div className="game-list-overlay">
-                        <p>Play Clicker!</p>
+                        <p>Play Frogger!</p>
                     </div>
                 </li>
 

@@ -106,6 +106,8 @@ function ScoreListContainer() {
 
             <ul id="scores-list">
 
+           
+
                 <li class="scores-list-item" id="scores-1">
                     <p> SNAKE </p>
 
@@ -124,6 +126,7 @@ function ScoreListContainer() {
                         <div class="text">See All Scores</div>
                     </div>
                 </li>
+            
 
                 <li class="scores-list-item" id="scores-2">
                     <p> BREAKOUT </p>
@@ -160,7 +163,7 @@ function ScoreListContainer() {
                         <div class="text">See All Scores</div>
                     </div>
                 </li>
-
+                {/* <div class="scrollit"> */}
                 <li class="scores-list-item" id="scores-4">
                     <p> FROGGER </p>
 
@@ -178,6 +181,7 @@ function ScoreListContainer() {
                         <div class="text">See All Scores</div>
                     </div>
                 </li>
+                {/* </div> */}
 
                 <li class="scores-list-item" id="scores-5">
                     <p> SHOOTER </p>
@@ -196,7 +200,7 @@ function ScoreListContainer() {
                         <div class="text">See All Scores</div>
                     </div>
                 </li>
-
+                
                 <li class="scores-list-item" id="scores-6">
                     <p> PAPER ROCK SCISSORS </p>
 
@@ -214,6 +218,7 @@ function ScoreListContainer() {
                         <div class="text">See All Scores</div>
                     </div>
                 </li>
+              
 
 
             </ul>

@@ -24,6 +24,8 @@ function Snake() {
     const scoreUrl = "http://localhost:8080/scores";
     const playerUrl = "http://localhost:8080/players";
 
+
+
     const [snakeScores, setSnakeScores] = useState([])
     const [registeredPlayersList, setRegisteredPlayersList] = useState([])
     const [registeredPasswordsList, setRegisteredPasswordsList] = useState([])
@@ -37,6 +39,7 @@ function Snake() {
     useEffect(() => {
         fetchScoreData()
         fetchPlayerData()
+        
     }, [])
 
 

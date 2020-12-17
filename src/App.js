@@ -5,6 +5,7 @@ import ScoreListContainer from './containers/ScoreListContainer';
 import PlayerController from './components/PlayerController';
 import Snake from './components/games/Snake';
 import PRS from './components/games/PRS';
+import Breakout from './components/games/Breakout';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/log-in" component={PlayerController} />
           <Route path="/games/snake" component={Snake} />
           <Route path="/games/PRS" component={PRS} />
+          <Route path="/games/breakout" component={Breakout} />
         </>
       </Switch>
     </Router>

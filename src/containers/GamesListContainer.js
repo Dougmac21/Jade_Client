@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import '../styles/GamesListContainer.css'
+import '../styles/GamesListContainer.css';
+
 
 function GamesListContainer() {
 

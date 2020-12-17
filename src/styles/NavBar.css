@@ -11,7 +11,7 @@
     display:inline;
     color:white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 40px;
     text-shadow: 
     0 0 12px rgba(202,228,225,0.92),
     0 0 60px rgba(98, 3, 117, 0.34),
@@ -19,6 +19,7 @@
     0 0 40px rgba(207, 30, 242, 0.92),
     0 0 50px rgba(210, 83, 221, 0.78),
     0 0 80px rgba(232, 110, 236, 0.92);
+    font-size: 50px;
 }
 
 /* .active a:hover {

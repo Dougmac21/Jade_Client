@@ -37,3 +37,59 @@ body {
     0 0 50px rgba(210, 83, 221, 0.78),
     0 0 80px rgba(232, 110, 236, 0.92);
   }
+
+  
+div {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    text-align: center;
+}
+
+.select-cpu-header {
+    font-size: smaller;
+}
+
+.select-cpu-choice {
+    font-size: 28px;
+    margin-left: 25px;
+    margin-right: 0px;
+}
+
+#player-one-weapon-input {
+    height: 34px;
+    width: 150px;
+}
+
+.submit-score-button{
+    height: 40px;
+    width: 100px;
+    margin-left: 25px;
+}
+
+.play-game-button{
+    height: 40px;
+    width: 100px;
+    margin-right: 25px;
+}
+
+.cpu-player-button {
+    height: 30px;
+    width: 80px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

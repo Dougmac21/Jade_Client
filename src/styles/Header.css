@@ -6,8 +6,14 @@
     padding: 0px;
 } */
 
+@font-face{
+    font-family: "Astron Boy";
+    src: url('../fonts/astron boy.ttf') format("truetype");
+}
+
 .header-title {
-    font-family: 'Astron Boy';
+    font-family: "Astron Boy";
+    src: url('../fonts/astron boy.ttf') format("truetype");
     color:white;
     text-align: center;
     font-style: italic;

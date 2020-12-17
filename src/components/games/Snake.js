@@ -21,39 +21,85 @@ function Snake() {
         }
     ]);
 
-    const url = "http://localhost:8080/scores";
+    const scoreUrl = "http://localhost:8080/scores";
+    const playerUrl = "http://localhost:8080/players";
+
+    const [snakeScores, setSnakeScores] = useState([])
+    const [registeredPlayersList, setRegisteredPlayersList] = useState([])
+    const [registeredPasswordsList, setRegisteredPasswordsList] = useState([])
+    const [registeredPlayersObjectsList, setRegisteredPlayersObjectsList] = useState([])
+    const [loggedInPlayerObject, setLoggedInPlayerObject] = useState({})
+    const [loggedInPlayer, setLoggedInPlayer] = useState("")
+
+
+
 
     useEffect(() => {
-        fetchData()
+        fetchScoreData()
+        fetchPlayerData()
     }, [])
 
-    function fetchData() {
-        fetch(url)
+
+    function fetchPlayerData() {
+        fetch(playerUrl)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
+                setRegisteredPlayersObjectsList(data)
+                console.log(registeredPlayersObjectsList);
 
-                // const fetchedScores = data.map(({ score }) => score);
-                // console.log(fetchedScores);
-                // SnakeScores = fetchedScores;
-                // console.log(SnakeScores);
+                setRegisteredPlayersList(data.map(({ name }) => name))
+                console.log(registeredPlayersList);
+
+                setRegisteredPasswordsList(data.map(({ password }) => password))
+                console.log(registeredPasswordsList);
             })
     }
 
+
+    function fetchScoreData() {
+        fetch(scoreUrl + "?gamename=snake")
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setSnakeScores(data.map(({ score }) => score))
+                console.log(snakeScores);
+            })
+    }
+
+
+
+
+
     async function handleScoreSubmit() {
-        // console.log({ points }.points)
 
-        // const test = { points }
+        let playerNameToSubmit = prompt("Please enter your name")
 
-        const response = await fetch(url, {
+        let playerCheck = registeredPlayersList.find(element => element === playerNameToSubmit)
+
+            if (playerCheck === undefined){
+                console.log(playerNameToSubmit)
+                alert("Please input a valid username or register as a user")
+                fetchScoreData()
+                return
+            }
+
+        let today = new Date();
+        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        let dateTime = date+' '+time
+        console.log(dateTime)  
+
+        const response = await fetch(scoreUrl, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(
                 {
+
                     "player": {
                         "id": 1,
-                        "name": "Player One",
-                        "password": "A",
+                        "name": playerNameToSubmit,
+                        "password": "",
                         "arcade_play_time": 0
                     },
                     "game": {
@@ -62,7 +108,7 @@ function Snake() {
                         "total_play_time": 0
                     },
                     "score": { points }.points,
-                    "date": "2020-12-16"
+                    "date": dateTime
                 }
             )
         },
@@ -70,7 +116,8 @@ function Snake() {
             setGameOver(false)
         );
         if (response) {
-            fetchData()
+            alert("Score saved!")
+            fetchScoreData()
         }
     };
 
@@ -319,5 +366,7 @@ function Snake() {
             <Footer />
         </>
     )
+
 }
-export default Snake;
+
+export default Snake

@@ -1,23 +1,62 @@
 import { useEffect, useState } from 'react';
 import Header from '../Header'
 import Footer from '../Footer'
+import '../../styles/PRS.css';
+
 
 
 function PRS() {
 
+    function capitaliseFirstLetterOfString(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    }
+
     const scoreUrl = "http://localhost:8080/scores";
     const playerUrl = "http://localhost:8080/players";
+    const loginUrl = "http://localhost:8080/login";
 
     const [PRSScores, setPRSScores] = useState([]);
+    const [registeredPlayersList, setRegisteredPlayersList] = useState([])
+    const [registeredPasswordsList, setRegisteredPasswordsList] = useState([])
+    const [registeredPlayersObjectsList, setRegisteredPlayersObjectsList] = useState([])
+    const [loggedInPlayerObject, setLoggedInPlayerObject] = useState({})
+    const [loggedInPlayer, setLoggedInPlayer] = useState("")
 
-    let registeredPlayersList = [];
-    let registeredPasswordsList = [];
-    let registeredPlayersObjectsList = [];
+    const [playerOneName, setPlayerOneName] = useState("You")
+    const [playerTwoName, setPlayerTwoName] = useState("")
+    const [playerOneScore, setPlayerOneScore] = useState(0)
+    const [playerTwoScore, setPlayerTwoScore] = useState(0)
+    const [winningChoice, setWinningChoice] = useState("")
+    const [gameOutcome, setGameOutcome] = useState("")
+
+    const [playerOneGameChoice, setPlayerOneGameChoice] = useState("")
+    const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
+    const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun"]
+    const cpu_player_malcolm_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock"]
+    const cpu_player_hannah_choices = ["Scissors", "Rock"]    // Spock always beats Hannah
+    const cpu_player_chris_choices = ["Paper", "Lizard"]      // Scissors always beats Chris
+    const cpu_players = ["Emily", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
+
 
     useEffect(() => {
+        fetchLoggedInPlayer()
         fetchPlayerData()
         fetchScoreData()
     }, [])
+
+    function fetchLoggedInPlayer() {
+        // fetch(loginUrl)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         // console.log(data)
+        //         setLoggedInPlayerObject(data)
+        //         console.log(loggedInPlayerObject);
+
+        //         setLoggedInPlayer(data.map(({ name }) => name))
+        //         console.log(loggedInPlayer);
+        //     })
+        return
+    }
 
 
     function fetchPlayerData() {
@@ -25,20 +64,14 @@ function PRS() {
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
-                const registeredPlayersObjects = [].concat(data);
-                // console.log(registeredPlayersObjects)
-                registeredPlayersObjectsList = registeredPlayersObjects;
+                setRegisteredPlayersObjectsList(data)
                 console.log(registeredPlayersObjectsList);
 
-                const registeredPlayers = data.map(({ name }) => name);
-                console.log(registeredPlayers);
-                registeredPlayersList = registeredPlayers;
+                setRegisteredPlayersList(data.map(({ name }) => name))
                 console.log(registeredPlayersList);
 
-                const registeredPasswords = data.map(({ password }) => password);
-                // console.log(registeredPasswords);
-                registeredPasswordsList = registeredPasswords;
-                // console.log(registeredPasswordsList);
+                setRegisteredPasswordsList(data.map(({ password }) => password))
+                console.log(registeredPasswordsList);
             })
     }
 
@@ -47,35 +80,38 @@ function PRS() {
         fetch(scoreUrl + "?gamename=prs")
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-
-                const fetchedScores = data.map(({ score }) => score);
-                // console.log(fetchedScores);
-                setPRSScores(fetchedScores);
-                // console.log(PRSScores);
+                // console.log(data)
+                setPRSScores(data.map(({ score }) => score))
+                console.log(PRSScores);
+                console.log(data.map(({ date }) => date))
             })
     }
-    console.log(registeredPlayersList)
+
 
     async function handleScoreSubmit(event) {
         event.preventDefault()
-        console.log({ playerOneScore })
+        setPlayerOneScore(playerOneScore)
+        console.log(playerOneScore)
 
-        // if player id and player name is in the db then post to db
-        // else alert them to create new player or enter valid player name 
-
-        const playerNameToSubmit = prompt("Please enter your name", "")
+        let playerNameToSubmit = prompt("Please enter your name")
         console.log(registeredPlayersList)
         console.log(playerNameToSubmit)
+        console.log(playerOneScore)
 
-        let playerIsRegistered = registeredPlayersList.includes(playerNameToSubmit)
-        if (playerIsRegistered === false){
-                debugger
-                console.log(playerIsRegistered)
+        let playerCheck = registeredPlayersList.find(element => element === playerNameToSubmit)
+
+            if (playerCheck === undefined){
+                console.log(playerNameToSubmit)
                 alert("Please input a valid username or register as a user")
-                return 
+                fetchScoreData()
+                return
             }
-        
+
+        let today = new Date();
+        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        let dateTime = date+' '+time
+        console.log(dateTime)     
 
         const response = await fetch(scoreUrl, {
             method: 'POST',
@@ -95,81 +131,48 @@ function PRS() {
                         "total_play_time": 0
                     },
                     "score": playerOneScore,
-                    "date": "2020-12-99"
+                    "date": dateTime
                 }
             )
         });
         if (response) {
+            alert("Score saved!")
             fetchScoreData()
         }
     };
 
 
-
-    function capitaliseFirstLetterOfString(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    const handleCPUPlayerChoice = (event) => {
+        setPlayerTwoName(event.target.value)
+        console.log(event.target.value)
     }
-
-    const [playerOneName, setPlayerOneName] = useState(null)
-    let playerTwoName = "CPU"
-    const [playerOneGameChoice, setPlayerOneGameChoice] = useState("")
-    // const [playerTwoGameChoice, setPlayerTwoGameChoice] = useState("")
-    const permitted_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock", "Shotgun"]
-
-    let playerTwoGameChoice = permitted_choices[Math.floor(Math.random() * permitted_choices.length)]
-
-
-    const [playerOneScore, setPlayerOneScore] = useState(0)
-    const [playerTwoScore, setPlayerTwoScore] = useState(0)
-
-    const [winningChoice, setWinningChoice] = useState("")
-    const [gameOutcome, setGameOutcome] = useState("")
-
-
-
-    // const handlePlayerOneNameChange = (event) => {
-    //     setPlayerOneName(capitaliseFirstLetterOfString(event.target.value))
-    // console.log(playerOneName)
-    // }
-    // const handlePlayerTwoNameChange = (event) => {
-    //     setPlayerTwoName(event.target.value)
-    //     console.log(playerTwoName)
-    // }
     const handlePlayerOneGameChoiceChange = (event) => {
         setPlayerOneGameChoice(capitaliseFirstLetterOfString(event.target.value))
-        console.log(playerOneGameChoice)
     }
-    // const handlePlayerTwoGameChoiceChange = (event) => {
-    //     setPlayerTwoGameChoice(capitaliseFirstLetterOfString(event.target.value))
-    //     console.log(playerTwoGameChoice)
-    // }
+
 
     const handleGameFormSubmit = (event) => {
         event.preventDefault()
-        // console.log(playerOneName)
-        // console.log(playerTwoName)
-        // console.log(playerOneGameChoice)
-        // console.log(playerTwoGameChoice)
+        console.log(playerTwoName)
+        console.log(playerOneGameChoice)
+        cpuPlayerLogic(playerOneGameChoice, playerTwoName)
+        let playerCheck = permitted_choices.find(element => element === playerOneGameChoice)
+        if (playerCheck === undefined){
+            console.log(playerOneGameChoice + " IS NOT PERMITTED CHOICE")
+            alert("Permitted choices include: Paper, Rock, Scissors, Lizard, Spock")
+            return
+        }
         runGameLogic(playerOneName, playerOneGameChoice, playerTwoName, playerTwoGameChoice)
     }
 
-
-    const cpu_player_malcolm_choices = ["Paper", "Rock", "Scissors", "Lizard", "Spock"]
-    const cpu_player_hannah_choices = ["Scissors", "Rock"]    // Spock always beats Hannah
-    const cpu_player_chris_choices = ["Paper", "Lizard"]      // Scissors always beats Chris
-    const cpu_players = ["Hal", "Morag", "Chris", "Hannah", "Zsolt", "Malcolm", "Harrison"]
 
     function declareResult(result) {
         return
     }
 
-    function saveScore() {
-        return
-    }
 
-    function runGameLogic(player1Name, player1Choice, player2Name, player2Choice) {
+    function cpuPlayerLogic(player1Choice, player2Name){
 
-        // (SET WINNING CHOICES FOR GIVEN PLAYER INPUT)
         if (player1Choice === "Paper") {
             setWinningChoice("Scissors")
             // console.log(winningChoice)
@@ -188,67 +191,63 @@ function PRS() {
         }
         else if (player1Choice === "Spock") {
             setWinningChoice("Lizard")
-            // console.log(`Winning choice is ${winningChoice}`)
+            // console.log(winningChoice)
         }
         else if (player1Choice === "Shotgun") {
             setWinningChoice("Surrender")
             // console.log(winningChoice)
         }
 
+        // CONTINUING //
+        
+        if (player2Name === "Emily"){
+            setPlayerTwoGameChoice("Paper")
+            // console.log(playerTwoGameChoice)
+        }
+        else if (player2Name === "Eugene"){
+            setPlayerTwoGameChoice("Rock")
+            // console.log(playerTwoGameChoice)
+
+        }
+        else if (player2Name === "Chris"){
+            setPlayerTwoGameChoice(cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)])
+            // console.log(playerTwoGameChoice)
+
+        }
+        else if (player2Name === "Hannah"){
+            setPlayerTwoGameChoice(cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)])
+            // console.log(playerTwoGameChoice)
+
+        }
+        else if (player2Name === "Zsolt"){
+            setPlayerTwoGameChoice("Spock")
+            // console.log(playerTwoGameChoice)
+
+        }
+        else if (player2Name === "Malcolm"){
+            setPlayerTwoGameChoice(cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)])
+            // console.log(playerTwoGameChoice)
+
+        }
+        else if (player2Name === "Harrison"){
+            setPlayerTwoGameChoice(winningChoice)
+            // console.log(playerTwoGameChoice)
+
+        }
+    }
 
 
 
-        // if (player2Name === "Hal"){
-        //     player2Choice = "Paper"
-        // }
-        // else if (player2Name === "Morag"){
-        //     player2Choice = "Rock"
-        // }
-        // else if (player2Name === "Chris"){
-        //     player2Choice = cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)]
-        // }
-        // else if (player2Name === "Hannah"){
-        //     player2Choice = cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)]
-        // }
-        // else if (player2Name === "Zsolt"){
-        //     player2Choice = "Spock"
-        // }
-        // else if (player2Name === "Malcolm"){
-        //     player2Choice = cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)]
-        // }
-        // else if (player2Name === "Harrison"){
-        //     player2Choice = winningChoice
-        // }
-        // setPlayerTwoGameChoice(player2Choice)
 
-
-
-        // for (let choice of permitted_choices){
-        //     if (player1Choice !==choice && player2Choice !==choice){
-        //         console.log("both choices invalid")
-        //         setGameOutcome(`Both ${player1Name} and ${player2Name} must pick from the permitted choices!`)
-        //         console.log(gameOutcome)
-        //     }
-        //     else if (player1Choice !== choice){
-        //         console.log("p1 choice invalid")
-        //         setGameOutcome(`${player1Name} must pick from the permitted choices!`)
-        //         console.log(gameOutcome)
-        //     }
-        //     else if (player2Choice !== choice){
-        //         console.log("p2 choice invalid")
-        //         setGameOutcome(`${player2Name} must pick from the permitted choices!`)
-        //         console.log(gameOutcome)
-        //     }
-        //     else if (player1Choice === player2Choice){
-        //         console.log("p1 choice p2 choice draw")
-        //         setGameOutcome(`Both ${player1Name} and ${player2Name} have chosen ${player1Choice}. That means that it's a tie!`)
-        //         console.log(gameOutcome)
-        //     }
-        // } 
+    function runGameLogic(player1Name, player1Choice, player2Name, player2Choice) {
+        // console.log(player1Name)
+        // console.log(player2Name)
+        // console.log(player1Choice)
+        // console.log(player2Choice)
 
 
         if (player1Choice === "Paper" && player2Choice === "Rock") {
-            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Paper wraps Rock. ${player1Name} wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Paper wraps Rock. ${player1Name} win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
@@ -269,7 +268,7 @@ function PRS() {
             console.log(playerTwoScore)
         }
         else if (player1Choice === "Paper" && player2Choice === "Spock") {
-            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock is disproved by Paper. ${player1Name} Wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock is disproved by Paper. ${player1Name} Win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
@@ -291,10 +290,10 @@ function PRS() {
             console.log(playerTwoScore)
         }
 
-        // -----------------BREAKPOINT----------------- //
+        // -----------------CONTINUED----------------- //
 
         else if (player1Choice === "Rock" && player2Choice === "Scissors") {
-            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Scissors. ${player1Name} wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Scissors. ${player1Name} win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
@@ -306,7 +305,7 @@ function PRS() {
             console.log(gameOutcome)
         }
         else if (player1Choice === "Rock" && player2Choice === "Lizard") {
-            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Lizard. ${player1Name} wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Rock crushes Lizard. ${player1Name} win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
@@ -328,10 +327,10 @@ function PRS() {
             console.log(gameOutcome)
         }
 
-        // -----------------BREAKPOINT----------------- //
+        // -----------------CONTINUED----------------- //
 
         else if (player2Choice === "Paper" && player1Choice === "Scissors") {
-            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Scissors cut Paper. ${player1Name} wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Scissors cut Paper. ${player1Name} win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
@@ -343,7 +342,7 @@ function PRS() {
             console.log(gameOutcome)
         }
         else if (player2Choice === "Lizard" && player1Choice === "Scissors") {
-            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard is decapitated by Scissors. ${player1Name} wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard is decapitated by Scissors. ${player1Name} win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
@@ -368,7 +367,7 @@ function PRS() {
         // -----------------BREAKPOINT----------------- //
 
         else if (player1Choice === "Lizard" && player2Choice === "Paper") {
-            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard eats Paper. ${player1Name} wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard eats Paper. ${player1Name} win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
@@ -386,7 +385,7 @@ function PRS() {
             console.log(gameOutcome)
         }
         else if (player1Choice === "Lizard" && player2Choice === "Spock") {
-            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard poisons Spock. ${player1Name} wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Lizard poisons Spock. ${player1Name} win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
@@ -402,7 +401,7 @@ function PRS() {
             console.log(gameOutcome)
         }
 
-        // -----------------BREAKPOINT----------------- //
+        // -----------------CONTINUED----------------- //
 
         else if (player1Choice === "Spock" && player2Choice === "Paper") {
             setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Paper disproves Spock. ${player2Name} wins!`)
@@ -411,13 +410,13 @@ function PRS() {
             console.log(gameOutcome)
         }
         else if (player1Choice === "Spock" && player2Choice === "Rock") {
-            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock vaporises Rock. ${player1Name} wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock vaporises Rock. ${player1Name} win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
         }
         else if (player1Choice === "Spock" && player2Choice === "Scissors") {
-            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock smashes Scissors. ${player1Name} wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice}. ${player2Name} chose ${player2Choice}. Spock smashes Scissors. ${player1Name} win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
@@ -440,10 +439,10 @@ function PRS() {
             console.log(gameOutcome)
         }
 
-        // -----------------BREAKPOINT----------------- //
+        // -----------------CONTINUED----------------- //
 
         else if (player1Choice === "Shotgun" && player2Name === "Harrison") {
-            setGameOutcome(`${player1Name} chose ${player1Choice} because ${player2Name} is cheating. ${player2Name} chose ${player2Choice}. ${player1Name} wins!`)
+            setGameOutcome(`${player1Name} chose ${player1Choice} because ${player2Name} is cheating. ${player2Name} chose ${player2Choice}. ${player1Name} win!`)
             setPlayerOneScore(playerOneScore + 1)
             declareResult(gameOutcome)
             console.log(gameOutcome)
@@ -459,71 +458,52 @@ function PRS() {
     return (
         <>
             <Header />
-            <h1>Paper Rock Scissors</h1>
+            <h1>Paper Rock Scissors Etc</h1>
+            <p>{ loggedInPlayer } is logged in</p>
+
+            <h4 className="select-cpu-header">Select CPU Player:</h4>
+            <div className="select-cpu-choice" onChange={handleCPUPlayerChoice}>
+
+                <input className="select-cpu-choice" type="radio" value="Emily" name="gender" /> Emily
+                <input className="select-cpu-choice" type="radio" value="Hannah" name="gender" /> Hannah
+                <input className="select-cpu-choice" type="radio" value="Eugene" name="gender" /> Eugene
+                <input className="select-cpu-choice" type="radio" value="Chris" name="gender" /> Chris
+                <input className="select-cpu-choice" type="radio" value="Zsolt" name="gender" /> Zsolt
+                <input className="select-cpu-choice" type="radio" value="Malcolm" name="gender" /> Malcolm
+                <input className="select-cpu-choice" type="radio" value="Harrison" name="gender" /> Harrison
+
+            </div>
 
             <form className="game-form" onSubmit={handleGameFormSubmit}>
 
-                <p>{playerOneName}</p>
-                <span>{playerOneScore}</span>
-                <br></br>
 
-                <label for="player_1_weapon">Weapon:</label>
-                <input required type="text" name="player_1_weapon" id="player_1_weapon" placeholder="select your weapon"
+                <p>Current Score: {playerOneScore}</p>
+
+
+                <input required type="text" name="player_1_weapon" id="player-one-weapon-input" placeholder="play choice..."
                     value={playerOneGameChoice}
                     onChange={handlePlayerOneGameChoiceChange}
                 />
-                <br></br>
-                <br></br>
-
-                {/* <label for="player_2_name">Player 2:</label>
-                <input type="select" name="player_2" id="player_2" placeholder="insert name here"
-                value={ playerTwoName }
-                onChange={ handlePlayerTwoNameChange }
-                />
-                <span>{ playerTwoScore }</span>
-                <br></br> */}
-
-                {/* <select id="cpu-player-select">
-
-                    {cpu_players.map((value, index) => (
-                        <option onSelect={ handlePlayerTwoNameChange }key={index}>{value}</option>
-                    ))}
-
-                </select> */}
 
 
+                <input type="submit" class="play-game-button" value="Play Game!" />
+                
+                <button class="submit-score-button" onClick={handleScoreSubmit}>Submit Score</button>
 
-                {/* <label for="player_2_weapon">Weapon:</label>
-                <input type="text" name="player_2_weapon" id="player_2_weapon" placeholder="select your weapon"
-                value={ playerTwoGameChoice }
-                onChange={ handlePlayerTwoGameChoiceChange }/>
-                <br></br>
-                <br></br> */}
+                <p>{ gameOutcome }</p>
 
-
-                <br></br>
-                <input type="submit" value="Play Game!" />
-                <br></br>
-                <br></br>
-                <p>{gameOutcome}</p>
-                <br></br>
-                <br></br>
-            </form>
-
-            <form>
-                <button onClick={handleScoreSubmit}>Submit Score</button>
-                <hr></hr>
-                <br></br>
+                <p>All-Time High Scores:</p>
 
                 <ul id="scores-array">
 
-                    {PRSScores.map((value, index) => (
+                    {PRSScores.slice(0, 5).map((value, index) => (
                         <li key={index}>{value}</li>
                     ))}
 
                 </ul>
 
             </form>
+
             <Footer />
         </>
 

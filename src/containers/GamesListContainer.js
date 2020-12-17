@@ -15,19 +15,19 @@ function GamesListContainer() {
                 <li className="games-list-item" id="game-1">
                     <a href="http://localhost:3000/games/snake">
                         <div className="game-list-overlay">
-                        
-                            <p >Play Snake!</p>
-                    
+
+                            <p>Play Snake!</p>
+
                         </div>
                     </a>
                 </li>
 
-
                 <li className="games-list-item" id="game-2">
-                    <div className="game-list-overlay">
-                        <a href="http://localhost:3000/games/PRS"></a>
-                        <p>Play Paper Rock Scissors!</p>
-                    </div>
+                <a href="http://localhost:3000/games/PRS">
+                        <div className="game-list-overlay">
+                            <p>Play Paper Rock Scissors!</p>
+                        </div>
+                    </a>
                 </li>
 
 

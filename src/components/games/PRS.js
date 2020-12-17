@@ -456,13 +456,13 @@ function PRS() {
 
 
     return (
-        <>
+
         <div className="prs-container">
             <Header />
             <h1 id="header">Paper Rock Scissors</h1>
 
             <form className="game-form" onSubmit={handleGameFormSubmit}>
-            <h1>Paper Rock Scissors Etc</h1>
+            
             <p>{ loggedInPlayer } is logged in</p>
 
             <h4 className="select-cpu-header">Select CPU Player:</h4>
@@ -482,9 +482,9 @@ function PRS() {
                 <input className="select-cpu-choice" type="radio" value="Zsolt" name="gender" /> Zsolt
                 <input className="select-cpu-choice" type="radio" value="Malcolm" name="gender" /> Malcolm
                 <input className="select-cpu-choice" type="radio" value="Harrison" name="gender" /> Harrison
-
+    
             </div>
-
+            </form>
             <form className="game-form" onSubmit={handleGameFormSubmit}>
 
 
@@ -499,7 +499,7 @@ function PRS() {
 
                 <input type="submit" class="play-game-button" value="Play Game!" />
                 
-                <button class="submit-score-button" onClick={handleScoreSubmit}>Submit Score</button>
+                <button className="prs-button" onClick={handleScoreSubmit}>Submit Score</button>
 
                 <br></br>
                 <input className="prs-button" type="submit" value="Play Game!" />
@@ -529,8 +529,8 @@ function PRS() {
             </form>
 
             <Footer />
-            </div>
-        </>
+        </div>
+
 
     )
 };

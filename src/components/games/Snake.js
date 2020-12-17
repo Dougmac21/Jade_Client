@@ -77,18 +77,18 @@ function Snake() {
 
         let playerCheck = registeredPlayersList.find(element => element === playerNameToSubmit)
 
-            if (playerCheck === undefined){
-                console.log(playerNameToSubmit)
-                alert("Please input a valid username or register as a user")
-                fetchScoreData()
-                return
-            }
+        if (playerCheck === undefined) {
+            console.log(playerNameToSubmit)
+            alert("Please input a valid username or register as a user")
+            fetchScoreData()
+            return
+        }
 
         let today = new Date();
-        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        let dateTime = date+' '+time
-        console.log(dateTime)  
+        let dateTime = date + ' ' + time
+        console.log(dateTime)
 
         const response = await fetch(scoreUrl, {
             method: 'POST',
@@ -351,7 +351,7 @@ function Snake() {
                     {
                         game && <div className="game-splash" style={{ height: dim }}>
                             <h1>GOOD LUCK</h1>
-                            <h2>Rules: collect the apples!</h2>
+                            <h2 className="snake-header2">Rules: collect the apples!</h2>
                             <button onClick={() => start()}>Start</button>
                         </div>
                     }

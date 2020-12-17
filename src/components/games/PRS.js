@@ -75,7 +75,7 @@ function PRS() {
             })
     }
 
-    
+
     function fetchScoreData() {
         fetch(scoreUrl + "?gamename=prs")
             .then(res => res.json())
@@ -100,18 +100,18 @@ function PRS() {
 
         let playerCheck = registeredPlayersList.find(element => element === playerNameToSubmit)
 
-            if (playerCheck === undefined){
-                console.log(playerNameToSubmit)
-                alert("Please input a valid username or register as a user")
-                fetchScoreData()
-                return
-            }
+        if (playerCheck === undefined) {
+            console.log(playerNameToSubmit)
+            alert("Please input a valid username or register as a user")
+            fetchScoreData()
+            return
+        }
 
         let today = new Date();
-        let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-        let dateTime = date+' '+time
-        console.log(dateTime)     
+        let dateTime = date + ' ' + time
+        console.log(dateTime)
 
         const response = await fetch(scoreUrl, {
             method: 'POST',
@@ -157,7 +157,7 @@ function PRS() {
         console.log(playerOneGameChoice)
         cpuPlayerLogic(playerOneGameChoice, playerTwoName)
         let playerCheck = permitted_choices.find(element => element === playerOneGameChoice)
-        if (playerCheck === undefined){
+        if (playerCheck === undefined) {
             console.log(playerOneGameChoice + " IS NOT PERMITTED CHOICE")
             alert("Permitted choices include: Paper, Rock, Scissors, Lizard, Spock")
             return
@@ -171,7 +171,7 @@ function PRS() {
     }
 
 
-    function cpuPlayerLogic(player1Choice, player2Name){
+    function cpuPlayerLogic(player1Choice, player2Name) {
 
         if (player1Choice === "Paper") {
             setWinningChoice("Scissors")
@@ -199,37 +199,37 @@ function PRS() {
         }
 
         // CONTINUING //
-        
-        if (player2Name === "Emily"){
+
+        if (player2Name === "Emily") {
             setPlayerTwoGameChoice("Paper")
             // console.log(playerTwoGameChoice)
         }
-        else if (player2Name === "Eugene"){
+        else if (player2Name === "Eugene") {
             setPlayerTwoGameChoice("Rock")
             // console.log(playerTwoGameChoice)
 
         }
-        else if (player2Name === "Chris"){
+        else if (player2Name === "Chris") {
             setPlayerTwoGameChoice(cpu_player_chris_choices[Math.floor(Math.random() * cpu_player_chris_choices.length)])
             // console.log(playerTwoGameChoice)
 
         }
-        else if (player2Name === "Hannah"){
+        else if (player2Name === "Hannah") {
             setPlayerTwoGameChoice(cpu_player_hannah_choices[Math.floor(Math.random() * cpu_player_hannah_choices.length)])
             // console.log(playerTwoGameChoice)
 
         }
-        else if (player2Name === "Zsolt"){
+        else if (player2Name === "Zsolt") {
             setPlayerTwoGameChoice("Spock")
             // console.log(playerTwoGameChoice)
 
         }
-        else if (player2Name === "Malcolm"){
+        else if (player2Name === "Malcolm") {
             setPlayerTwoGameChoice(cpu_player_malcolm_choices[Math.floor(Math.random() * cpu_player_malcolm_choices.length)])
             // console.log(playerTwoGameChoice)
 
         }
-        else if (player2Name === "Harrison"){
+        else if (player2Name === "Harrison") {
             setPlayerTwoGameChoice(winningChoice)
             // console.log(playerTwoGameChoice)
 
@@ -462,33 +462,33 @@ function PRS() {
             <h1 id="header">Paper Rock Scissors</h1>
 
             <form className="game-form" onSubmit={handleGameFormSubmit}>
-            
-            <p>{ loggedInPlayer } is logged in</p>
 
-            <h4 className="select-cpu-header">Select CPU Player:</h4>
-            <div className="select-cpu-choice" onChange={handleCPUPlayerChoice}>
+                <p className="game-text">{loggedInPlayer} is logged in</p>
 
-                <label className="prs-text" for="player_1_weapon">Weapon:</label>
-                <input required type="text" name="player_1_weapon" id="player_1_weapon" placeholder="select your weapon"
-                    value={playerOneGameChoice}
-                    onChange={handlePlayerOneGameChoiceChange}
-                />
-                <br></br>
-                <br></br>
-                <input className="select-cpu-choice" type="radio" value="Emily" name="gender" /> Emily
+                <h4 className="select-cpu-header">Select CPU Player:</h4>
+                <div className="select-cpu-choice" onChange={handleCPUPlayerChoice}>
+
+                    <label className="prs-text" for="player_1_weapon">Weapon:</label>
+                    <input required type="text" name="player_1_weapon" id="player_1_weapon" placeholder="select your weapon"
+                        value={playerOneGameChoice}
+                        onChange={handlePlayerOneGameChoiceChange}
+                    />
+                    <br></br>
+                    <br></br>
+                    <input className="select-cpu-choice" type="radio" value="Emily" name="gender" /> Emily
                 <input className="select-cpu-choice" type="radio" value="Hannah" name="gender" /> Hannah
                 <input className="select-cpu-choice" type="radio" value="Eugene" name="gender" /> Eugene
                 <input className="select-cpu-choice" type="radio" value="Chris" name="gender" /> Chris
                 <input className="select-cpu-choice" type="radio" value="Zsolt" name="gender" /> Zsolt
                 <input className="select-cpu-choice" type="radio" value="Malcolm" name="gender" /> Malcolm
                 <input className="select-cpu-choice" type="radio" value="Harrison" name="gender" /> Harrison
-    
+
             </div>
             </form>
             <form className="game-form" onSubmit={handleGameFormSubmit}>
 
 
-                <p>Current Score: {playerOneScore}</p>
+                <p className="game-text">Current Score: {playerOneScore}</p>
 
 
                 <input required type="text" name="player_1_weapon" id="player-one-weapon-input" placeholder="play choice..."
@@ -498,30 +498,26 @@ function PRS() {
 
 
                 <input type="submit" class="play-game-button" value="Play Game!" />
-                
+
                 <button className="prs-button" onClick={handleScoreSubmit}>Submit Score</button>
 
                 <br></br>
                 <input className="prs-button" type="submit" value="Play Game!" />
                 <br></br>
                 <br></br>
-                <p className="prs-text">{gameOutcome}</p>
-                <br></br>
-                <br></br>
+                <p className="prs-text" >{gameOutcome}</p>
             </form>
 
             <form>
                 <button className="prs-button" onClick={handleScoreSubmit}>Submit Score</button>
-                <hr></hr>
-                <br></br>
-                <p>{ gameOutcome }</p>
+                <p className="prs-text">{gameOutcome}</p>
 
-                <p>All-Time High Scores:</p>
+                <h2 className="prs-h2">All-Time High Scores:</h2>
 
                 <ul id="scores-array">
 
                     {PRSScores.slice(0, 5).map((value, index) => (
-                        <li key={index}>{value}</li>
+                        <li key={index} id="scores-values">{value}</li>
                     ))}
 
                 </ul>

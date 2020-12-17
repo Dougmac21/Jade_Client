@@ -25,7 +25,7 @@
     grid-row-end: 2;
     background-color: black;
     background-image: url(../assets/snakegamecover.jpeg);
-    border:4px solid gold;
+    border:4px solid rgba(116, 8, 143, 0.52);
     background-size: auto;
     background-repeat: no-repeat;
     background-position: center;
@@ -36,6 +36,12 @@
     grid-column-end: 4;
     grid-row-start: 2;
     grid-row-end: 2;
+    background-color: black;
+    background-image: url(../assets/RPS.jpg);
+    border:4px solid rgba(116, 8, 143, 0.52);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #game-3 {
@@ -43,6 +49,12 @@
     grid-column-end: 6;
     grid-row-start: 2;
     grid-row-end: 2;
+    background-color: black;
+    background-image: url(../assets/BREAKOUT.jpeg);
+    border:4px solid rgba(116, 8, 143, 0.52);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #game-4 {
@@ -50,6 +62,12 @@
     grid-column-end: 2;
     grid-row-start: 4;
     grid-row-end: 4;
+    background-color: black;
+    background-image: url(../assets/pacmanimg.png);
+    border:4px solid rgba(116, 8, 143, 0.52);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #game-5 {
@@ -57,6 +75,12 @@
   grid-column-end: 4;
   grid-row-start: 4;
   grid-row-end: 4;
+  background-color: black;
+  background-image: url(../assets/spaceinvaders.png);
+  border:4px solid rgba(116, 8, 143, 0.52);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #game-6 {
@@ -64,20 +88,28 @@
   grid-column-end: 6;
   grid-row-start: 4;
   grid-row-end: 4;
+  background-color: black;
+  background-image: url(../assets/frogger.jpeg);
+  border:4px solid rgba(116, 8, 143, 0.52);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .games-list-item {
     position: relative;
     display: inline;
+    padding: 20px;
+    margin: 20px;
   }
 
-.games-list-image {
-  border-radius: 66px;
-  }
 
 .game-list-overlay {
-    border-radius: 66px;
-    position: absolute;
+    /* background-image: url(../assets/lock.png); */
+    background-repeat: no-repeat;
+    align-items: center;
+    position: absolute; 
+    display: inline;
     top: 0;
     bottom: 0;
     left: 0;
@@ -86,25 +118,32 @@
     width: 100%;
     opacity: 0;
     transition: .7s ease;
-    background-color: grey;
-    display: inline;
+    background-color: #38125c;
+    box-shadow: #8a43cc;
+    /* background-color: rgba(232, 162, 233, 0.92); */
+    text-shadow: 
+    0 0 12px rgba(202,228,225,0.92),
+    0 0 60px rgba(98, 3, 117, 0.34),
+    0 0 20px rgba(116, 8, 143, 0.52),
+    0 0 40px rgba(207, 30, 242, 0.92),
+    0 0 50px rgba(210, 83, 221, 0.78),
+    0 0 80px rgba(232, 110, 236, 0.92);
+    box-shadow: 0px 0px 6px 2px rgba(232, 162, 233, 0.92);
+    color: rgb(255, 255, 255);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px; 
+    text-align: center;
+    text-decoration: none;
   }
   
 
+  p {
+    text-align: center;
+    margin-top: 40%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   
   .games-list-item:hover .game-list-overlay {
     opacity: 0.9;
-  }
-
-  .text {
-    color: rgb(255, 255, 255);
-    font-family: 'Press Start 2P', cursive;
-        font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
   }

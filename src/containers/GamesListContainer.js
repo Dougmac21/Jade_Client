@@ -13,40 +13,45 @@ function GamesListContainer() {
             <ul id="games-list">
 
                 <li className="games-list-item" id="game-1">
-                    <div >
-                        <a href="http://localhost:3000/games/snake" className="game-list-overlay">Play Snake</a>
+                    <div className="game-list-overlay">
+                        <a href="http://localhost:3000/games/snake"></a>
+                        <p >Play Snake!</p>
                     </div>
                 </li>
 
 
                 <li className="games-list-item" id="game-2">
-                    <img className="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
-                    <div >
-                        <a href="http://localhost:3000/games/PRS" className="game-list-overlay">Play PRS</a>
+                    <div className="game-list-overlay">
+                        <a href="http://localhost:3000/games/PRS"></a>
+                        <p>Play Paper Rock Scissors!</p>
                     </div>
                 </li>
+
+
                 <li className="games-list-item" id="game-3">
-                    <img className="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div className="game-list-overlay">
-                        <div className="text">Play Breakout</div>
+                        <p>Play Breakout!</p>
                     </div>
                 </li>
+
+
                 <li className="games-list-item" id="game-4">
-                    <img className="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div className="game-list-overlay">
-                        <div className="text">Play PRS</div>
+                        <p>Play Pacman!</p>
                     </div>
                 </li>
+
+
                 <li className="games-list-item" id="game-5">
-                    <img className="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div className="game-list-overlay">
-                        <div className="text">Play Frogger</div>
+                        <p>Play Space Invaders!</p>
                     </div>
                 </li>
+
+
                 <li className="games-list-item" id="game-6">
-                    <img className="games-list-image" src="https://placebear.com/300/300" alt="bear boi"></img>
                     <div className="game-list-overlay">
-                        <div className="text">Play Clicker</div>
+                        <p>Play Clicker!</p>
                     </div>
                 </li>
 

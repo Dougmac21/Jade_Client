@@ -13,7 +13,7 @@
     text-align: center;
   }
   .game-border {
-    border: 5px red solid;
+    border: 5px rgba(116, 8, 143, 0.52) solid;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -47,7 +47,7 @@
   .game-splash button {
     padding: 10px 20px;
     border-radius: 5px;
-    border: 3px solid darkred;
+    border: 3px solid rgba(116, 8, 143, 0.52);
     background-color: lightgrey;
     color: black;
     font-family: 'Press Start 2P', cursive;
@@ -62,7 +62,7 @@
   .points-text {
     font-family: 'Press Start 2P', cursive;
     font-size: 20px;
-    color: black;
+    color: white;
   }
   .snake-mobile-buttons {
     display: flex;

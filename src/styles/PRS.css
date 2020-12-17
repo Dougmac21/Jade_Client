@@ -15,11 +15,13 @@ body {
 
   .game-form {
       text-align: center;
+      padding: 0
   }
 
   .prs-text {
       color: white;
       font-family: 'Press Start 2P', cursive;
+      margin: 0
   }
 
   .prs-button {
@@ -85,4 +87,24 @@ input {
     width: 80px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.game-text{
+    padding: 10px;
+    margin: 0
+}
+
+.prs-h2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
+    color: gold;
+    text-align: center;
+}
+
+#scores-array {
+    text-align: center;
+}
+
+#scores-values {
+    font-family: 'Press Start 2P', cursive;
 }

@@ -15,7 +15,9 @@ function GamesListContainer() {
                 <li className="games-list-item" id="game-1">
                     <a href="http://localhost:3000/games/snake">
                         <div className="game-list-overlay">
+
                             <p>Play Snake!</p>
+
                         </div>
                     </a>
                 </li>

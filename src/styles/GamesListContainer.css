@@ -4,7 +4,7 @@
 }
 
 #games-list {
-        /* background-color: rgb(255, 255, 255); */
+        background-color: rgba(255, 255, 255, 0);
         height: 100%;
         display: grid;
         justify-content: center;
@@ -107,6 +107,7 @@
     display: inline;
     padding: 20px;
     margin: 20px;
+    /* border-radius: 66px; */
   }
 
 

@@ -84,23 +84,38 @@ function PlayerController() {
 
     return (
         <>
-        <div className="player-controller">
-            <Header />
-             
-            <form onSubmit={handleNameSubmit} ref={formRef} id="arcade-login">
+            <div className="player-controller-container">
+                <Header />
+                <h2 className="arcade-login-header">Login</h2>
 
-                <p>Arcade Login</p>
-                <input
-                    required type="text" placeholder="username" name="name" id="name">
-                </input>
-                <input
-                    required type="password" placeholder="password" name="password" id="password">
-                </input>
-                <input
-                    type="submit" value="Login" >
-                </input>
-            </form>
-            <Footer />
+                <form onSubmit={handleNameSubmit} ref={formRef} className="arcade-login-form">
+                    <ul>
+                        <li>
+                            {/* <label for="name">Name</label> */}
+                            <input
+                                required type="text" className="input-field" placeholder="" name="name" id="name">
+                            </input>
+                            <span>Username</span>
+                        </li>
+
+                        <li>
+                            {/* <label for="password">Password</label> */}
+                            <input
+                                required type="password" className="input-field" placeholder="" name="password" id="password">
+                            </input>
+                            <span>Password</span>
+                        </li>
+
+                        <li>
+                            <input
+                                type="submit" classname="login-button" value="Login" >
+                            </input>
+                        </li>
+
+                    </ul>
+                </form>
+
+                <Footer />
             </div>
         </>
     )

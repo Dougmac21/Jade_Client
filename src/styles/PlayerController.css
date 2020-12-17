@@ -1,10 +1,176 @@
-#arcade-login{
-    text-align: center;
+.arcade-login-form{
+	max-width:400px;
+	margin:50px auto;
+	background:rgba(255, 255, 255, 0);
+	border-radius:2px;
+	padding:20px;
+    font-family: 'Press Start 2P', cursive;
+}
+.arcade-login-form h1{
+	display: block;
+	text-align: center;
+	padding: 0;
+	margin: 0px 0px 20px 0px;
+	color: #390041;
+	font-size:x-large;
+}
+.arcade-login-form ul{
+	list-style:none;
+	padding:0;
+	margin:0;	
+}
+.arcade-login-form li{
+	display: block;
+	padding: 9px;
+	border:1px solid #f200ff9a;
+	margin-bottom: 30px;
+	border-radius: 3px;
+}
+.arcade-login-form li:last-child{
+	border:none;
+	margin-bottom: 0px;
+	text-align: center;
+}
+.arcade-login-form li > label{
+	display: block;
+	float: left;
+	margin-top: -19px;
+	background: #f200ff00;
+	height: 14px;
+	padding: 2px 5px 2px 5px;
+	color: #ff0000;
+	font-size: 14px;
+	overflow: hidden;
+    font-family: 'Press Start 2P', cursive;
+}
+.arcade-login-form input[type="text"],
+.arcade-login-form input[type="date"],
+.arcade-login-form input[type="datetime"],
+.arcade-login-form input[type="email"],
+.arcade-login-form input[type="number"],
+.arcade-login-form input[type="search"],
+.arcade-login-form input[type="time"],
+.arcade-login-form input[type="url"],
+.arcade-login-form input[type="password"],
+.arcade-login-form textarea,
+.arcade-login-form select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	display: block;
+	outline: none;
+	border: none;
+	height: 25px;
+	line-height: 25px;
+	font-size: 16px;
+	padding: 0;
+    font-family: 'Press Start 2P', cursive;
+}
+.arcade-login-form input[type="text"]:focus,
+.arcade-login-form input[type="date"]:focus,
+.arcade-login-form input[type="datetime"]:focus,
+.arcade-login-form input[type="email"]:focus,
+.arcade-login-form input[type="number"]:focus,
+.arcade-login-form input[type="search"]:focus,
+.arcade-login-form input[type="time"]:focus,
+.arcade-login-form input[type="url"]:focus,
+.arcade-login-form input[type="password"]:focus,
+.arcade-login-form textarea:focus,
+.arcade-login-form select:focus 
+{
+}
+.arcade-login-form li > span{
+	background: #740083;
+	display: block;
+	padding: 3px;
+	margin: 0 -9px -9px -9px;
+	text-align: center;
+	color: #ffffffaf;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 11px;
+    font-weight: bold;
+
+}
+.arcade-login-form textarea{
+	resize:none;
+}
+.arcade-login-form input[type="submit"],
+.arcade-login-form input[type="button"]{
+	background: #740083;
+	border: none;
+	padding: 10px 20px 10px 20px;
+    border-bottom: 1px solid #ff00d479;
+    border-left: 1px solid #ff00d479;
+    border-right: 1px solid#ff00d479;
+    border-top: 1px solid #ff00d479;
+	border-radius: 1px;
+    color: #ffffff88;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+
+}
+.arcade-login-form input[type="submit"]:hover,
+.arcade-login-form input[type="button"]:hover{
+	background: #ce00bd94;
+	color:rgb(255, 255, 255);
 }
 
-.player-controller{
-    background-image: url("../assets/sky.jpg");
+
+
+
+/* ///////////////////////////////////// */
+
+.player-controller-container{
+    background-image: url("../assets/sky.jpg"); 
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: contain;
+    height: 100vh;
 }
+
+.arcade-login-header {
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    
+}
+
+/* .arcade-login-form{
+    text-align: center;
+}
+
+.input-field {
+    width: 66px;
+    height: 25px;
+}
+
+.login-button {
+     display:inline-block;
+     padding:0.46em 1.6em;
+     border:0.1em solid #000000;
+     margin:0 0.2em 0.2em 0;
+     border-radius:0.12em;
+     box-sizing: border-box;
+     text-decoration:none;
+     font-family:'Roboto',sans-serif;
+     font-weight:300;
+     color:#000000;
+     text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+     background-color:#FFFFFF;
+     text-align:center;
+     transition: all 0.15s;
+
+}
+
+.login-button:hover{
+     text-shadow: 0 0 2em rgba(255,255,255,1);
+     color:#FFFFFF;
+     border-color:#FFFFFF;
+    } */
+
+/* @media all and (max-width:30em){
+     a.button5{
+      display:block;
+      margin:0.4em auto;
+} */

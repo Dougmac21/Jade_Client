@@ -6,11 +6,11 @@ function HomePage() {
         <>
             <div className="container">
                 <h1 id="jade-arcade">JADE ARCADE</h1>
-                <p id="start">
+                <span id="start">
                     <Link to="/log-in" id="start-link">
-                        START <span id="blink"><blink>.</blink></span>
+                    START <span id="blink"><blink>□</blink></span>
                     </Link>
-                </p>
+                </span>
             </div>
         </>
 

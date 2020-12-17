@@ -1,12 +1,10 @@
-
-
 #jade-arcade {
     font-family: 'Astron Boy';
     color:white;
     text-align: center;
     font-size: 180px;
     margin: 0;
-    padding: 100px;
+    padding: 55px;
     z-index: 1;
     text-shadow: 
     0 0 12px rgba(202,228,225,0.92),
@@ -22,21 +20,29 @@
 #start {
     font-family: 'Press Start 2P', cursive;
     text-align: center;
-    font-size: 60px;
+    font-size: 68px;
     padding-top: 200px;
-    z-index:0; 
+    z-index:0;
 }
 
 #start-link{
     text-decoration: none;
-    color:#00d9ff;
+    color: rgba(255, 255, 255, 0.68);
+    text-shadow: 
+    0 0 6px rgba(202,228,225,0.92),
+    0 0 30px rgba(98, 3, 117, 0.34),
+    0 0 10px rgba(116, 8, 143, 0.52),
+    0 0 20px rgba(207, 30, 242, 0.92),
+    0 0 25px rgba(210, 83, 221, 0.78),
+    0 0 40px rgba(232, 110, 236, 0.92);
 }
 
 #background{
-    width: 100vw;
-    z-index: -2;
-    position: absolute;
-    display: block;
+    /* width: 100vw; */
+    /* height: 80vh; */
+    /* z-index: -2; */
+    /* position: absolute; */
+    /* display: block; */
 }
 
 .container{
@@ -44,9 +50,10 @@
     background-size: cover;
     background-repeat: no-repeat;
     object-fit: contain;
+    height: 100vh;
 }
 
-body{font-size: 280%; padding: 5%}
+/* body{font-size: 280%; padding: 5%}        <-- this destroys fullscreen */
 
 @keyframes blink {
 	0% {opacity: 0}
@@ -54,10 +61,11 @@ body{font-size: 280%; padding: 5%}
 	50% {opacity: 1}
 }
 
-blink{animation: blink 1s infinite;}
+blink{animation: blink 1.3s infinite;}
 
 #blink{
-    font-size:150px;
+    font-size:128px;
     margin:0;
     padding:0;
 }
+

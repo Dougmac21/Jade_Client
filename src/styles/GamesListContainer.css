@@ -101,11 +101,13 @@
     display: inline;
     padding: 20px;
     margin: 20px;
+    /* border-radius: 66px; */
   }
 
 
 .game-list-overlay {
     /* background-image: url(../assets/lock.png); */
+    /* border-radius: 66px; */
     background-repeat: no-repeat;
     align-items: center;
     position: absolute; 

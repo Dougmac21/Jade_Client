@@ -52,6 +52,7 @@ function PlayerController() {
                     alert(`Login Successful. Welcome back to the arcade ${name.value}.`)
                     login(name.value)
                     formRef.current.reset()
+                    window.location.replace("http://localhost:3000/games");
                     return
                 }
             }
@@ -108,7 +109,7 @@ function PlayerController() {
 
                         <li>
                             <input
-                                type="submit" classname="login-button" value="Login" >
+                                type="submit" className="login-button" value="Login" >
                             </input>
                         </li>
 

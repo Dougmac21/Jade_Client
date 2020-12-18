@@ -460,10 +460,8 @@ function PRS() {
         <div className="prs-container">
             <Header />
             <br />
-            <br />
             <h1 id="header">Paper Rock Scissors</h1>
             {/* <p className="prs-text">{loggedInPlayer} is logged in</p> */}
-            <br />
             <br />
             <h4 className="prs-h2">Select Opponent:</h4>
             <div className="select-cpu-choice" onChange={handleCPUPlayerChoice}>
@@ -494,14 +492,14 @@ function PRS() {
 
 
             </form>
-            <br />
+            {/* <br />
             <br />
             <h2 className="prs-h2">All-Time High Scores:</h2>
             <ul id="scores-array">
                 {PRSScores.slice(0, 5).map((value, index) => (
                     <li key={index} id="scores-values">{value}</li>
                 ))}
-            </ul>
+            </ul> */}
 
             <Footer />
         </div>

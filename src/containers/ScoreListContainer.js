@@ -31,7 +31,9 @@ function ScoreListContainer() {
     const [topPacmanScoresName, setTopPacmanScoresName] = useState([]);
     const [topSnakeScoresName, setTopSnakeScoresName] = useState([]);
 
-
+    function sortScores(arrayToSort){
+        arrayToSort.sort((a, b) => b - a)
+    }
 
 
     useEffect(() => {
@@ -53,6 +55,10 @@ function ScoreListContainer() {
                 setAllTopScores(data);
             })
     }
+
+
+    // TO SORT SCORES ASCENDING APPEND TO DATA FETCH        .sort((a, b) => b - a)
+
 
     function fetchBreakoutData() {
         fetch(breakoutScoresUrl)
@@ -103,8 +109,9 @@ function ScoreListContainer() {
         fetch(snakeScoresUrl)
             .then(res => res.json())
             .then(data => {
-                setTopSnakeScores(data.slice(0, 5).map(({ score }) => (score)))
+                setTopSnakeScores(data.map(({ score }) => (score)).sort((a, b) => b - a).slice(0, 5))
                 setTopSnakeScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
+                console.log(topSnakeScoresName)
             })
     }
 

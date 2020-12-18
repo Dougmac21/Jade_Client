@@ -86,6 +86,7 @@ function Snake() {
             fetchScoreData()
             return
         }
+        console.log(playerNameToSubmit)
 
         let today = new Date();
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -100,7 +101,7 @@ function Snake() {
                 {
 
                     "player": {
-                        "id": 1,
+                        "id": 2,
                         "name": playerNameToSubmit,
                         "password": "",
                         "arcade_play_time": 0

@@ -72,6 +72,7 @@ input {
 }
 
 #player-one-weapon-input {
+    padding-top: 8px;
     height: 40px;
     width: 200px;
     font-family: 'Press Start 2P', cursive;

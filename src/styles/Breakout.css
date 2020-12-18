@@ -5,6 +5,11 @@
     width: 100%;
   }
   
+iframe {
+  border: rgba(119, 0, 129, 0.829);
+  
+}
+
   body {
     padding: 0;
   }

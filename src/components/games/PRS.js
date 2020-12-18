@@ -93,19 +93,19 @@ function PRS() {
         setPlayerOneScore(playerOneScore)
         console.log(playerOneScore)
 
-        let playerNameToSubmit = prompt("Please enter your name")
-        console.log(registeredPlayersList)
-        console.log(playerNameToSubmit)
-        console.log(playerOneScore)
+        // let playerNameToSubmit = prompt("Please enter your name")
+        // console.log(registeredPlayersList)
+        // console.log(playerNameToSubmit)
+        // console.log(playerOneScore)
 
-        let playerCheck = registeredPlayersList.find(element => element === playerNameToSubmit)
+        // let playerCheck = registeredPlayersList.find(element => element === playerNameToSubmit)
 
-        if (playerCheck === undefined) {
-            console.log(playerNameToSubmit)
-            alert("Please input a valid username or register as a user")
-            fetchScoreData()
-            return
-        }
+        // if (playerCheck === undefined) {
+        //     console.log(playerNameToSubmit)
+        //     alert("Please input a valid username or register as a user")
+        //     fetchScoreData()
+        //     return
+        // }
 
         let today = new Date();
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -120,8 +120,8 @@ function PRS() {
                 {
 
                     "player": {
-                        "id": 1,
-                        "name": playerNameToSubmit,
+                        "id": 2,
+                        "name": "Amy",
                         "password": "",
                         "arcade_play_time": 0
                     },
@@ -136,7 +136,7 @@ function PRS() {
             )
         });
         if (response) {
-            alert("Score saved!")
+            alert("Your Score Was Saved Amy!")
             fetchScoreData()
         }
     };
@@ -460,10 +460,8 @@ function PRS() {
         <div className="prs-container">
             <Header />
             <br />
-            <br />
             <h1 id="header">Paper Rock Scissors</h1>
             {/* <p className="prs-text">{loggedInPlayer} is logged in</p> */}
-            <br />
             <br />
             <h4 className="prs-h2">Select Opponent:</h4>
             <div className="select-cpu-choice" onChange={handleCPUPlayerChoice}>
@@ -494,14 +492,14 @@ function PRS() {
 
 
             </form>
-            <br />
+            {/* <br />
             <br />
             <h2 className="prs-h2">All-Time High Scores:</h2>
             <ul id="scores-array">
                 {PRSScores.slice(0, 5).map((value, index) => (
                     <li key={index} id="scores-values">{value}</li>
                 ))}
-            </ul>
+            </ul> */}
 
             <Footer />
         </div>

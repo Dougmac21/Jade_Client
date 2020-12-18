@@ -13,25 +13,27 @@ function ScoreListContainer() {
     const breakoutScoresUrl = "http://localhost:8080/scores?gamename=breakout";
     const froggerScoresUrl = "http://localhost:8080/scores?gamename=frogger";
     const PRSScoresUrl = "http://localhost:8080/scores?gamename=prs";
-    const runnerScoresUrl = "http://localhost:8080/scores?gamename=runner";
-    const shooterScoresUrl = "http://localhost:8080/scores?gamename=shooter";
+    const spaceInvadersScoresUrl = "http://localhost:8080/scores?gamename=space%20invaders";
+    const pacmanScoresUrl = "http://localhost:8080/scores?gamename=pacman";
     const snakeScoresUrl = "http://localhost:8080/scores?gamename=snake";
 
     const [topBreakoutScores, setTopBreakoutScores] = useState([]);
     const [topFroggerScores, setTopFroggerScores] = useState([]);
     const [topPRSScores, setTopPRSScores] = useState([]);
-    const [topRunnerScores, setTopRunnerScores] = useState([]);
-    const [topShooterScores, setTopShooterScores] = useState([]);
+    const [topSpaceInvadersScores, setTopSpaceInvadersScores] = useState([]);
+    const [topPacmanScores, setTopPacmanScores] = useState([]);
     const [topSnakeScores, setTopSnakeScores] = useState([]);
 
     const [topBreakoutScoresName, setTopBreakoutScoresName] = useState([]);
     const [topFroggerScoresName, setTopFroggerScoresName] = useState([]);
     const [topPRSScoresName, setTopPRSScoresName] = useState([]);
-    const [topRunnerScoresName, setTopRunnerScoresName] = useState([]);
-    const [topShooterScoresName, setTopShooterScoresName] = useState([]);
+    const [topSpaceInvadersScoresName, setTopSpaceInvadersScoresName] = useState([]);
+    const [topPacmanScoresName, setTopPacmanScoresName] = useState([]);
     const [topSnakeScoresName, setTopSnakeScoresName] = useState([]);
 
-
+    function sortScores(arrayToSort){
+        arrayToSort.sort((a, b) => b - a)
+    }
 
 
     useEffect(() => {
@@ -39,8 +41,8 @@ function ScoreListContainer() {
         fetchBreakoutData()
         fetchFroggerData()
         fetchPRSData()
-        fetchRunnerData()
-        fetchShooterData()
+        fetchSpaceInvadersData()
+        fetchPacmanData()
         fetchSnakeData()
     }, [])
 
@@ -53,6 +55,10 @@ function ScoreListContainer() {
                 setAllTopScores(data);
             })
     }
+
+
+    // TO SORT SCORES ASCENDING APPEND TO DATA FETCH        .sort((a, b) => b - a)
+
 
     function fetchBreakoutData() {
         fetch(breakoutScoresUrl)
@@ -81,21 +87,21 @@ function ScoreListContainer() {
             })
     }
 
-    function fetchRunnerData() {
-        fetch(runnerScoresUrl)
+    function fetchSpaceInvadersData() {
+        fetch(spaceInvadersScoresUrl)
             .then(res => res.json())
             .then(data => {
-                setTopRunnerScores(data.slice(0, 5).map(({ score }) => (score)))
-                setTopRunnerScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
+                setTopSpaceInvadersScores(data.slice(0, 5).map(({ score }) => (score)))
+                setTopSpaceInvadersScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
             })
     }
 
-    function fetchShooterData() {
-        fetch(shooterScoresUrl)
+    function fetchPacmanData() {
+        fetch(pacmanScoresUrl)
             .then(res => res.json())
             .then(data => {
-                setTopShooterScores(data.slice(0, 5).map(({ score }) => (score)))
-                setTopShooterScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
+                setTopPacmanScores(data.slice(0, 5).map(({ score }) => (score)))
+                setTopPacmanScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
             })
     }
 
@@ -103,8 +109,9 @@ function ScoreListContainer() {
         fetch(snakeScoresUrl)
             .then(res => res.json())
             .then(data => {
-                setTopSnakeScores(data.slice(0, 5).map(({ score }) => (score)))
+                setTopSnakeScores(data.map(({ score }) => (score)).sort((a, b) => b - a).slice(0, 5))
                 setTopSnakeScoresName(data.slice(0, 5).map(({ player }) => (player.name)))
+                console.log(topSnakeScoresName)
             })
     }
 
@@ -117,7 +124,7 @@ function ScoreListContainer() {
                 <ul id="scores-list">
                     <li id="scores-1">
                         <p className="game-title">
-                            <a href="http://localhost:3000/games/snake">SNAKES</a>
+                            <a href="http://localhost:3000/games/snake">SNAKE</a>
                         </p>
                         <div className="scores-grid" id="test-array">
                             <ul id="test-array">
@@ -150,15 +157,15 @@ function ScoreListContainer() {
                     </li>
 
                     <li id="scores-3">
-                        <p className="game-title">RUNNER</p>
+                        <p className="game-title">INVADERS</p>
                         <div className="scores-grid" id="test-array">
                             <ul id="test-array">
-                                {topRunnerScoresName.map((value, index) => (
+                                {topSpaceInvadersScoresName.map((value, index) => (
                                     <li key={index}>{value}:</li>
                                 ))}
                             </ul>
                             <ul id="test-array">
-                                {topRunnerScores.map((value, index) => (
+                                {topSpaceInvadersScores.map((value, index) => (
                                     <li key={index}>{value}</li>
                                 ))}
                             </ul>
@@ -182,15 +189,15 @@ function ScoreListContainer() {
                     </li>
 
                     <li id="scores-5">
-                        <p className="game-title">SHOOTER</p>
+                        <p className="game-title">PACMAN</p>
                         <div className="scores-grid" id="test-array">
                             <ul id="test-array">
-                                {topShooterScoresName.map((value, index) => (
+                                {topPacmanScoresName.map((value, index) => (
                                     <li key={index}>{value}:</li>
                                 ))}
                             </ul>
                             <ul id="test-array">
-                                {topShooterScores.map((value, index) => (
+                                {topPacmanScores.map((value, index) => (
                                     <li key={index}>{value}</li>
                                 ))}
                             </ul>
@@ -199,7 +206,7 @@ function ScoreListContainer() {
 
                     <li id="scores-6">
                         <p className="game-title">
-                            <a href="http://localhost:3000/games/prs">ROCK, PAPER, SCISSORS</a>
+                            <a href="http://localhost:3000/games/prs">R.P.S.</a>
                         </p>
                         <div className="scores-grid" id="test-array">
                             <ul id="test-array">

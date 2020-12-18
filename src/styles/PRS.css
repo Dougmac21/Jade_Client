@@ -72,10 +72,34 @@ input {
 }
 
 #player-one-weapon-input {
+    padding-top: 8px;
     height: 40px;
     width: 200px;
     font-family: 'Press Start 2P', cursive;
-    
+    background-color: rgb(247, 0, 255);
+    color: #ffffff;    
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    rgb(85, 0, 85);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    rgb(85, 0, 85);
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    rgb(85, 0, 85);
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    rgb(85, 0, 85);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    rgb(85, 0, 85);
+}
+
+::placeholder { /* Most modern browsers support this now. */
+   color:    rgb(85, 0, 85);
 }
 
 .submit-score-button{

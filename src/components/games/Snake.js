@@ -76,16 +76,17 @@ function Snake() {
 
     async function handleScoreSubmit() {
 
-        let playerNameToSubmit = prompt("Please enter your name")
+        // let playerNameToSubmit = prompt("Please enter your name")
 
-        let playerCheck = registeredPlayersList.find(element => element === playerNameToSubmit)
+        // let playerCheck = registeredPlayersList.find(element => element === playerNameToSubmit)
 
-        if (playerCheck === undefined) {
-            console.log(playerNameToSubmit)
-            alert("Please input a valid username or register as a user")
-            fetchScoreData()
-            return
-        }
+        // if (playerCheck === undefined) {
+        //     console.log(playerNameToSubmit)
+        //     alert("Please input a valid username or register as a user")
+        //     fetchScoreData()
+        //     return
+        // }
+        // console.log(playerNameToSubmit)
 
         let today = new Date();
         let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
@@ -100,8 +101,8 @@ function Snake() {
                 {
 
                     "player": {
-                        "id": 1,
-                        "name": playerNameToSubmit,
+                        "id": 2,
+                        "name": "Amy",
                         "password": "",
                         "arcade_play_time": 0
                     },
@@ -119,7 +120,7 @@ function Snake() {
             setGameOver(false)
         );
         if (response) {
-            alert("Score saved!")
+            alert("Your Score Has Been Saved Amy!")
             fetchScoreData()
         }
     };

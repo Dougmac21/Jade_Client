@@ -7,8 +7,8 @@ import '../../styles/Breakout.css';
 function Breakout() {
 
 
-    const scoreUrl = "http://localhost:8080/scores";
-    const playerUrl = "http://localhost:8080/players";
+    const scoreUrl = "https://jade-back.herokuapp.com/scores";
+    const playerUrl = "https://jade-back.herokuapp.com/players";
 
     const [breakoutScores, setBreakoutScores] = useState([])
     const [registeredPlayersList, setRegisteredPlayersList] = useState([])

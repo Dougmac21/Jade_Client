@@ -6,7 +6,7 @@ import '../styles/PlayerController.css'
 
 function PlayerController() {
 
-    const url = "http://localhost:8080/players";
+    const url = "https://jade-back.herokuapp.com/players";
     const formRef = useRef(null);
     let registeredPlayersList = [];
     let registeredPasswordsList = [];
@@ -52,7 +52,7 @@ function PlayerController() {
                     alert(`Login Successful. Welcome back to the arcade ${name.value}.`)
                     login(name.value)
                     formRef.current.reset()
-                    window.location.replace("http://localhost:3000/games");
+                    window.location.replace("https://jade-back.herokuapp.com/games");
                     return
                 }
             }

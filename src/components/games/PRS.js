@@ -11,9 +11,9 @@ function PRS() {
         return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
 
-    const scoreUrl = "http://localhost:8080/scores";
-    const playerUrl = "http://localhost:8080/players";
-    const loginUrl = "http://localhost:8080/login";
+    const scoreUrl = "https://jade-back.herokuapp.com/scores";
+    const playerUrl = "https://jade-back.herokuapp.com/players";
+    const loginUrl = "https://jade-back.herokuapp.com/login";
 
     const [PRSScores, setPRSScores] = useState([]);
     const [registeredPlayersList, setRegisteredPlayersList] = useState([])

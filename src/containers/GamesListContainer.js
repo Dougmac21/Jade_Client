@@ -13,7 +13,7 @@ function GamesListContainer() {
             <ul id="games-list">
 
                 <li className="games-list-item" id="game-1">
-                    <a href="http://localhost:3000/games/snake">
+                    <a href="https://jade-arcade.herokuapp.com/games/snake">
                         <div className="unlocked-game-list-overlay">
 
                             <p>Play Snake!</p>
@@ -23,7 +23,7 @@ function GamesListContainer() {
                 </li>
 
                 <li className="games-list-item" id="game-2">
-                    <a href="http://localhost:3000/games/PRS">
+                    <a href="https://jade-arcade.herokuapp.com/games/PRS">
                         <div className="unlocked-game-list-overlay">
                             <p>Play Paper Rock Scissors!</p>
                         </div>
@@ -32,7 +32,7 @@ function GamesListContainer() {
 
 
                 <li className="games-list-item" id="game-3">
-                    <a href="http://localhost:3000/games/breakout">
+                    <a href="https://jade-arcade.herokuapp.com/games/breakout">
                         <div className="unlocked-game-list-overlay">
                             <p>Play Breakout!</p>
                         </div>

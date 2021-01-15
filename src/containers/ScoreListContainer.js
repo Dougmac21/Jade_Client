@@ -7,15 +7,15 @@ import '../styles/ScoreListContainer.css';
 
 function ScoreListContainer() {
 
-    const allScoresurl = "http://localhost:8080/scores";
+    const allScoresurl = "https://jade-back.herokuapp.com/scores";
     const [allTopScores, setAllTopScores] = useState([]);
 
-    const breakoutScoresUrl = "http://localhost:8080/scores?gamename=breakout";
-    const froggerScoresUrl = "http://localhost:8080/scores?gamename=frogger";
-    const PRSScoresUrl = "http://localhost:8080/scores?gamename=prs";
-    const spaceInvadersScoresUrl = "http://localhost:8080/scores?gamename=space%20invaders";
-    const pacmanScoresUrl = "http://localhost:8080/scores?gamename=pacman";
-    const snakeScoresUrl = "http://localhost:8080/scores?gamename=snake";
+    const breakoutScoresUrl = "https://jade-back.herokuapp.com/scores?gamename=breakout";
+    const froggerScoresUrl = "https://jade-back.herokuapp.com/scores?gamename=frogger";
+    const PRSScoresUrl = "https://jade-back.herokuapp.com/scores?gamename=prs";
+    const spaceInvadersScoresUrl = "https://jade-back.herokuapp.com/scores?gamename=space%20invaders";
+    const pacmanScoresUrl = "https://jade-back.herokuapp.com/scores?gamename=pacman";
+    const snakeScoresUrl = "https://jade-back.herokuapp.com/scores?gamename=snake";
 
     const [topBreakoutScores, setTopBreakoutScores] = useState([]);
     const [topFroggerScores, setTopFroggerScores] = useState([]);
@@ -124,7 +124,7 @@ function ScoreListContainer() {
                 <ul id="scores-list">
                     <li id="scores-1">
                         <p className="game-title">
-                            <a href="http://localhost:3000/games/snake">SNAKE</a>
+                            <a href="https://jade-arcade.herokuapp.com/games/snake">SNAKE</a>
                         </p>
                         <div className="scores-grid" id="test-array">
                             <ul id="test-array">
@@ -206,7 +206,7 @@ function ScoreListContainer() {
 
                     <li id="scores-6">
                         <p className="game-title">
-                            <a href="http://localhost:3000/games/prs">FROGGER</a>
+                            <a href="https://jade-arcade.herokuapp.com/prs">FROGGER</a>
                         </p>
                         <div className="scores-grid" id="test-array">
                             <ul id="test-array">

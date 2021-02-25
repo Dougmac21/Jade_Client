@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../styles/PlayerController.css'
@@ -113,6 +114,22 @@ function PlayerController() {
                             </input>
                         </li>
 
+                        <p>
+
+                        </p>
+
+                        <li>
+                            <Link to="/registration" className="registration-link">
+                                <input
+                                    type="button" className="registration-button" value="Register">
+                                </input>
+                            </Link>
+                        </li>
+
+                        <li>
+
+                        </li>
+                        
                     </ul>
                 </form>
 
